@@ -660,6 +660,57 @@ const CITIES = [
     }, { threshold: 0, rootMargin: '0px 0px -40% 0px' }).observe(document.getElementById('services'));
   }
 })();
+(function () {
+  var section = document.getElementById('bridge');
+  var root = document.getElementById('aa');
+  if (!section || !root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var supported = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+  if (reduce || !supported) return;
+  var tween = null;
+  function stop() {
+    if (!tween) return;
+    cancelAnimationFrame(tween); tween = null;
+    document.documentElement.style.scrollBehavior = '';
+  }
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+    window.addEventListener(ev, stop, { passive: true });
+  });
+  function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function play() {
+    stop();
+    var close = document.getElementById('cc-close');
+    var card = document.getElementById('city-card');
+    if (card && !card.hidden && close) close.click();
+    var top = section.getBoundingClientRect().top + window.scrollY;
+    var travel = section.offsetHeight - window.innerHeight;
+    // stages: Gulf to Nairobi, fan out to East and West Africa, zoom to Nairobi
+    var stages = [[0.24, 2200, 700], [0.58, 2600, 900], [0.96, 2600, 0]];
+    var i = 0, from = top, start = null, holdUntil = 0;
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, top);
+    function step(t) {
+      if (holdUntil) { if (t < holdUntil) { tween = requestAnimationFrame(step); return; } holdUntil = 0; start = null; }
+      if (start === null) start = t;
+      var st = stages[i], to = top + travel * st[0];
+      var k = Math.min((t - start) / st[1], 1);
+      window.scrollTo(0, from + (to - from) * ease(k));
+      if (k < 1) { tween = requestAnimationFrame(step); return; }
+      from = to; i++;
+      if (i >= stages.length) { tween = null; document.documentElement.style.scrollBehavior = ''; return; }
+      holdUntil = t + st[2];
+      tween = requestAnimationFrame(step);
+    }
+    tween = requestAnimationFrame(step);
+  }
+  document.querySelectorAll('a[href="#bridge"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (history.replaceState) history.replaceState(null, '', '#bridge');
+      play();
+    });
+  });
+})();
 </script>
 </body>
 </html>
