@@ -474,8 +474,8 @@ html{scroll-behavior:smooth}
 </div>
 <div class="geo-grid">
 <div class="rv" style="border-top: 2px solid #032560; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px">Kenya &amp; East Africa</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Our home market, and the base for regional entry.</p></div>
-<div class="rv" style="border-top: 2px solid #032560; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px">The COMESA region</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Reform-risk and investor-engagement work across member states.</p></div>
-<div class="rv" style="border-top: 2px solid #032560; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px">West Africa</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Mining project finance and capital markets engagements.</p></div>
+<div class="rv" style="border-top: 2px solid #032560; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px">The COMESA region</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Regional entry strategy and reform-risk analysis across member states.</p></div>
+<div class="rv" style="border-top: 2px solid #032560; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px">West Africa</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Mining, energy and capital markets advisory.</p></div>
 <div class="rv" style="border-top: 2px solid #7A6526; padding-top: 20px; display: flex; flex-direction: column; gap: 8px"><h3 class="disp" style="margin: 0; font-size: 26px; color: #7A6526">The Gulf</h3><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">The investor corridor we serve, from Doha to Dubai and Riyadh.</p></div>
 </div>
 <div class="rv" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
@@ -547,8 +547,8 @@ const CITIES = [
         ticket: 'US$10M+', note: 'Senior debt introductions through licensed fund partners; US$50M+ for project finance readiness.',
         work: ['Market entry and regulatory mapping', 'Political and country risk monitoring', 'Partner and counterparty due diligence', 'Lender and DFI readiness for sponsors'] },
       { id: 'dar', name: 'Dar es Salaam', x: 888, y: 627, country: 'Tanzania', role: 'Mining and gold processing gateway',
-        ticket: 'Retainer to partnership', note: 'Three-month consultancy retainer, moving into an operating partnership.',
-        work: ['Gold processing venture support, Lake Victoria goldfields', 'Mining licence and local-content mapping', 'Investor and offtake readiness'] },
+        ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the mandate.',
+        work: ['Mining and processing venture set-up', 'Mining licence and local-content mapping', 'Investor and offtake readiness'] },
       { id: 'kampala', name: 'Kampala', x: 789, y: 520, country: 'Uganda', role: 'Oil, infrastructure and supply-chain entry',
         ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the entry decision.',
         work: ['Market entry and supplier positioning', 'Political and regulatory risk briefings', 'Local partner vetting'] },
@@ -571,14 +571,14 @@ const CITIES = [
         ticket: 'US$50M+', note: 'Focus on large-scale projects seeking Gulf co-investment.',
         work: ['Africa opportunity screening for Saudi investors', 'Political and regulatory risk briefings', 'Co-investor and partner mapping'] },
       { id: 'lagos', name: 'Lagos', x: 351, y: 427, country: 'Nigeria', role: 'West African capital markets',
-        ticket: 'Assessment mandate', note: 'Scoped per transaction under review.',
-        work: ['Capital markets and IPO participation assessment', 'FX and policy risk briefings', 'Counterparty due diligence'] },
+        ticket: 'Mandate-scoped', note: 'Scoped per investor and transaction.',
+        work: ['Equity and debt market assessments for investors', 'FX and policy risk briefings', 'Counterparty due diligence'] },
       { id: 'accra', name: 'Accra', x: 297, y: 441, country: 'Ghana', role: 'West African entry point',
         ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the entry decision.',
         work: ['Market entry briefings', 'Political and fiscal risk monitoring', 'Partner mapping'] },
       { id: 'freetown', name: 'Freetown', x: 102, y: 398, country: 'Sierra Leone', role: 'Large-scale mining',
-        ticket: 'US$50M+', note: 'Project finance facility support for a large-scale mining project.',
-        work: ['Project finance facility support', 'Licence and regulatory strategy', 'Lender conditions and stakeholder engagement'] }
+        ticket: 'US$50M+', note: 'Project finance readiness for large-scale mining projects.',
+        work: ['Project finance readiness and lender preparation', 'Licence and regulatory mapping', 'Stakeholder engagement planning'] }
     ];
 (function () {
   var byId = {}; CITIES.forEach(function (c) { byId[c.id] = c; });
