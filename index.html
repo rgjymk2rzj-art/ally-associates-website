@@ -141,12 +141,13 @@ html{scroll-behavior:smooth}
 .sc-net.exploring .arc{animation:none;stroke-dashoffset:0;opacity:.5}
 .map-ui{position:absolute;top:100px;left:clamp(16px,5vw,72px);right:clamp(16px,5vw,72px);display:flex;flex-direction:column;gap:12px;z-index:3;pointer-events:none}
 .map-ui > *{pointer-events:auto}
-.chips{overflow:hidden;max-width:min(780px,100%);padding:2px 0 6px;-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
-.chips-track{display:flex;width:max-content;animation:chipsRight 45s linear infinite}
+.chips-row{display:flex;align-items:center;gap:8px;max-width:min(860px,100%)}
+.chips{flex:1;min-width:0;overflow:hidden;padding:2px 0 6px;-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
+.chips-track{display:flex;width:max-content;will-change:transform}
 .chips-set{display:flex;gap:8px;padding-right:8px}
-@keyframes chipsRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.chips:has(.chip:focus-visible) .chips-track{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){.chips{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none}.chips::-webkit-scrollbar{display:none}.chips-track{animation:none}.chips-set[aria-hidden="true"]{display:none}}
+.chips-arrow{flex:none;width:36px;height:36px;margin-bottom:4px;border-radius:50%;border:1px solid rgba(212,190,120,.45);background:rgba(3,37,96,.62);color:#F3EDE2;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s,border-color .25s}
+.chips-arrow:hover{border-color:#D4BE78;background:rgba(212,190,120,.16)}
+.chips-arrow:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
 .chip{flex:none;min-height:36px;padding:0 15px;border-radius:999px;border:1px solid rgba(212,190,120,.45);background:rgba(3,37,96,.62);color:#F3EDE2;font:500 13px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
 .chip:hover{border-color:#D4BE78}
 .chip:focus-visible,.cc-btn:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
@@ -281,9 +282,11 @@ html{scroll-behavior:smooth}
 </svg>
 <div class="map-ui">
 <p class="eyebrow">01 — Approach</p>
+<div class="chips-row"><button type="button" class="chips-arrow" id="chips-prev" aria-label="Show markets to the left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
 <div class="chips" role="group" aria-label="Explore our markets">
 <div class="chips-track"><div class="chips-set"><button type="button" class="chip" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" aria-pressed="false" data-city="freetown">Freetown</button></div><div class="chips-set" aria-hidden="true"><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="freetown">Freetown</button></div></div>
 </div>
+<button type="button" class="chips-arrow" id="chips-next" aria-label="Show markets to the right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div>
 <p class="map-hint">Select a market to zoom in on project size and advisory scope.</p>
 </div>
 <aside class="city-card" id="city-card" hidden aria-live="polite" aria-label="Market detail">
@@ -622,6 +625,32 @@ const CITIES = [
   document.getElementById('cc-close').addEventListener('click', function () { sel = null; render(); });
   document.getElementById('cc-prev').addEventListener('click', function () { step(-1); });
   document.getElementById('cc-next').addEventListener('click', function () { step(1); });
+  (function () {
+    var chips = document.querySelector('.chips');
+    var track = document.querySelector('.chips-track');
+    var set = track && track.querySelector('.chips-set');
+    if (!chips || !set) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var width = 0, offset = 0, nudge = 0, last = null;
+    function measure() { width = set.getBoundingClientRect().width; if (width && !offset) offset = -width; }
+    function wrap() { if (!width) return; while (offset >= 0) offset -= width; while (offset < -width) offset += width; }
+    function frame(t) {
+      if (last === null) last = t;
+      var dt = Math.min((t - last) / 1000, 0.1); last = t;
+      if (!width) measure();
+      var paused = reduce || !!chips.querySelector('.chip:focus-visible');
+      if (!paused && width) offset += (width / 45) * dt;
+      if (nudge) { var step = reduce ? nudge : nudge * Math.min(1, dt * 8); if (Math.abs(nudge - step) < 0.5) step = nudge; offset += step; nudge -= step; }
+      wrap();
+      track.style.transform = 'translateX(' + offset + 'px)';
+      requestAnimationFrame(frame);
+    }
+    document.getElementById('chips-prev').addEventListener('click', function () { nudge += 220; });
+    document.getElementById('chips-next').addEventListener('click', function () { nudge -= 220; });
+    window.addEventListener('resize', function () { var old = width; width = 0; measure(); if (old && width) offset = offset * width / old; });
+    measure();
+    requestAnimationFrame(frame);
+  })();
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting && sel) { sel = null; render(); } });
