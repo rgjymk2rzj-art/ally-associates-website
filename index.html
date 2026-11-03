@@ -145,7 +145,7 @@ html{scroll-behavior:smooth}
 .chips-track{display:flex;width:max-content;animation:chipsRight 45s linear infinite}
 .chips-set{display:flex;gap:8px;padding-right:8px}
 @keyframes chipsRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.chips:hover .chips-track,.chips:focus-within .chips-track,.sc-net.exploring .chips-track{animation-play-state:paused}
+.chips:has(.chip:focus-visible) .chips-track{animation-play-state:paused}
 @media (prefers-reduced-motion:reduce){.chips{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:none;mask-image:none}.chips::-webkit-scrollbar{display:none}.chips-track{animation:none}.chips-set[aria-hidden="true"]{display:none}}
 .chip{flex:none;min-height:36px;padding:0 15px;border-radius:999px;border:1px solid rgba(212,190,120,.45);background:rgba(3,37,96,.62);color:#F3EDE2;font:500 13px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
 .chip:hover{border-color:#D4BE78}
