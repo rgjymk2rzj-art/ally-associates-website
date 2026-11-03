@@ -640,14 +640,17 @@ const CITIES = [
       if (!width) measure();
       var paused = reduce || !!chips.querySelector('.chip:focus-visible');
       if (!paused && width) offset += (width / 45) * dt;
-      if (nudge) { var step = reduce ? nudge : nudge * Math.min(1, dt * 8); if (Math.abs(nudge - step) < 0.5) step = nudge; offset += step; nudge -= step; }
+      if (nudge) { var step = reduce ? nudge : nudge * Math.min(1, dt * 4.5); if (Math.abs(nudge - step) < 0.5) step = nudge; offset += step; nudge -= step; }
       wrap();
       track.style.transform = 'translateX(' + offset + 'px)';
       requestAnimationFrame(frame);
     }
-    document.getElementById('chips-prev').addEventListener('click', function () { nudge += 220; });
-    document.getElementById('chips-next').addEventListener('click', function () { nudge -= 220; });
+    document.getElementById('chips-prev').addEventListener('click', function () { nudge += 130; });
+    document.getElementById('chips-next').addEventListener('click', function () { nudge -= 130; });
     window.addEventListener('resize', function () { var old = width; width = 0; measure(); if (old && width) offset = offset * width / old; });
+    function remeasure() { var old = width; width = set.getBoundingClientRect().width; if (old && width && old !== width) offset = offset * width / old; }
+    if (window.ResizeObserver) new ResizeObserver(remeasure).observe(set);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
     measure();
     requestAnimationFrame(frame);
   })();
