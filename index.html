@@ -695,15 +695,11 @@ const CITIES = [
     window.addEventListener(ev, stop, { passive: true });
   });
   function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-  function play() {
+  function play(target, stages, before) {
     stop();
-    var close = document.getElementById('cc-close');
-    var card = document.getElementById('city-card');
-    if (card && !card.hidden && close) close.click();
-    var top = section.getBoundingClientRect().top + window.scrollY;
-    var travel = section.offsetHeight - window.innerHeight;
-    // stages: Gulf to Nairobi, fan out to East and West Africa, zoom to Nairobi
-    var stages = [[0.24, 2200, 700], [0.58, 2600, 900], [0.96, 2600, 0]];
+    if (before) before();
+    var top = target.getBoundingClientRect().top + window.scrollY;
+    var travel = target.offsetHeight - window.innerHeight;
     var i = 0, from = top, start = null, holdUntil = 0;
     document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, top);
@@ -721,13 +717,25 @@ const CITIES = [
     }
     tween = requestAnimationFrame(step);
   }
-  document.querySelectorAll('a[href="#bridge"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (history.replaceState) history.replaceState(null, '', '#bridge');
-      play();
+  function bind(id, stages, before) {
+    var target = document.getElementById(id);
+    if (!target) return;
+    document.querySelectorAll('a[href="#' + id + '"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+        play(target, stages, before);
+      });
     });
+  }
+  // Approach: Gulf to Nairobi, fan out to East and West Africa, zoom to Nairobi
+  bind('bridge', [[0.24, 2200, 700], [0.58, 2600, 900], [0.96, 2600, 0]], function () {
+    var close = document.getElementById('cc-close');
+    var card = document.getElementById('city-card');
+    if (card && !card.hidden && close) close.click();
   });
+  // Risk: Volatility Compass steps 1 to 3, steps 4 to 6, then the feedback loop
+  bind('risk', [[0.38, 2400, 500], [0.72, 2400, 600], [0.97, 1900, 0]]);
 })();
 (function () {
   var dd = document.getElementById('nav-method');
