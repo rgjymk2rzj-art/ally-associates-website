@@ -154,7 +154,6 @@ html{scroll-behavior:smooth}
 .sc-net.exploring .arc{animation:none;stroke-dashoffset:0;opacity:.5}
 .map-ui{position:absolute;top:118px;left:clamp(16px,5vw,72px);right:clamp(16px,5vw,72px);display:flex;flex-direction:column;gap:12px;z-index:3;pointer-events:none}
 .map-ui > *{pointer-events:auto}
-@media (max-width:420px){.wm-name{width:min-content}}
 .ticker{position:sticky;top:68px;z-index:49;height:36px;margin-bottom:-36px;display:flex;align-items:center;gap:18px;padding:0 clamp(16px,4vw,48px);background:rgba(2,26,68,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);font-size:13px;line-height:1;color:var(--mute);overflow:hidden}
 .tk-tag{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .tk-dot{width:6px;height:6px;border-radius:50%;background:#7FD1A6;box-shadow:0 0 0 0 rgba(127,209,166,.6);animation:tkPulse 2.4s ease-out infinite}
@@ -220,7 +219,7 @@ html{scroll-behavior:smooth}
 <header class="nav">
 <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F3EDE2">
 <img src="images/logo-mark.png" alt="" style="height: 30px; width: auto; display: block">
-<span style="display: flex; flex-direction: column; align-items: center; gap: 4px; line-height: 1"><span class="disp wm-name" style="font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Ally &amp; Associates</span><span class="wm-sub" style="font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: #B99E47; margin-right: -0.42em">Consulting</span></span>
+<span style="position: relative; display: block"><span class="disp wm-name" style="display: block; font-size: 17px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Ally &amp; Associates</span><span class="wm-sub" style="position: absolute; left: 50%; top: 100%; transform: translateX(-50%); margin-top: 2px; padding-left: 0.42em; font-size: 8px; font-weight: 600; letter-spacing: 0.42em; line-height: 1; text-transform: uppercase; white-space: nowrap; color: #B99E47">Consulting</span></span>
 </a>
 <nav class="nav-links" aria-label="Primary">
 <a href="#bridge">Approach</a>
@@ -845,6 +844,19 @@ const CITIES = [
   }
   load();
   setInterval(function () { if (!document.hidden) load(); }, 60000);
+})();
+(function () {
+  var name = document.querySelector('.wm-name'), sub = document.querySelector('.wm-sub');
+  if (!name || !sub) return;
+  function place() {
+    var r = document.createRange(); r.selectNodeContents(name);
+    var lines = r.getClientRects(), box = name.getBoundingClientRect(), w = 0, c = box.width / 2;
+    for (var i = 0; i < lines.length; i++) { if (lines[i].width > w) { w = lines[i].width; c = lines[i].left + lines[i].width / 2 - box.left; } }
+    sub.style.left = c + 'px';
+  }
+  place();
+  window.addEventListener('resize', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
 })();
 </script>
 </body>
