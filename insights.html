@@ -655,9 +655,7 @@ html{scroll-behavior:smooth}
     f('pill').className = 'pill ' + c.pill;
     var t = f('support'); t.textContent = '';
     c.support.forEach(function (s) { var e = document.createElement('span'); e.className = 'tag'; e.textContent = s; t.appendChild(e); });
-    var l = f('links'); l.textContent = 'Sources: ';
-    c.links.forEach(function (s) { var a = document.createElement('a'); a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = s.label; l.appendChild(a); l.appendChild(document.createTextNode(' · ')); });
-    l.appendChild(document.createTextNode('Latest data as of ' + c.asof + '.'));
+    f('links').textContent = 'Latest data as of ' + c.asof + '.';
     f('mail').href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Insight request: ' + c.name);
     [].forEach.call(tiles.children, function (b) { b.setAttribute('aria-pressed', b.dataset.id === c.id ? 'true' : 'false'); });
   }
