@@ -1020,6 +1020,20 @@ const CITIES = [
   car.addEventListener('click', function (e) { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
   window.addEventListener('resize', render);
   render();
+  // Auto-advance: cards move left to right while nobody is engaging with the carousel
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer = null, hover = false, inView = false, idleUntil = 0;
+  function tick() { if (!hover && inView && !document.hidden && Date.now() >= idleUntil && !car.contains(document.activeElement)) go(cur - 1); }
+  function engage() { idleUntil = Date.now() + 8000; }
+  if (!reduce) {
+    timer = setInterval(tick, 5000);
+    car.addEventListener('mouseenter', function () { hover = true; });
+    car.addEventListener('mouseleave', function () { hover = false; engage(); });
+    ['pointerdown', 'keydown', 'focusin', 'wheel'].forEach(function (ev) { car.addEventListener(ev, engage, { passive: true }); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { en.forEach(function (e) { inView = e.isIntersecting; if (inView) engage(); }); }, { threshold: 0.5 }).observe(car);
+    } else { inView = true; }
+  }
 })();
 </script>
 </body>
