@@ -366,9 +366,9 @@ html{scroll-behavior:smooth}
 .ins .step-n{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-ink)}
 .ins .step h3{margin:0;font-size:24px;line-height:1.15;color:#032560}
 .ins .step p{margin:0;font-size:15px;line-height:1.6;color:#3E4A57}
-.ins .mon{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.ins .mon{display:flex;flex-direction:column;gap:20px}
 .ins .reg-h{margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-.ins .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ins .tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
 .ins .tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(10,47,110,.55);color:var(--ivory);font:500 14px/1.2 'Montserrat',system-ui,sans-serif;text-align:left;cursor:pointer;transition:border-color .25s,background-color .25s}
 .ins .tile:hover{border-color:rgba(212,190,120,.6)}
 .ins .tile:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
@@ -376,29 +376,31 @@ html{scroll-behavior:smooth}
 .ins .pill{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .ins .pill i{width:7px;height:7px;border-radius:50%;display:block}
 .ins .t-up i{background:#5FB38A}.ins .t-flat i{background:#D4BE78}.ins .t-watch i{background:#E08A5B}
-.ins .card{background:#FBF8F2;color:#032560;border-radius:24px;padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:26px}
-.ins .card-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 24px;padding-bottom:20px;border-bottom:1px solid rgba(2,26,68,.12)}
-.ins .card-h h2{margin:4px 0 0;font-size:clamp(36px,4vw,52px);line-height:1}
+.ins .card{background:#FBF8F2;color:#032560;border-radius:22px;padding:clamp(20px,2.6vw,34px);display:flex;flex-direction:column;gap:16px}
+.ins .card-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px 24px;padding-bottom:14px;border-bottom:1px solid rgba(2,26,68,.12)}
+.ins .card-h h2{margin:4px 0 0;font-size:clamp(30px,3vw,42px);line-height:1}
 .ins .traj{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right}
-.ins .traj-v{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:28px;line-height:1}
+.ins .traj-v{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:24px;line-height:1}
 .ins .traj-c{font-size:12px;color:#3E4A57;letter-spacing:.04em}
-.ins .blk{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}
+.ins .blk{display:grid;grid-template-columns:160px minmax(0,1fr);gap:16px;align-content:start}
+.ins .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 32px;align-items:start}
+.ins .pair .blk{grid-template-columns:minmax(0,1fr);gap:4px}
 .ins .lbl{margin:0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);padding-top:3px}
-.ins .txt{margin:0;font-size:16px;line-height:1.6;color:#22324A}
+.ins .txt{margin:0;font-size:14.5px;line-height:1.55;color:#22324A}
 .ins .bts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.ins .bts div{padding:14px 16px;border-radius:14px;background:#F1ECE1;display:flex;flex-direction:column;gap:6px}
+.ins .bts div{padding:12px 14px;border-radius:12px;background:#F1ECE1;display:flex;flex-direction:column;gap:5px}
 .ins .bts span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#032560}
-.ins .bts p{margin:0;font-size:14px;line-height:1.55;color:#22324A}
+.ins .bts p{margin:0;font-size:13.5px;line-height:1.5;color:#22324A}
 .ins .tags{display:flex;flex-wrap:wrap;gap:8px}
 .ins .tag{border:1px solid rgba(2,26,68,.25);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:#032560}
-.ins .gate{border-radius:18px;background:#032560;color:var(--ivory);padding:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
-.ins .gate ul{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px}
+.ins .gate{border-radius:16px;background:#032560;color:var(--ivory);padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
+.ins .gate ul{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,max-content);gap:6px 28px}
 .ins .gate li{font-size:14px;line-height:1.5;color:#C9D3DC;padding-left:18px;position:relative}
 .ins .gate li::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:11px;border:1.5px solid var(--gold);border-radius:2px 2px 3px 3px}
 .ins .src{margin:0;font-size:12px;line-height:1.6;color:#3E4A57}
 .ins .src a{color:#032560;text-decoration:underline;text-underline-offset:2px}
 @media (max-width:900px){
-.ins .mon{grid-template-columns:minmax(0,1fr)}
+.ins .pair{grid-template-columns:minmax(0,1fr)}
 .ins .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ins .blk{grid-template-columns:minmax(0,1fr);gap:6px}
 .ins .bts{grid-template-columns:minmax(0,1fr)}
@@ -483,8 +485,8 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="monitor" style="background: var(--ink); padding: clamp(56px, 7vw, 104px) 0">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 36px">
+<section id="monitor" style="background: var(--ink); padding: clamp(48px, 5.5vw, 80px) 0 clamp(40px, 4.5vw, 64px)">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
 <p class="eyebrow">The monitor</p>
@@ -504,8 +506,10 @@ html{scroll-behavior:smooth}
 <div><p class="eyebrow eyebrow-dark"><span data-f="region"></span> · Week of 9 November 2026</p><h2 class="disp" data-f="name"></h2></div>
 <div class="traj"><span class="pill" data-f="pill"><i></i>Trajectory</span><span class="traj-v" data-f="traj"></span><span class="traj-c" data-f="conf"></span></div>
 </div>
+<div class="pair">
 <div class="blk"><p class="lbl">Signal</p><p class="txt" data-f="signal"></p></div>
 <div class="blk"><p class="lbl">FDI pulse</p><p class="txt" data-f="fdi"></p></div>
+</div>
 <div class="blk"><p class="lbl">Trajectory read</p>
 <div class="bts"><div><span>Forward</span><p data-f="fwd"></p></div><div><span>Backward</span><p data-f="back"></p></div><div><span>Divergence</span><p data-f="div"></p></div></div>
 </div>
@@ -516,7 +520,7 @@ html{scroll-behavior:smooth}
 <p class="eyebrow" style="font-size: 11px">Full country brief · on request</p>
 <ul><li>Scenario ranges and triggers</li><li>Entry or financing route</li><li>Counterparty and regulator map</li><li>Lender and investor view</li></ul>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
 <a class="btn btn-gold" data-f="mail" href="mailto:info@allyandassociates.com?subject=Insight%20request">Request this insight</a>
 <a class="btn btn-ghost" href="index.html#contact" style="min-height: 42px; font-size: 14px">Book a briefing</a>
 </div>
@@ -527,7 +531,7 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section style="background: var(--ivory); color: #032560; padding: clamp(56px, 7vw, 96px) 0">
+<section style="background: var(--ivory); color: #032560; padding: clamp(40px, 5vw, 72px) 0">
 <div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p class="eyebrow eyebrow-dark">Beyond the monitor</p>
