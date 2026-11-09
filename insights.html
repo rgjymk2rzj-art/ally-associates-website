@@ -16,7 +16,7 @@
 body{margin:0;background:#032560}
 a{color:#B99E47}a:hover{color:#D4BE78}
 html{scroll-behavior:smooth}
-.aa{--ivory:#F3EDE2;--mute:#A3B3C2;--ink2:#0A2F6E;--line:rgba(243,237,226,.14);--gold-ink:#7A6526;--stage:min(100svh,920px);font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--ivory);background:var(--ink);-webkit-font-smoothing:antialiased}
+.aa{--ivory:#F3EDE2;--mute:#A3B3C2;--ink2:#0A2F6E;--line:rgba(243,237,226,.14);--gold-ink:#7A6526;font-family:'Montserrat',system-ui,-apple-system,sans-serif;color:var(--ivory);background:var(--ink);-webkit-font-smoothing:antialiased}
 .aa *{box-sizing:border-box}
 .disp{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-weight:600;letter-spacing:-0.005em}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0}
@@ -27,8 +27,6 @@ html{scroll-behavior:smooth}
 .btn-gold:hover{color:#032560;background:#D4BE78}
 .btn-ghost{border:1px solid rgba(243,237,226,.4);color:var(--ivory)}
 .btn-ghost:hover{border-color:var(--ivory);color:var(--ivory)}
-.btn-ivory{background:#F3EDE2;color:#032560}
-.btn-ivory:hover{color:#032560;background:#FFFFFF}
 .btn-ink{background:#032560;color:#F3EDE2}
 .btn-ink:hover{color:#F3EDE2;background:#0A2F6E}
 .nav{position:sticky;top:0;z-index:50;height:68px;margin-bottom:-68px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 clamp(16px,4vw,48px);background:rgba(3,37,96,.72);backdrop-filter:saturate(1.4) blur(18px);-webkit-backdrop-filter:saturate(1.4) blur(18px);border-bottom:1px solid var(--line)}
@@ -48,148 +46,9 @@ html{scroll-behavior:smooth}
 .nav-links .nav-dd-menu a:hover{background:rgba(212,190,120,.14);color:var(--ivory)}
 .nav-dd-menu small{font-size:12px;font-weight:400;color:var(--mute)}
 .nav-dd.nohover:hover .nav-dd-menu{display:none}
-.progress{display:none}
-.stage{position:relative;height:var(--stage);min-height:560px;overflow:clip}
-.bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
-.svc-car{position:relative;--cw:min(760px,72vw);--ch:clamp(360px,min(34vw,calc(100vh - 380px)),470px);height:calc(var(--ch) + 84px);outline:none;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;touch-action:pan-y}
-.svc-stage{position:absolute;inset:0 0 84px 0}
-.svc-card{position:absolute;left:50%;top:0;width:var(--cw);height:var(--ch);margin-left:calc(var(--cw) / -2);border-radius:26px;overflow:hidden;background-size:cover;background-color:#032560;color:var(--ivory);box-shadow:0 30px 60px -20px rgba(2,26,68,.45),0 8px 20px rgba(2,26,68,.18);transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .5s ease,box-shadow .5s ease;cursor:pointer;user-select:none;-webkit-user-select:none}
-.svc-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,37,96,.35) 0%,rgba(3,37,96,.55) 45%,rgba(2,26,68,.92) 100%)}
-.svc-card::after{content:"";position:absolute;inset:0;background:#F3EDE2;opacity:0;transition:opacity .5s ease;pointer-events:none}
-.svc-card.side::after{opacity:.42}
-.svc-card.active{cursor:default;box-shadow:0 40px 80px -24px rgba(2,26,68,.55),0 12px 30px rgba(2,26,68,.22)}
-.svc-card-in{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:clamp(22px,2.6vw,36px)}
-.svc-top{display:flex;align-items:flex-start;justify-content:space-between;color:#D4BE78}
-.svc-num{font-size:12px;font-weight:600;letter-spacing:.18em;color:rgba(243,237,226,.7)}
-.svc-body{margin-top:auto;max-width:560px;transition:opacity .4s ease .15s,transform .5s cubic-bezier(.2,.7,.2,1) .1s}
-.svc-title{margin:0 0 12px;font-size:clamp(28px,3vw,40px);line-height:1.08;color:var(--ivory)}
-.svc-desc{margin:0;font-size:clamp(15px,1.2vw,17px);line-height:1.6;color:rgba(243,237,226,.86)}
-.svc-card:not(.active) .svc-body{opacity:0;transform:translateY(12px);transition-delay:0s}
-.svc-foot{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.svc-chip{display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;background:rgba(2,26,68,.55);border:1px solid rgba(243,237,226,.25);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;transition:opacity .3s}
-.svc-card.active .svc-chip{opacity:0}
-.svc-go{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 16px;border-radius:999px;background:var(--gold);color:#032560;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .25s,opacity .3s}
-.svc-go:hover{background:#D4BE78}
-.svc-go:focus-visible{outline:2px solid #D4BE78;outline-offset:3px}
-.svc-card:not(.active) .svc-go{opacity:0;pointer-events:none}
-.svc-arrow{position:absolute;top:calc(var(--ch) / 2);transform:translateY(-50%);z-index:20;width:48px;height:48px;border-radius:50%;border:0;background:#FBF8F2;color:#032560;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(2,26,68,.18);transition:transform .25s,background .25s}
-.svc-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
-.svc-arrow:focus-visible{outline:2px solid #B99E47;outline-offset:3px}
-.svc-prev{left:calc(50% - var(--cw) / 2 - 24px - clamp(28px,6vw,96px))}
-.svc-next{right:calc(50% - var(--cw) / 2 - 24px - clamp(28px,6vw,96px))}
-.svc-dots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:8px}
-.svc-dot{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:rgba(3,37,96,.22);cursor:pointer;transition:width .35s cubic-bezier(.2,.7,.2,1),background .3s}
-.svc-dot[aria-selected="true"]{width:30px;background:var(--gold)}
-.svc-dot:focus-visible{outline:2px solid #B99E47;outline-offset:3px}
-.svc-car:focus-visible .svc-card.active{outline:2px solid #B99E47;outline-offset:4px}
-@media (max-width:860px){
-.svc-car{--cw:84vw;--ch:clamp(440px,118vw,520px)}
-.svc-arrow{width:40px;height:40px;top:auto;bottom:6px;transform:none}
-.svc-arrow:hover{transform:scale(1.06)}
-.svc-prev{left:calc(50% - 116px)}
-.svc-next{right:calc(50% - 116px)}
-.svc-dots{bottom:20px}
-.svc-chip{font-size:10.5px}
-}
-@media (prefers-reduced-motion:reduce){.svc-card,.svc-body,.svc-card::after,.svc-dot{transition:none}}
-.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.geo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
-.stmts{position:absolute;left:clamp(16px,5vw,72px);bottom:clamp(32px,7vw,88px);max-width:min(520px,calc(100% - 32px));display:flex;flex-direction:column;gap:20px}
-.stmt{padding:24px 28px;border-radius:20px;background:rgba(3,37,96,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line)}
-.net-svg{position:absolute;inset:0;width:100%;height:100%}
-.net-svg text{font-family:'Montserrat',system-ui,sans-serif}
-.zoomg{transform-box:view-box;transform-origin:852px 544px}
-.arc{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke;opacity:.9}
-.loop{position:relative;width:min(560px,100%);aspect-ratio:1/1;margin:0 auto}
-.rnode{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:8px;width:132px;text-align:center}
-.rdot{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);border:1.5px solid var(--gold);color:var(--gold);font-weight:700;font-size:14px}
-.rlbl{font-size:13px;line-height:1.3;color:var(--ivory);font-weight:500}
-.phase{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--line)}
 .scroll-cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:10px}
 .scroll-cue::after{content:"";width:1px;height:40px;background:linear-gradient(var(--gold),transparent)}
-@media (max-width:860px){
-.nav-links{display:none}
-.two-col{grid-template-columns:minmax(0,1fr)}
-.rnode{width:96px}
-.rlbl{font-size:11.5px}
-.rdot{width:36px;height:36px;font-size:12px}
-.stmt{padding:18px 20px}
-}
-@keyframes load{from{opacity:0;transform:translateY(28px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-@keyframes zoomOut{from{transform:scale(1.4)}to{transform:scale(1)}}
-@keyframes zoomIn{from{transform:scale(1)}to{transform:scale(1.55)}}
-@keyframes deepZoom{from{transform:scale(1)}to{transform:scale(2)}}
-@keyframes heroOut{0%,45%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-6%) scale(.94)}}
-@keyframes netZoom{0%,62%{transform:scale(1)}100%{transform:scale(2.3)}}
-@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@keyframes fadeAway{from{opacity:1}to{opacity:0}}
-@keyframes appear{from{opacity:0}to{opacity:1}}
-@keyframes inOut{0%{opacity:0;transform:translateY(40px)}22%,78%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-40px)}}
-@keyframes outOnly{0%,72%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-40px)}}
-@keyframes inOnly{0%{opacity:0;transform:translateY(40px)}35%,100%{opacity:1;transform:none}}
-@keyframes rise{from{opacity:0;transform:translateY(56px) scale(.98)}to{opacity:1;transform:none}}
-@keyframes lit{from{opacity:.22;transform:translate(-50%,-50%) scale(.86)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-@keyframes litRow{from{opacity:.25}to{opacity:1}}
-@keyframes ink{from{color:rgba(3,37,96,.2)}to{color:#032560}}
-@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes spinIn{from{transform:rotate(-24deg)}to{transform:rotate(0)}}
-@keyframes bigNum{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
-@keyframes tagIn{from{opacity:0;transform:translateY(18px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
-@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
-@media (prefers-reduced-motion:no-preference){
-.aa.moving .load{animation:load 1.1s cubic-bezier(.2,.7,.2,1) both}
-.aa.moving .l2{animation-delay:.15s}.aa.moving .l3{animation-delay:.35s}.aa.moving .l4{animation-delay:.6s}.aa.moving .l5{animation-delay:.8s}
-.aa.moving .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s ease-out infinite}
-@supports (animation-timeline:view()){
-.aa.moving .progress{display:block;position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform-origin:0 50%;z-index:60;animation:grow linear both;animation-timeline:scroll(root)}
-.aa.moving .tall{height:calc(var(--stage) * var(--len,3))}
-.aa.moving .tall > .stage{position:sticky;top:0}
-.aa.moving .sc-hero{view-timeline:--hero block}
-.aa.moving .hero-img{animation:zoomOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 100%}
-.aa.moving .hero-copy{animation:heroOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 55%}
-.aa.moving .hero-tag{animation:tagIn linear both;animation-timeline:--hero;animation-range:contain 60% contain 88%}
-.aa.moving .sc-net{view-timeline:--net block}
-.aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
-.aa.moving .arc{animation:draw linear both;animation-timeline:--net}
-.aa.moving .a1{animation-range:contain 2% contain 16%}.aa.moving .a2{animation-range:contain 5% contain 19%}.aa.moving .a3{animation-range:contain 8% contain 22%}
-.aa.moving .a4{animation-range:contain 32% contain 42%}.aa.moving .a5{animation-range:contain 34% contain 44%}.aa.moving .a6{animation-range:contain 36% contain 46%}.aa.moving .a7{animation-range:contain 38% contain 48%}.aa.moving .a8{animation-range:contain 40% contain 50%}.aa.moving .a9{animation-range:contain 42% contain 52%}.aa.moving .a10{animation-range:contain 44% contain 56%}.aa.moving .a11{animation-range:contain 46% contain 58%}.aa.moving .a12{animation-range:contain 48% contain 60%}
-.aa.moving .far{animation:fadeAway linear both;animation-timeline:--net;animation-range:contain 64% contain 80%}
-.aa.moving .near{animation:appear linear both;animation-timeline:--net;animation-range:contain 78% contain 92%}
-.aa.moving .sc-net .stmts{display:grid}
-.aa.moving .sc-net .stmt{grid-area:1/1;animation-timeline:--net;animation-timing-function:linear;animation-fill-mode:both}
-.aa.moving .st1{animation-name:outOnly;animation-range:contain 0% contain 30%}
-.aa.moving .st2{animation-name:inOut;animation-range:contain 30% contain 64%}
-.aa.moving .st3{animation-name:inOnly;animation-range:contain 64% contain 96%}
-.aa.moving .sc-svc{view-timeline:--svc block}
-.aa.moving .svc-img{animation:zoomIn linear both;animation-timeline:--svc;animation-range:cover 0% cover 100%}
-.aa.moving .intro{view-timeline:--intro block}
-.aa.moving .ph{animation:ink linear both;animation-timeline:--intro}
-.aa.moving .ph1{animation-range:cover 10% cover 28%}.aa.moving .ph2{animation-range:cover 22% cover 40%}.aa.moving .ph3{animation-range:cover 34% cover 52%}.aa.moving .ph4{animation-range:cover 46% cover 62%}
-.aa.moving .rv{animation:rise linear both;animation-timeline:view();animation-range:entry 5% cover 32%}
-.aa.moving .sc-risk{view-timeline:--risk block}
-.aa.moving .ring{animation:draw linear both;animation-timeline:--risk;animation-range:contain 4% contain 74%}
-.aa.moving .loop-spin{animation:spinIn linear both;animation-timeline:--risk;animation-range:contain 0% contain 80%}
-.aa.moving .rnode{animation:lit linear both;animation-timeline:--risk}
-.aa.moving .n1{animation-range:contain 6% contain 14%}.aa.moving .n2{animation-range:contain 17% contain 25%}.aa.moving .n3{animation-range:contain 28% contain 36%}.aa.moving .n4{animation-range:contain 39% contain 47%}.aa.moving .n5{animation-range:contain 50% contain 58%}.aa.moving .n6{animation-range:contain 61% contain 69%}
-.aa.moving .fb{animation:draw linear both;animation-timeline:--risk;animation-range:contain 76% contain 92%}
-.aa.moving .fb-note{animation:appear linear both;animation-timeline:--risk;animation-range:contain 84% contain 96%}
-.aa.moving .trace{animation:draw linear both;animation-timeline:view();animation-range:entry 40% cover 55%}
-.aa.moving .big{animation:bigNum linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
-.aa.moving .cta-img{animation:zoomOut linear both;animation-timeline:view();animation-range:entry 0% cover 70%}
-}
-}
-.citymap{--mx:440px;--my:400px;transform-box:view-box;transform-origin:0 0;transform:translate(calc(var(--mx) * var(--on,0)),calc(var(--my) * var(--on,0))) scale(var(--ms,1)) translate(var(--cx,0px),var(--cy,0px));transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
-.hit{fill:transparent;cursor:pointer;pointer-events:all;transition:fill .25s}
-.hit:hover{fill:rgba(212,190,120,.18)}
-.selring{fill:none;stroke:#F3EDE2;stroke-width:1.5;vector-effect:non-scaling-stroke;pointer-events:none;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),opacity .4s}
-.sc-net .stmts{pointer-events:none;transition:opacity .4s}
-.sc-net.exploring .stmts{opacity:0}
-.sc-net.exploring .zoomg{animation:none;transform:none}
-.sc-net.exploring .far{animation:none;opacity:1}
-.sc-net.exploring .arc{animation:none;stroke-dashoffset:0;opacity:.5}
-.map-ui{position:absolute;top:118px;left:clamp(16px,5vw,72px);right:clamp(16px,5vw,72px);display:flex;flex-direction:column;gap:12px;z-index:3;pointer-events:none}
-.map-ui > *{pointer-events:auto}
+@media (max-width:860px){.nav-links{display:none}}
 @media (max-width:480px){.wm-name{white-space:nowrap}}
 @media (max-width:480px){.nav-cta{min-height:34px !important;padding:0 12px !important;font-size:10.5px !important;white-space:nowrap}}
 .nav-burger{display:none;flex:none;width:42px;height:42px;margin-right:-6px;border:0;border-radius:10px;background:none;color:var(--ivory);cursor:pointer;align-items:center;justify-content:center}
@@ -200,7 +59,7 @@ html{scroll-behavior:smooth}
 .nav-burger[aria-expanded="true"] span{background:transparent}
 .nav-burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
 .nav-burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
-.mnav{position:fixed;left:0;right:0;top:104px;z-index:48;max-height:calc(100vh - 104px);overflow-y:auto;padding:8px clamp(16px,4vw,48px) 28px;background:#02204F;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s}
+.mnav{position:fixed;left:0;right:0;top:68px;z-index:48;max-height:calc(100vh - 68px);overflow-y:auto;padding:8px clamp(16px,4vw,48px) 28px;background:#02204F;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s}
 .mnav.open{opacity:1;transform:none;visibility:visible;transition:opacity .25s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
 .mnav a{display:block;padding:15px 2px;border-bottom:1px solid var(--line);color:var(--ivory);font-size:17px;font-weight:500;text-decoration:none}
 .mnav .mnav-group{border-bottom:1px solid var(--line)}
@@ -216,145 +75,8 @@ html{scroll-behavior:smooth}
 .mnav a.btn{display:flex;align-items:center;justify-content:center;margin-top:22px;width:100%;min-height:52px;padding:0 26px;border-bottom:0;color:#032560;font-size:15px;font-weight:600}
 @media (max-width:860px){.nav-burger{display:inline-flex}.nav-cta{display:none !important}}
 @media (min-width:861px){.mnav{display:none}}
-@media (prefers-reduced-motion:reduce){.mnav,.mnav.open{transition:none}}
-.ticker{position:sticky;top:68px;z-index:49;height:36px;margin-bottom:-36px;display:flex;align-items:center;gap:18px;padding:0 clamp(16px,4vw,48px);background:rgba(2,26,68,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);font-size:13px;line-height:1;color:var(--mute);overflow:hidden}
-.tk-tag{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.tk-dot{width:6px;height:6px;border-radius:50%;background:#7FD1A6;box-shadow:0 0 0 0 rgba(127,209,166,.6);animation:tkPulse 2.4s ease-out infinite}
-@keyframes tkPulse{0%{box-shadow:0 0 0 0 rgba(127,209,166,.55)}70%{box-shadow:0 0 0 7px rgba(127,209,166,0)}100%{box-shadow:0 0 0 0 rgba(127,209,166,0)}}
-.tk-rot{position:relative;flex:1;min-width:0;height:36px;overflow:hidden}
-.tk-item{position:absolute;inset:0;display:flex;align-items:center;gap:16px;white-space:nowrap;opacity:0;transform:translateY(100%);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
-.tk-item.on{opacity:1;transform:none}
-.tk-item.off{opacity:0;transform:translateY(-100%)}
-.tk-c{color:var(--ivory);font-weight:600}
-.tk-k{color:var(--mute)}
-.tk-v{color:var(--ivory);font-weight:600;font-variant-numeric:tabular-nums}
-.tk-m{font-size:11px;color:var(--mute);margin-left:3px}
-.tk-metals{flex:none;display:flex;align-items:center;gap:18px;padding-left:18px;border-left:1px solid var(--line);white-space:nowrap}
-.tk-metal .tk-v{margin-left:6px}
-.tk-up{color:#7FD1A6}.tk-dn{color:#E8A07A}
-@media (max-width:860px){.ticker{gap:12px}.tk-tag span{display:none}.tk-metals{display:none}.tk-item{gap:12px;font-size:12.5px}}
-@media (prefers-reduced-motion:reduce){.tk-item{transition:none}.tk-dot{animation:none}}
-.chips-row{display:flex;align-items:center;gap:8px;max-width:min(860px,100%)}
-.chips{flex:1;min-width:0;overflow:hidden;padding:2px 0 6px;-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent)}
-.chips-track{display:flex;width:max-content;will-change:transform}
-.chips-set{display:flex;gap:8px;padding-right:8px}
-.chips-arrow{flex:none;width:36px;height:36px;margin-bottom:4px;border-radius:50%;border:1px solid rgba(212,190,120,.45);background:rgba(3,37,96,.62);color:#F3EDE2;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s,border-color .25s}
-.chips-arrow:hover{border-color:#D4BE78;background:rgba(212,190,120,.16)}
-.chips-arrow:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
-.chip{flex:none;min-height:36px;padding:0 15px;border-radius:999px;border:1px solid rgba(212,190,120,.45);background:rgba(3,37,96,.62);color:#F3EDE2;font:500 13px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
-.chip:hover{border-color:#D4BE78}
-.chip:focus-visible,.cc-btn:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
-.chip[aria-pressed="true"]{background:#B99E47;border-color:#B99E47;color:#032560;font-weight:600}
-.map-hint{margin:0;font-size:13px;color:var(--mute)}
-.city-card{position:absolute;top:214px;right:clamp(16px,5vw,72px);width:min(400px,calc(100% - 32px));max-height:calc(100% - 228px);overflow:auto;padding:24px 26px 20px;border-radius:20px;background:rgba(2,26,68,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(185,158,71,.55);box-shadow:0 30px 80px rgba(0,0,0,.35);z-index:4;animation:cardIn .55s cubic-bezier(.2,.7,.2,1) both}
-.cc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.cc-name{margin:6px 0 4px;font-size:34px;line-height:1}
-.cc-role{margin:0;font-size:14px;color:#C9D3DC;line-height:1.5}
-.cc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;min-width:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(243,237,226,.28);background:transparent;color:#F3EDE2;font:500 13px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:border-color .25s,background-color .25s}
-.cc-btn:hover{border-color:#D4BE78;background:rgba(212,190,120,.1)}
-.cc-x{padding:0;flex:none}
-.cc-ticket{margin:18px 0;padding:16px 18px;border-radius:14px;background:rgba(185,158,71,.12);border:1px solid rgba(185,158,71,.35)}
-.cc-lbl{margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#B99E47}
-.cc-val{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:28px;line-height:1.1;color:#F3EDE2}
-.cc-note{margin:6px 0 0;font-size:13px;line-height:1.5;color:#C9D3DC}
-.cc-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.cc-list li{position:relative;padding-left:18px;font-size:14px;line-height:1.5;color:#F3EDE2}
-.cc-list li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:#B99E47}
-.cc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
-.cc-pos{font-size:12px;letter-spacing:.14em;color:var(--mute)}
-.cc-foot{margin:12px 0 0;font-size:11px;line-height:1.5;color:var(--mute)}
-@keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@media (max-width:860px){
-.citymap{--mx:600px;--my:230px}
-.city-card{top:auto;bottom:16px;left:16px;right:16px;width:auto;max-height:46%;padding:20px}
-.cc-name{font-size:28px}
-}
-@media (prefers-reduced-motion:reduce){
-.citymap,.selring{transition:none}
-.city-card{animation:none}
-}
-
-/* Bankability, by design: timeline steps with a sticky white card */
-.fs{position:relative;background:radial-gradient(1200px 600px at 85% 20%,rgba(185,158,71,.10),transparent 60%),var(--ink);padding:clamp(96px,11vw,150px) clamp(16px,5vw,48px) clamp(28px,3vw,40px)}
-.fs-head{max-width:860px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
-.fs-head p.fs-sub{margin:0;font-size:clamp(16px,1.35vw,19px);line-height:1.6;color:#C9D3DC;max-width:720px}
-.fs-grid{max-width:1200px;margin:clamp(48px,6vw,84px) auto 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:start}
-.fs-steps{position:relative;padding-left:60px}
-.fs-rail{position:absolute;left:15px;top:13px;width:2px;margin-left:-1px;background:rgba(243,237,226,.14);border-radius:2px}
-.fs-fill{position:absolute;inset:0;background:var(--gold);transform-origin:50% 0;transform:scaleY(0);border-radius:2px}
-.fs-step{position:relative;min-height:min(52vh,480px);padding-bottom:40px;opacity:.32;transition:opacity .45s ease}
-.fs-step:last-child{min-height:min(44vh,400px);padding-bottom:0}
-.fs-step.on{opacity:1}
-.fs-dot{position:absolute;left:-56px;top:2px;width:22px;height:22px;border-radius:50%;background:var(--ink);border:2px solid rgba(243,237,226,.28);display:flex;align-items:center;justify-content:center;transition:border-color .4s ease,box-shadow .4s ease}
-.fs-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);transform:scale(0);transition:transform .4s ease}
-.fs-step.on .fs-dot,.fs-step.done .fs-dot{border-color:var(--gold)}
-.fs-step.on .fs-dot{box-shadow:0 0 0 6px rgba(185,158,71,.16)}
-.fs-step.on .fs-dot::after,.fs-step.done .fs-dot::after{transform:scale(1)}
-.fs-num{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--gold)}
-.fs-step h3{margin:0 0 12px;font-size:clamp(26px,2.4vw,34px);line-height:1.12;font-weight:600}
-.fs-step > p.fs-desc{margin:0 0 20px;font-size:16px;line-height:1.65;color:#C9D3DC;max-width:470px}
-.fs-tags{display:flex;flex-wrap:wrap;gap:8px}
-.fs-tags span{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);border:1px solid rgba(243,237,226,.24);border-radius:999px;padding:8px 14px;background:rgba(243,237,226,.04)}
-.fs-side{position:sticky;top:max(124px,calc(50vh - 250px))}
-.fs-stack{display:grid}
-.fs-stack > .fs-panel{grid-area:1/1;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
-.fs-stack > .fs-panel.on{opacity:1;transform:none;pointer-events:auto}
-.fs.js .fs-step .fs-panel{display:none}
-.fs-card{background:#fff;color:#032560;border-radius:22px;border:1px solid rgba(3,37,96,.08);box-shadow:0 40px 80px -30px rgba(0,0,0,.55),0 10px 30px rgba(0,0,0,.18);overflow:hidden}
-.fs-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid rgba(3,37,96,.08);background:#FAF8F3}
-.fs-bar i{width:10px;height:10px;border-radius:50%;background:#D9D4C7}
-.fs-bar span{flex:1;text-align:center;margin-right:44px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#6B7A90}
-.fs-body{padding:22px 24px 24px}
-.fs-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.fs-top b{color:#7A6526}.fs-top em{font-style:normal;color:#8592A6}
-.fs-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(3,37,96,.08)}
-.fs-row:last-of-type{border-bottom:0}
-.fs-ic{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#032560;color:#B99E47;font-size:11px;font-weight:700;letter-spacing:.04em}
-.fs-ic.ok{background:rgba(46,125,91,.12);color:#2E7D5B;font-size:16px}
-.fs-ic.lt{background:rgba(3,37,96,.07);color:#032560}
-.fs-tx{flex:1;min-width:0}
-.fs-tx strong{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:14.5px;font-weight:600;color:#032560}
-.fs-tx small{display:block;margin-top:3px;font-size:13px;line-height:1.45;color:#5D6B80}
-.fs-chip{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:3px 8px;background:rgba(185,158,71,.16);color:#7A6526}
-.fs-chip.nv{background:rgba(3,37,96,.08);color:#032560}
-.fs-chip.am{background:rgba(196,120,40,.14);color:#9A5A16}
-.fs-chip.gr{background:rgba(46,125,91,.12);color:#2E7D5B}
-.fs-st{flex:none;font-size:12px;font-weight:600;color:#8592A6;text-align:right}
-.fs-st.gr{color:#2E7D5B}.fs-st.am{color:#9A5A16}
-.fs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px;padding:14px 16px;border-radius:12px;background:#FAF8F3;font-size:13px;color:#5D6B80}
-.fs-foot b{color:#032560;font-weight:700}
-.fs-foot .go{color:#7A6526;font-weight:700}
-.fs-score{display:grid;grid-template-columns:minmax(0,1fr) 112px 44px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(3,37,96,.07);font-size:13.5px;font-weight:600}
-.fs-score:last-of-type{border-bottom:0}
-.fs-seg{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
-.fs-seg i{height:7px;border-radius:4px;background:rgba(3,37,96,.10)}
-.fs-seg i.f{background:#032560}.fs-seg.gap i.f{background:#C47828}
-.fs-score .fs-chip{justify-self:end}
-.fs-prog{height:8px;border-radius:6px;background:rgba(3,37,96,.08);overflow:hidden;margin:12px 0 4px}
-.fs-prog i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#B99E47,#D4BE74);border-radius:6px}
-.fs-cap{margin:18px 0 0;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-@media (max-width:860px){
-.fs-grid{grid-template-columns:minmax(0,1fr)}
-.fs-side{display:none}
-.fs.js .fs-step .fs-panel{display:block}
-.fs-steps{padding-left:44px}
-.fs-rail{left:11px}
-.fs-dot{left:-44px}
-.fs-step,.fs-step:last-child{min-height:0;padding-bottom:56px;opacity:1}
-.fs-step:last-child{padding-bottom:0}
-.fs-step .fs-panel{margin-top:24px}
-.fs-body{padding:18px 16px 20px}
-.fs-score{grid-template-columns:minmax(0,1fr) 72px 44px;gap:8px;font-size:12.5px}
-.fs-ic{display:none}
-.fs-row{gap:10px;align-items:flex-start}
-.fs-st{font-size:11.5px;max-width:84px;padding-top:2px}
-.fs-bar span{margin-right:0;font-size:9.5px;letter-spacing:.14em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fs-foot{flex-wrap:wrap;padding:12px 14px}
-}
-@media (prefers-reduced-motion:reduce){.fs-step,.fs-stack > .fs-panel,.fs-dot,.fs-dot::after{transition:none}}
-
+@media (prefers-reduced-motion:reduce){.mnav,.mnav.open{transition:none}.btn{transition:none}}
 .nav-links a[aria-current="page"]{color:var(--ivory)}
-.mnav{top:68px;max-height:calc(100vh - 68px)}
 .mnav a[aria-current="page"]{color:var(--gold)}
 .ins .wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,clamp(16px,5vw,48px));padding-right:max(16px,clamp(16px,5vw,48px))}
 .ins .btn-line{border:1px solid rgba(2,26,68,.3);color:#032560}
@@ -373,42 +95,106 @@ html{scroll-behavior:smooth}
 .ins .tile:hover{border-color:rgba(212,190,120,.6)}
 .ins .tile:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
 .ins .tile[aria-pressed="true"]{background:var(--ivory);color:#032560;border-color:var(--ivory)}
+.ins .tile .lvl{font-size:12px;font-weight:500;color:var(--mute)}
+.ins .tile[aria-pressed="true"] .lvl{color:#3E4A57}
 .ins .pill{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .ins .pill i{width:7px;height:7px;border-radius:50%;display:block}
 .ins .t-up i{background:#5FB38A}.ins .t-flat i{background:#D4BE78}.ins .t-watch i{background:#E08A5B}
 .ins .card{background:#FBF8F2;color:#032560;border-radius:22px;padding:clamp(20px,2.6vw,34px);display:flex;flex-direction:column;gap:16px}
 .ins .card-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px 24px;padding-bottom:14px;border-bottom:1px solid rgba(2,26,68,.12)}
 .ins .card-h h2{margin:4px 0 0;font-size:clamp(30px,3vw,42px);line-height:1}
-.ins .traj{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right}
-.ins .traj-v{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:24px;line-height:1}
-.ins .traj-c{font-size:12px;color:#3E4A57;letter-spacing:.04em}
 .ins .blk{display:grid;grid-template-columns:160px minmax(0,1fr);gap:16px;align-content:start}
 .ins .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 32px;align-items:start}
 .ins .pair .blk{grid-template-columns:minmax(0,1fr);gap:4px}
 .ins .lbl{margin:0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);padding-top:3px}
 .ins .txt{margin:0;font-size:14.5px;line-height:1.55;color:#22324A}
-.ins .bts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.ins .bts div{padding:12px 14px;border-radius:12px;background:#F1ECE1;display:flex;flex-direction:column;gap:5px}
-.ins .bts span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#032560}
-.ins .bts p{margin:0;font-size:13.5px;line-height:1.5;color:#22324A}
 .ins .tags{display:flex;flex-wrap:wrap;gap:8px}
 .ins .tag{border:1px solid rgba(2,26,68,.25);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:#032560}
-.ins .gate{border-radius:16px;background:#032560;color:var(--ivory);padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
-.ins .gate ul{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,max-content);gap:6px 28px}
+.ins .gate{border-radius:16px;background:#032560;color:var(--ivory);padding:18px 22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 32px;align-items:start}
+.ins .gate ul{margin:8px 0 14px;padding:0;list-style:none;display:grid;gap:6px}
 .ins .gate li{font-size:14px;line-height:1.5;color:#C9D3DC;padding-left:18px;position:relative}
 .ins .gate li::before{content:"";position:absolute;left:0;top:.45em;width:9px;height:11px;border:1.5px solid var(--gold);border-radius:2px 2px 3px 3px}
-.ins .src{margin:0;font-size:12px;line-height:1.6;color:#3E4A57}
-.ins .src a{color:#032560;text-decoration:underline;text-underline-offset:2px}
+.ins .gate li.free::before{border-radius:50%;width:9px;height:9px}
+.ins .gate .note{margin:8px 0 0;font-size:12.5px;color:var(--mute)}
 @media (max-width:900px){
 .ins .pair{grid-template-columns:minmax(0,1fr)}
 .ins .tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ins .blk{grid-template-columns:minmax(0,1fr);gap:6px}
-.ins .bts{grid-template-columns:minmax(0,1fr)}
 .ins .gate{grid-template-columns:minmax(0,1fr)}
-.ins .gate ul{grid-template-columns:minmax(0,1fr)}
-.ins .traj{align-items:flex-start;text-align:left}
 }
 @media (max-width:520px){.ins .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<style>
+.ins .lens{display:flex;flex-wrap:wrap;gap:8px}
+.ins .lens button{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(2,26,68,.3);background:transparent;color:#032560;font:600 14px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.ins .lens button:hover{border-color:#032560}
+.ins .lens button[aria-pressed="true"]{background:#032560;color:#F3EDE2;border-color:#032560}
+.ins .lens button:focus-visible{outline:2px solid #B99E47;outline-offset:2px}
+.ins .tw{overflow-x:auto;border-radius:16px}
+.ins table{width:100%;border-collapse:collapse;font-size:14px}
+.ins th,.ins td{padding:12px 14px;text-align:left;vertical-align:middle}
+.ins .light{background:#FBF8F2;border:1px solid rgba(2,26,68,.1)}
+.ins .light th{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);border-bottom:1px solid rgba(2,26,68,.12);white-space:nowrap}
+.ins .light td{color:#22324A;border-bottom:1px solid rgba(2,26,68,.08);font-variant-numeric:tabular-nums}
+.ins .light tr:last-child td{border-bottom:0}
+.ins .light .on{color:#032560;font-weight:700;background:rgba(185,158,71,.12)}
+.ins .dark{border:1px solid var(--line);background:rgba(10,47,110,.35)}
+.ins .dark th{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);white-space:nowrap}
+.ins .dark td{color:var(--ivory);border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.ins .dark tr:last-child td{border-bottom:0}
+.ins .dark .sub{color:var(--mute);font-size:12.5px}
+.ins .call{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 20px;align-items:center;padding:16px 18px;border-radius:14px;background:#F1ECE1;border:1px solid rgba(185,158,71,.45)}
+.ins .call-p{grid-row:span 2;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:44px;line-height:1;color:#032560}
+.ins .call-t{margin:0;font-size:15px;line-height:1.5;color:#032560;font-weight:600}
+.ins .call-d{margin:0;font-size:12.5px;color:#3E4A57}
+.ins .flag{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:999px;border:1px solid #C47828;color:#9A5A16;font-size:10.5px;letter-spacing:.12em;vertical-align:1px}
+.ins .bf{display:flex;flex-direction:column;gap:6px;max-width:480px}
+.ins .bf label{font-size:13px;font-weight:600;color:#032560}
+.ins .bf input[type=email]{min-height:50px;padding:0 16px;border-radius:12px;border:1px solid rgba(2,26,68,.25);background:#fff;color:#032560;font:500 15px/1 'Montserrat',system-ui,sans-serif}
+.ins .bf input[type=email]:focus-visible{outline:2px solid #B99E47;outline-offset:1px}
+.ins .bf .check{display:flex;gap:10px;align-items:flex-start;margin-top:8px;font-weight:400;font-size:13.5px;line-height:1.5;color:#3E4A57}
+.ins .bf .check input{flex:none;margin-top:3px;width:18px;height:18px;accent-color:#032560}
+.ins .bf .check a{color:#032560}
+.ins .err{margin:0;font-size:13px;color:#B3261E;min-height:0}
+.ins .wgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.85fr);gap:clamp(24px,4vw,56px);align-items:start}
+.ins #wTable th{white-space:normal;line-height:1.4}
+.ins #wTable td:first-child{white-space:nowrap}
+@media (max-width:520px){.ins #wTable th,.ins #wTable td{padding:10px 8px;font-size:13px}.ins #wTable th{font-size:10px;letter-spacing:.08em}}
+.ins .key{margin:0;font-size:12.5px;line-height:1.6;color:#3E4A57}
+.ins .readout{position:sticky;top:88px;background:#032560;color:var(--ivory);border-radius:22px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.ins .ro-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ins .ro-top label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.ins .ro-top select{min-height:40px;padding:0 34px 0 12px;border-radius:10px;border:1px solid rgba(243,237,226,.3);background:#0A2F6E;color:var(--ivory);font:600 14px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#D4BE78 50%),linear-gradient(135deg,#D4BE78 50%,transparent 50%);background-position:calc(100% - 17px) 17px,calc(100% - 12px) 17px;background-size:5px 5px;background-repeat:no-repeat}
+.ins .ro-top select:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
+.ins .ro-main{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ins .ro-score{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:52px;line-height:1;color:#F3EDE2;font-variant-numeric:tabular-nums}
+.ins .ro-level{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:26px;line-height:1;color:var(--gold)}
+.ins .ro-delta{margin:0;font-size:13px;line-height:1.5;color:#C9D3DC;min-height:20px}
+.ins .ro-delta b{color:var(--ivory)}
+.ins .ro-bars{display:grid;gap:10px;padding-top:12px;border-top:1px solid var(--line)}
+.ins .ro-row{display:grid;grid-template-columns:96px minmax(0,1fr) 72px;gap:10px;align-items:center;font-size:13px;color:#C9D3DC}
+.ins .ro-row span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--ivory)}
+.ins .ro-track{height:8px;border-radius:6px;background:rgba(243,237,226,.12);overflow:hidden}
+.ins .ro-fill{display:block;height:100%;border-radius:6px;background:#B99E47;transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.ins .ro-row.na{opacity:.55}
+.ins .ro-foot{margin:0;font-size:12px;color:var(--mute)}
+.ins .ro-foot a{color:var(--gold)}
+.ins .flash{animation:flash 1s ease}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(212,190,120,.0)}25%{box-shadow:0 0 0 4px rgba(212,190,120,.55)}100%{box-shadow:0 0 0 0 rgba(212,190,120,0)}}
+@media (prefers-reduced-motion:reduce){.ins .ro-fill{transition:none}.ins .flash{animation:none}}
+@media (max-width:900px){.ins .wgrid{grid-template-columns:minmax(0,1fr)}.ins .readout{position:static}}
+.ins .locks{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.ins .locks li{position:relative;padding-left:24px;font-size:15px;line-height:1.5;color:#032560}
+.ins .locks li::before{content:"";position:absolute;left:0;top:.3em;width:11px;height:13px;border:1.5px solid #7A6526;border-radius:2px 2px 3px 3px}
+.ins .on-ink .bf label{color:var(--ivory)}
+.ins .on-ink .bf input[type=email]{border-color:rgba(243,237,226,.3)}
+.ins .on-ink .bf input[type=email]:focus-visible{outline-color:#D4BE78}
+.ins .on-ink .bf .check{color:#C9D3DC}
+.ins .on-ink .bf .check a{color:var(--gold)}
+.ins .on-ink .bf .check input{accent-color:#B99E47}
+.ins .on-ink .err{color:#F2A49B}
+.ins .bf .btn{align-self:flex-start;margin-top:10px;border:0;cursor:pointer;font-family:inherit}
+@media (max-width:900px){.ins .call-p{font-size:36px}.ins .sumwrap{display:none}}
 </style>
 </head>
 <body>
@@ -450,38 +236,36 @@ html{scroll-behavior:smooth}
 <a href="index.html#about">About</a>
 <a class="btn btn-gold" href="index.html#contact">Book a briefing</a>
 </nav>
+
 <main class="ins">
-<section style="position: relative; background: var(--ink); padding: calc(68px + clamp(28px, 3vw, 48px)) 0 clamp(112px, 8.5vw, 118px)">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 18px">
+<section style="position: relative; background: var(--ink); padding: calc(68px + clamp(24px, 2.5vw, 40px)) 0 clamp(40px, 4vw, 56px)">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 16px">
 <p class="eyebrow">Insights · Weekly Policy Monitor</p>
 <h1 class="disp" style="margin: 0; font-size: clamp(38px, 4.6vw, 66px); line-height: 1; max-width: 820px; text-wrap: balance">The week in policy, <span style="color: var(--gold)">read for capital.</span></h1>
 <p style="margin: 0; max-width: 640px; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; color: #C9D3DC">Every Monday we read the central bank, fiscal, trade and investment-policy signals across the markets we cover, and show where they point for investors and project owners.</p>
 <div class="meta"><span><b>Issue 01</b></span><span>Week of 9 November 2026</span><span>6 markets</span><span>Published every Monday</span></div>
 <div class="read" style="max-width: 720px; margin-top: 4px">
 <p class="eyebrow" style="font-size: 11px">This week in one line</p>
-<p class="disp" style="margin: 6px 0 0; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.25; font-style: italic; font-weight: 500">Policy is tightening across the region while growth holds. Currency risk is back in the price.</p>
+<p class="disp" style="margin: 6px 0 0; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.25; font-style: italic; font-weight: 500">Fuel costs are pushing inflation back up in Kenya, Uganda and Rwanda. Uganda&rsquo;s shilling is under the most strain; Zambia is the one market improving.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px">
-<a class="btn btn-gold" href="mailto:info@allyandassociates.com?subject=Insight%20request">Request insight</a>
+<a class="btn btn-gold" href="#brief">Get the weekly brief</a>
 <a class="btn btn-ghost" href="index.html#contact">Book a briefing</a>
 </div>
 </div>
-<div class="scroll-cue" aria-hidden="true">Scroll</div>
 </section>
 
-<section style="background: var(--ivory); color: #032560; padding: clamp(40px, 4.5vw, 64px) 0 clamp(56px, 7vw, 96px)">
-<div class="wrap" style="display: flex; flex-direction: column; gap: 32px">
-<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
-<p class="eyebrow eyebrow-dark">How we read each market</p>
-<h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">Four reads, one method.</h2>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3E4A57">Each country entry runs through The Volatility Compass: we name the signal, track the capital, trace the trajectory and state the implication.</p>
+<section id="weights" style="background: var(--ivory); color: #032560; padding: clamp(32px, 3.5vw, 52px) 0">
+<div class="wrap wgrid">
+<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<p class="eyebrow eyebrow-dark">Weights by decision</p>
+<h2 class="disp" style="margin: 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.08">Choose the decision you are facing.</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A57">Each market is scored on political, macro and trade/geopolitical risk. Change the decision and watch the selected market&rsquo;s rating move.</p>
+<div class="lens" id="lensBtns" role="group" aria-label="Decision"></div>
+<div class="tw light"><table id="wTable"></table></div>
+<p class="key">Level: Low under 2.0 · Moderate 2.0&ndash;2.9 · Elevated 3.0&ndash;3.9 · High 4.0+. Direction: weighted 90-day risk trend. Coverage: layers scored, out of 3. Starting weights, recalibrated as our calls resolve.</p>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 8px 28px">
-<div class="step"><span class="step-n">01 · SIGNAL</span><h3 class="disp">What moved</h3><p>The policy decision, rule or statement that changed this week.</p></div>
-<div class="step"><span class="step-n">02 · FDI PULSE</span><h3 class="disp">Where capital is heading</h3><p>Direction of announced investment and the rules that shape it.</p></div>
-<div class="step"><span class="step-n">03 · TRAJECTORY</span><h3 class="disp">Forward and backward</h3><p>Bidirectional Trajectory Synthesis: today's signals traced forward, your target outcome traced back.</p></div>
-<div class="step"><span class="step-n">04 · IMPLICATION</span><h3 class="disp">What it means for you</h3><p>The decision it affects, and where our partnership can support it.</p></div>
-</div>
+<aside class="readout" id="readout" aria-live="polite"></aside>
 </div>
 </section>
 
@@ -493,64 +277,66 @@ html{scroll-behavior:smooth}
 <h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">Select a market.</h2>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; color: var(--mute)">
-<span class="pill t-up"><i></i>Improving</span><span class="pill t-flat"><i></i>Stable</span><span class="pill t-watch"><i></i>Under watch</span>
+<span class="pill t-up"><i></i>Improving</span><span class="pill t-flat"><i></i>Stable</span><span class="pill t-watch"><i></i>Deteriorating</span>
 </div>
 </div>
+<div class="tw dark sumwrap"><table id="sumTable"></table></div>
+<p id="sumNote" class="sumwrap" style="margin: -8px 0 0; font-size: 12.5px; color: var(--mute)"></p>
 <div class="mon">
 <div>
 <p class="reg-h">East Africa &amp; COMESA</p>
 <div class="tiles" id="in-tiles" role="group" aria-label="Markets"></div>
 </div>
-<article class="card" id="in-card" aria-live="polite">
-<div class="card-h">
-<div><p class="eyebrow eyebrow-dark"><span data-f="region"></span> · Week of 9 November 2026</p><h2 class="disp" data-f="name"></h2></div>
-<div class="traj"><span class="pill" data-f="pill"><i></i>Trajectory</span><span class="traj-v" data-f="traj"></span><span class="traj-c" data-f="conf"></span></div>
-</div>
-<div class="pair">
-<div class="blk"><p class="lbl">Signal</p><p class="txt" data-f="signal"></p></div>
-<div class="blk"><p class="lbl">FDI pulse</p><p class="txt" data-f="fdi"></p></div>
-</div>
-<div class="blk"><p class="lbl">Trajectory read</p>
-<div class="bts"><div><span>Forward</span><p data-f="fwd"></p></div><div><span>Backward</span><p data-f="back"></p></div><div><span>Divergence</span><p data-f="div"></p></div></div>
-</div>
-<div class="blk"><p class="lbl">Implication</p><p class="txt" data-f="impl"></p></div>
-<div class="blk"><p class="lbl">Where we support</p><div class="tags" data-f="support"></div></div>
-<div class="gate">
-<div>
-<p class="eyebrow" style="font-size: 11px">Full country brief · on request</p>
-<ul><li>Scenario ranges and triggers</li><li>Entry or financing route</li><li>Counterparty and regulator map</li><li>Lender and investor view</li></ul>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a class="btn btn-gold" data-f="mail" href="mailto:info@allyandassociates.com?subject=Insight%20request">Request this insight</a>
-<a class="btn btn-ghost" href="index.html#contact" style="min-height: 42px; font-size: 14px">Book a briefing</a>
-</div>
-</div>
-<p class="src" data-f="links"></p>
-</article>
+<article class="card" id="in-card" aria-live="polite"></article>
 </div>
 </div>
 </section>
 
-<section style="background: var(--ivory); color: #032560; padding: clamp(40px, 5vw, 72px) 0">
+<section id="beyond" style="background: var(--ivory); color: #032560; padding: clamp(40px, 5vw, 72px) 0">
 <div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <p class="eyebrow eyebrow-dark">Beyond the monitor</p>
 <h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">Have a market or a project in mind?</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3E4A57; max-width: 520px">The monitor shows the direction. A briefing applies it to your decision: entry, financing or the risks around an asset you already hold.</p>
+<ul class="locks">
+<li>Entry conditions and what this means for your decision</li>
+<li>Scenario ranges</li>
+<li>Entry or financing route</li>
+<li>Counterparty and regulator map</li>
+<li>Lender and investor view</li>
+</ul>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a class="btn btn-ink" href="mailto:info@allyandassociates.com?subject=Insight%20request">Request insight</a>
-<a class="btn btn-line" href="index.html#contact">Book a briefing</a>
+<a class="btn btn-ink" href="index.html#contact">Book a briefing</a>
 </div>
 </div>
 </section>
-<p class="wrap" style="margin: 0; padding-top: 22px; padding-bottom: 22px; font-size: 12.5px; line-height: 1.6; color: var(--mute); background: var(--ink)">Insights are general analysis of public policy information, published for discussion. They are not investment advice or an offer of any service.</p>
+
+<section id="brief" class="on-ink" style="background: var(--ink); color: var(--ivory); padding: clamp(40px, 5vw, 72px) 0">
+<div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p class="eyebrow">The weekly brief</p>
+<h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">The full read, every Monday. Free.</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C9D3DC; max-width: 520px">The full signal for every market we cover, the triggers that would change each rating, last week&rsquo;s call results and the decisions to watch next week.</p>
+</div>
+<form id="briefForm" class="bf" action="FORM_ACTION_URL" method="post" novalidate>
+<label for="bfEmail">Work email</label>
+<input id="bfEmail" name="email" type="email" autocomplete="email" placeholder="name@company.com" aria-describedby="bfEmailErr">
+<p class="err" id="bfEmailErr" role="alert"></p>
+<label class="check"><input id="bfConsent" name="consent" type="checkbox" aria-describedby="bfConsentErr"><span>I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the <a href="privacy.html">privacy notice</a>, including that our newsletter service stores my email address outside Kenya.</span></label>
+<p class="err" id="bfConsentErr" role="alert"></p>
+<button type="submit" class="btn btn-gold">Get the weekly brief</button>
+<p id="bfStatus" role="status" style="margin: 4px 0 0; font-size: 13px; color: var(--mute)">Free. Every Monday. Unsubscribe any time.</p>
+</form>
+</div>
+</section>
+<p class="wrap" style="margin: 0; padding-top: 22px; padding-bottom: 22px; font-size: 12.5px; line-height: 1.6; color: var(--mute); background: var(--ink)">Insights are general analysis of public policy information, published for discussion. They are not investment advice or an offer of any service. Ratings are our own judgement, built from central bank, national statistics, IMF and established business press sources, and will change as new information arrives.</p>
 </main>
 <footer style="background: #021A44; padding: 40px clamp(16px, 5vw, 48px); border-top: 1px solid var(--line)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px 40px; justify-content: space-between; align-items: center">
 <img src="images/logo-full.png?v=2" alt="Ally &amp; Associates Consulting" style="width: 150px; height: auto; display: block">
 <p style="margin: 0; font-size: 13px; line-height: 1.6; color: var(--mute); max-width: 640px">GTC Towers, Nairobi, Kenya · <a href="https://allyandassociates.com">allyandassociates.com</a> · <a href="mailto:info@allyandassociates.com">info@allyandassociates.com</a><br>Ally &amp; Associates provides advisory and facilitation services. We are not a lender, do not hold client funds and do not offer securities.<br>Market pulse: inflation and policy rates are the latest official releases from national statistics offices and central banks (month shown); metal prices are indicative spot prices via <a href="https://gold-api.com">Gold API</a>. For information only, not investment advice.</p>
-<span style="font-size: 13px; color: var(--mute)">© 2026 Ally &amp; Associates</span>
+<span style="font-size: 13px; color: var(--mute)">© 2026 Ally &amp; Associates · <a href="privacy.html">Privacy notice</a></span>
 </div>
 </footer>
 </div>
@@ -570,15 +356,15 @@ html{scroll-behavior:smooth}
 (function () {
   var btn = document.querySelector('.nav-burger'), menu = document.getElementById('mnav');
   if (!btn || !menu) return;
+  var grp = menu.querySelector('.mnav-label'), sub = document.getElementById('mnav-method');
   function set(open) {
     menu.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    if (!open) { var g = menu.querySelector('.mnav-label'), sb = document.getElementById('mnav-method'); if (g && sb) { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; } }
+    if (!open && grp && sub) { grp.setAttribute('aria-expanded', 'false'); sub.hidden = true; }
   }
   btn.addEventListener('click', function (e) { e.stopPropagation(); set(!menu.classList.contains('open')); });
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
-  var grp = menu.querySelector('.mnav-label'), sub = document.getElementById('mnav-method');
   if (grp && sub) grp.addEventListener('click', function (e) {
     e.stopPropagation();
     var open = grp.getAttribute('aria-expanded') !== 'true';
@@ -587,89 +373,365 @@ html{scroll-behavior:smooth}
   });
   document.addEventListener('click', function (e) { if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); btn.focus(); } });
-  window.addEventListener('resize', function () { if (window.innerWidth > 860) set(false); });
+})();
+</script>
+<script>
+
+/*DATA_START*/
+const ISSUE='2026-11-09';
+const LENSES={
+ liq:{name:'Short-term liquidity / FX',w:{pol:.20,mac:.55,geo:.25}},
+ debt:{name:'Sovereign debt / fiscal',w:{pol:.30,mac:.55,geo:.15}},
+ entry:{name:'Long-horizon entry',w:{pol:.45,mac:.30,geo:.25}}
+};
+const LAYERS=[['pol','Political'],['mac','Macro'],['geo','Geo / trade']];
+const COUNTRIES=[
+ {
+  "id": "ke",
+  "name": "Kenya",
+  "old": "Stable",
+  "asOf": "2026-11-06",
+  "anchor": "Inflation rose to 7.3% in October, its highest in more than three years, as transport costs climbed 17.1%.",
+  "signal": "Core inflation rose to 4.3% and diesel was up 32.5% on the year. The Central Bank of Kenya held its rate at 8.75% on 7 October, and the shilling is steady at KSh 129.96 per dollar.",
+  "fdi": "Funding is cheap, with Eurobond yields falling, but the Magadi dispute raises the political premium on resource projects.",
+  "flag": "Diverge",
+  "div": "Funding conditions are improving while inflation and political risk are rising.",
+  "trigger": "An easing in November inflation and a settlement at Magadi would move the direction back to Stable.",
+  "call": {
+   "text": "The Central Bank of Kenya holds its rate at 8.75% at its December meeting.",
+   "by": "2026-12-31",
+   "p": 0.7
+  },
+  "support": [
+   "Market entry",
+   "Political & country risk"
+  ],
+  "layers": {
+   "pol": {
+    "s": 3,
+    "a": 1
+   },
+   "mac": {
+    "s": 2.5,
+    "a": 1
+   },
+   "geo": {
+    "s": 2.5,
+    "a": 0
+   }
+  }
+ },
+ {
+  "id": "et",
+  "name": "Ethiopia",
+  "old": "Stable",
+  "asOf": "2026-11-08",
+  "anchor": "The National Bank of Ethiopia held its policy rate at 16% on 3 November.",
+  "signal": "Inflation eased to 14.9% in September and is expected to stay in double digits for six months. Bank credit grew 42.6% after a cap was lifted in July.",
+  "fdi": "Opening slowly; tight money and energy tariffs are holding back private investment.",
+  "flag": "Diverge",
+  "div": "The rate signal is tight while credit and liquidity are expanding fast.",
+  "trigger": "Inflation below 12% before the January review would move the direction to Improving.",
+  "call": {
+   "text": "The National Bank of Ethiopia keeps its rate at 16% at the end-January review.",
+   "by": "2027-01-31",
+   "p": 0.65
+  },
+  "support": [
+   "Market entry",
+   "Political & country risk"
+  ],
+  "layers": {
+   "pol": {
+    "s": null,
+    "a": 0
+   },
+   "mac": {
+    "s": 4,
+    "a": 0
+   },
+   "geo": {
+    "s": 3,
+    "a": 0
+   }
+  }
+ },
+ {
+  "id": "tz",
+  "name": "Tanzania",
+  "old": "Stable",
+  "asOf": "2026-10-07",
+  "anchor": "The Bank of Tanzania held its rate at 6.25% for the fourth quarter on 7 October.",
+  "signal": "Inflation was 4.3% in September, within the 3–5% target, and reserves cover 4.3 months of imports. The bank raised its rate from 5.75% in July.",
+  "fdi": "Steady, with growth near 6% and projected to rise.",
+  "flag": "Diverge",
+  "div": "The central bank is tightening while growth is projected to accelerate.",
+  "trigger": "A further rate rise in January would move the level up.",
+  "call": {
+   "text": "The Bank of Tanzania keeps its rate at 6.25% for the first quarter of 2027.",
+   "by": "2027-01-31",
+   "p": 0.65
+  },
+  "support": [
+   "Project finance readiness",
+   "Political & country risk"
+  ],
+  "layers": {
+   "pol": {
+    "s": 3,
+    "a": 0
+   },
+   "mac": {
+    "s": 2,
+    "a": 0
+   },
+   "geo": {
+    "s": 2,
+    "a": 0
+   }
+  }
+ },
+ {
+  "id": "ug",
+  "name": "Uganda",
+  "old": "Under watch",
+  "asOf": "2026-10-30",
+  "anchor": "The shilling touched about 4,500 per dollar on 23 October, its weakest in 33 years, nine days after an emergency rate rise.",
+  "signal": "The Bank of Uganda raised its rate to 12% at an emergency meeting on 14 October, but the shilling kept falling. Inflation rose to 5.8% in October.",
+  "fdi": "Strained, as offshore investors exit local bonds.",
+  "flag": "Diverge",
+  "div": "The rate rise targets imported inflation, and the currency kept falling after it.",
+  "trigger": "The shilling holding below 4,200 for several weeks would move the direction to Stable.",
+  "call": {
+   "text": "The Bank of Uganda raises its rate above 12% by 31 January 2027.",
+   "by": "2027-01-31",
+   "p": 0.35
+  },
+  "support": [
+   "Political & country risk",
+   "Project finance readiness"
+  ],
+  "layers": {
+   "pol": {
+    "s": null,
+    "a": 0
+   },
+   "mac": {
+    "s": 4.5,
+    "a": 1
+   },
+   "geo": {
+    "s": 3.5,
+    "a": 1
+   }
+  }
+ },
+ {
+  "id": "rw",
+  "name": "Rwanda",
+  "old": "Under watch",
+  "asOf": "2026-11-07",
+  "anchor": "Urban inflation reached 17.2% in September, up from 15.7% in August.",
+  "signal": "Core inflation is 11.4% and energy inflation 45%. The policy rate is 8.75% after an August rise.",
+  "fdi": "Strong on activity, with exports up 33% in 2025/26.",
+  "flag": "Diverge",
+  "div": "Growth near 10% sits beside inflation that is still accelerating.",
+  "trigger": "Monthly inflation that stops rising would move the direction to Stable.",
+  "call": {
+   "text": "The National Bank of Rwanda raises its rate above 8.75% at its next policy meeting.",
+   "by": "2026-12-31",
+   "p": 0.6
+  },
+  "support": [
+   "Market entry",
+   "Project finance readiness"
+  ],
+  "layers": {
+   "pol": {
+    "s": null,
+    "a": 0
+   },
+   "mac": {
+    "s": 4,
+    "a": 1
+   },
+   "geo": {
+    "s": 2.5,
+    "a": 0
+   }
+  }
+ },
+ {
+  "id": "zm",
+  "name": "Zambia",
+  "old": "Improving",
+  "asOf": "2026-11-07",
+  "anchor": "IMF staff agreed a new USD 1.47bn, 36-month Extended Credit Facility on 9 October.",
+  "signal": "The 2027 budget targets a deficit of no more than 3% of GDP, down from 5.9%. The Bank of Zambia cut its rate to 10.75% on 30 September.",
+  "fdi": "Rising, with copper output heading to 930,000 tonnes this year.",
+  "flag": "Diverge",
+  "div": "Output targets and rate cuts point up while fiscal tightening raises costs.",
+  "trigger": "A delay to IMF Board approval past year-end would move the direction to Stable.",
+  "call": {
+   "text": "The IMF Executive Board approves Zambia’s 36-month programme by 31 December 2026.",
+   "by": "2026-12-31",
+   "p": 0.75
+  },
+  "support": [
+   "Project finance readiness",
+   "Market entry"
+  ],
+  "layers": {
+   "pol": {
+    "s": 3,
+    "a": 0
+   },
+   "mac": {
+    "s": 2,
+    "a": -1
+   },
+   "geo": {
+    "s": 2.5,
+    "a": -1
+   }
+  }
+ }
+];
+function clamp(v){return Math.max(1,Math.min(5,v));}
+function levelOf(c){return c<2?'Low':c<3?'Moderate':c<4?'Elevated':'High';}
+function dirOf(t){return t<=-0.25?'Improving':t>=0.25?'Deteriorating':'Stable';}
+function covOf(n){return n>=3?'Full':n===2?'Partial':n===1?'Indicative only':'None';}
+function compute(c,lensKey,ov){
+ const lens=LENSES[lensKey]; let sw=0,ss=0,st=0,n=0; const rows={};
+ for(const [k] of LAYERS){
+  const l=c.layers[k]; const s=(l.s==null)?null:clamp(l.s+((ov&&ov.key===k&&ov.ds)||0));
+  const a=(ov&&ov.key===k&&ov.zero)?0:(l.a||0);
+  rows[k]={s:s,a:a,w:lens.w[k],eff:null};
+  if(s==null) continue; n++; sw+=lens.w[k]; ss+=lens.w[k]*s; st+=lens.w[k]*a;}
+ if(!n) return {n:0,rows:rows,comp:null,trend:0,level:'n/a',dir:'n/a'};
+ for(const k in rows){ if(rows[k].s!=null) rows[k].eff=rows[k].w/sw; }
+ const comp=ss/sw, trend=st/sw;
+ return {n:n,rows:rows,comp:comp,trend:trend,level:levelOf(comp),dir:dirOf(trend)};}
+function sensitivity(c,lensKey){
+ const base=compute(c,lensKey); const out=[];
+ for(const [k,label] of LAYERS){
+  if(base.rows[k].s==null) continue;
+  if(base.rows[k].a!==0){const r=compute(c,lensKey,{key:k,zero:true}); if(r.dir!==base.dir) out.push(label+' risk trend set flat: '+base.dir+' → '+r.dir);}
+  for(const d of [1,-1]){const r=compute(c,lensKey,{key:k,ds:d}); if(r.level!==base.level) out.push(label+' score '+(d>0?'+1':'−1')+': '+base.level+' → '+r.level);}
+ }
+ return out;}
+function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/86400000);}
+/*DATA_END*/
+
+
+</script>
+<script>
+(function () {
+  var REGION = { ke: 'East Africa & COMESA', et: 'East Africa & COMESA', tz: 'East Africa', ug: 'East Africa & COMESA', rw: 'East Africa & COMESA', zm: 'Southern Africa & COMESA' };
+  var PILL = { Improving: 't-up', Stable: 't-flat', Deteriorating: 't-watch' };
+  var lensKey = 'entry', current = 'ke', prev = null;
+  var $ = function (id) { return document.getElementById(id); };
+  var pct = function (x) { return Math.round(x * 100) + '%'; };
+  var fmtDate = function (s) { return new Date(s + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function pill(dir) { return '<span class="pill ' + (PILL[dir] || 't-flat') + '"><i></i>' + dir + '</span>'; }
+
+  function renderLens() {
+    var h = '';
+    Object.keys(LENSES).forEach(function (k) { h += '<button type="button" data-k="' + k + '" aria-pressed="' + (k === lensKey) + '">' + LENSES[k].name + '</button>'; });
+    $('lensBtns').innerHTML = h;
+    $('lensBtns').querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () {
+      var k = b.getAttribute('data-k'); if (k === lensKey) return;
+      var c = COUNTRIES.filter(function (x) { return x.id === current; })[0];
+      prev = { lens: LENSES[lensKey].name, r: compute(c, lensKey), id: current };
+      lensKey = k; renderAll();
+      var ro = $('readout'); ro.classList.remove('flash'); void ro.offsetWidth; ro.classList.add('flash');
+    }); });
+  }
+  function renderReadout() {
+    var c = COUNTRIES.filter(function (x) { return x.id === current; })[0], r = compute(c, lensKey);
+    var opts = COUNTRIES.map(function (x) { return '<option value="' + x.id + '"' + (x.id === current ? ' selected' : '') + '>' + x.name + '</option>'; }).join('');
+    var h = '<div class="ro-top"><label for="roSel">Selected market</label><select id="roSel">' + opts + '</select></div>';
+    h += '<div class="ro-main"><span class="ro-score">' + r.comp.toFixed(1) + '</span><span class="ro-level">' + r.level + '</span>' + pill(r.dir) + '</div>';
+    var d = '';
+    if (prev && prev.id === current) {
+      var diff = r.comp - prev.r.comp, s = (diff > 0 ? '+' : diff < 0 ? '−' : '±') + Math.abs(diff).toFixed(2);
+      d = 'Was <b>' + prev.r.comp.toFixed(1) + ' ' + prev.r.level + '</b> under ' + prev.lens + ' (' + s + ')'
+        + (prev.r.dir !== r.dir ? '. Direction moved from <b>' + prev.r.dir + '</b> to <b>' + r.dir + '</b>.' : '.');
+    } else {
+      d = 'Weighted for <b>' + LENSES[lensKey].name + '</b>. Pick another decision to compare.';
+    }
+    h += '<p class="ro-delta">' + d + '</p><div class="ro-bars">';
+    LAYERS.forEach(function (p) {
+      var row = r.rows[p[0]];
+      if (row.s == null) { h += '<div class="ro-row na"><span>' + p[1] + '</span><span class="ro-track"></span><span>Not scored</span></div>'; return; }
+      h += '<div class="ro-row"><span>' + p[1] + '</span><span class="ro-track"><i class="ro-fill" style="width:' + Math.round(row.eff * 100) + '%"></i></span><span>' + row.s.toFixed(1) + ' × ' + pct(row.eff) + '</span></div>';
+    });
+    h += '</div><p class="ro-foot">Bar = weight in this decision. Score × weight = contribution. Coverage ' + r.n + '/3. <a href="#monitor">Read the ' + c.name + ' entry</a></p>';
+    $('readout').innerHTML = h;
+    $('roSel').addEventListener('change', function (e) { current = e.target.value; prev = null; renderTiles(); renderCard(); renderReadout(); });
+  }
+  function renderWeights() {
+    var h = '<tr><th scope="col">Layer</th>';
+    var SHORT = { liq: 'Liquidity / FX', debt: 'Debt / fiscal', entry: 'Long-horizon entry' };
+    Object.keys(LENSES).forEach(function (k) { h += '<th scope="col"' + (k === lensKey ? ' class="on"' : '') + '>' + (SHORT[k] || LENSES[k].name) + '</th>'; });
+    h += '</tr>';
+    LAYERS.forEach(function (p) {
+      h += '<tr><td>' + p[1] + '</td>';
+      Object.keys(LENSES).forEach(function (k) { h += '<td' + (k === lensKey ? ' class="on"' : '') + '>' + pct(LENSES[k].w[p[0]]) + '</td>'; });
+      h += '</tr>';
+    });
+    $('wTable').innerHTML = h;
+  }
+  function renderSummary() {
+    var h = '<tr><th scope="col">Market</th><th scope="col">Level</th><th scope="col">Direction</th><th scope="col">Coverage</th><th scope="col">Dated call</th></tr>';
+    COUNTRIES.forEach(function (c) {
+      var r = compute(c, lensKey);
+      h += '<tr><td><b>' + c.name + '</b></td><td>' + r.level + ' <span class="sub">' + r.comp.toFixed(1) + '</span></td><td>' + pill(r.dir) + '</td><td>' + covOf(r.n) + ' <span class="sub">' + r.n + '/3</span></td><td>' + pct(c.call.p) + ' <span class="sub">by ' + fmtDate(c.call.by) + '</span></td></tr>';
+    });
+    $('sumTable').innerHTML = h;
+    $('sumNote').textContent = 'Weighted for: ' + LENSES[lensKey].name + '. Compare levels across markets only when coverage matches.';
+  }
+  function renderTiles() {
+    var h = '';
+    COUNTRIES.forEach(function (c) {
+      var r = compute(c, lensKey);
+      h += '<button type="button" class="tile" data-id="' + c.id + '" aria-pressed="' + (c.id === current) + '"><span>' + c.name + '</span>' + pill(r.dir) + '<span class="lvl">' + r.level + ' · ' + r.comp.toFixed(1) + '</span></button>';
+    });
+    $('in-tiles').innerHTML = h;
+    $('in-tiles').querySelectorAll('.tile').forEach(function (b) { b.addEventListener('click', function () { current = b.getAttribute('data-id'); prev = null; renderTiles(); renderCard(); renderReadout(); }); });
+  }
+  function renderCard() {
+    var c = COUNTRIES.filter(function (x) { return x.id === current; })[0];
+    var h = '<div class="card-h"><div><p class="eyebrow eyebrow-dark">' + esc(REGION[c.id]) + ' · Week of 9 November 2026</p><h2 class="disp">' + c.name + '</h2></div></div>';
+    h += '<div class="blk"><p class="lbl">Anchor</p><p class="txt">' + c.anchor + '</p></div>';
+    h += '<div class="pair"><div class="blk"><p class="lbl">Signal</p><p class="txt">' + c.signal + '</p></div><div class="blk"><p class="lbl">FDI pulse</p><p class="txt">' + c.fdi + '</p></div></div>';
+    h += '<div class="blk"><p class="lbl">Where the reads disagree<span class="flag">' + c.flag + '</span></p><p class="txt">' + c.div + '</p></div>';
+    h += '<div class="blk"><p class="lbl">What would change this read</p><p class="txt">' + c.trigger + '</p></div>';
+    h += '<div class="blk"><p class="lbl">Dated call</p><div class="call"><span class="call-p">' + pct(c.call.p) + '</span><p class="call-t">' + c.call.text + '</p><p class="call-d">Resolves by ' + fmtDate(c.call.by) + '. Results are reported in the weekly brief.</p></div></div>';
+    h += '<div class="blk"><p class="lbl">Where we support</p><div class="tags">' + c.support.map(function (s) { return '<span class="tag">' + s + '</span>'; }).join('') + '</div></div>';
+    $('in-card').innerHTML = h;
+  }
+  function renderAll() { renderLens(); renderWeights(); renderSummary(); renderTiles(); renderCard(); renderReadout(); }
+  var hash = (location.hash || '').replace('#', '').toLowerCase();
+  COUNTRIES.forEach(function (c) { if (hash === c.id || hash === c.name.toLowerCase()) current = c.id; });
+  renderAll();
 })();
 (function () {
-  var C = [
-      { id: 'kenya', name: 'Kenya', region: 'East Africa & COMESA', traj: 'Stable', pill: 't-flat', conf: 'Confidence: medium-high', asof: '6 November 2026',
-        signal: 'The Central Bank of Kenya held its policy rate at 8.75% on 7 October. Inflation was 6.8% in September, inside the target range; reserves stand at USD 14.7bn, or 5.9 months of imports; the shilling held at KSh 129.96 per dollar.',
-        fdi: 'Supportive. A steady currency and Eurobond yields that fell about 26 basis points in the first week of November lower the cost of entry and refinancing.',
-        fwd: 'Rate cuts stay paused while oil-driven inflation is watched. The next decision is due in December.',
-        back: 'Projects priced on a stable shilling and private credit growth near 10% need today’s fuel relief to hold.',
-        div: 'Headline stability leans on fuel subsidies and a temporary VAT cut on fuel, while core inflation rose to 4.0% from 3.4%.',
-        impl: 'A good window for entry and refinancing. Stress-test operating costs for the unwind of fuel support.',
-        support: ['Market entry', 'Political & country risk'],
-        links: [{ label: 'CBK MPC, 7 Oct 2026', url: 'https://www.centralbank.go.ke/uploads/mpc_press_release/224745454_MPC%20Press%20Release%20-%20Meeting%20of%20October%207%202026.pdf' }, { label: 'CBK Weekly Bulletin, 6 Nov 2026', url: 'https://www.centralbank.go.ke/uploads/weekly_bulletin/1864387498_Weekly%20CBK%20Bulletin%20November%206,%202026.pdf' }] },
-      { id: 'ethiopia', name: 'Ethiopia', region: 'East Africa & COMESA', traj: 'Stable', pill: 't-flat', conf: 'Confidence: medium', asof: '8 November 2026',
-        signal: 'The National Bank of Ethiopia held its policy rate at 16% on 3 November. Inflation eased to 14.9% in September and is expected to stay in double digits for six months; the 24% cap on bank credit growth was lifted in July.',
-        fdi: 'Opening, slowly. Financial-sector liberalisation continues, but tight money, energy tariffs and currency uncertainty are holding back private investment.',
-        fwd: 'Bank-specific reserve requirements and liquidity absorption keep credit tight into early 2027. The next review is at the end of January.',
-        back: 'An entrant needs predictable access to foreign exchange and financing costs inside the 13–19% rate corridor.',
-        div: 'Reserve money grew 87% on the central bank’s gold operations while policy aims to tighten; liquidity and the rate signal point different ways.',
-        impl: 'Secure licences and position now; phase capital in and keep local-currency borrowing short.',
-        support: ['Market entry', 'Political & country risk'],
-        links: [{ label: 'NBE MPC, 3 Nov 2026', url: 'https://nbe.gov.et/wp-content/uploads/2026/11/PR_1103_MPC_E_FFFF.pdf' }, { label: 'Capital Ethiopia, 8 Nov 2026', url: 'https://capitalethiopia.com/2026/11/08/monetary-tightening-risks-slowing-business-expansion-experts-warn/' }] },
-      { id: 'tanzania', name: 'Tanzania', region: 'East Africa', traj: 'Stable', pill: 't-flat', conf: 'Confidence: medium', asof: '17 October 2026',
-        signal: 'The Bank of Tanzania kept its policy rate at 6.25% for the fourth quarter, after a July rise to counter energy and transport costs. The shilling traded near TZS 2,633 per dollar in mid-October.',
-        fdi: 'Steady. Growth above 6% and reserves of about USD 6bn, 4.3 months of imports, support investor confidence.',
-        fwd: 'Rates hold unless fuel and transport costs push inflation beyond the 3–5% target.',
-        back: 'Mining and processing projects need a stable shilling and predictable gold-sale and tax rules to reach financial close.',
-        div: 'Policy has tightened while growth targets stay high, so financing costs rise just as expansion is being pushed.',
-        impl: 'Lock in local financing terms early and keep tax incentives out of base-case returns.',
-        support: ['Project finance readiness', 'Political & country risk'],
-        links: [{ label: 'TanzaniaInvest, 17 Oct 2026', url: 'https://www.tanzaniainvest.com/?p=35086' }, { label: 'TanzaniaInvest, Q3 2026 decision', url: 'https://tanzaniainvest.com/economy/central-bank-rate-q3-2026' }] },
-      { id: 'uganda', name: 'Uganda', region: 'East Africa & COMESA', traj: 'Under watch', pill: 't-watch', conf: 'Confidence: high', asof: '30 October 2026',
-        signal: 'The Bank of Uganda raised its policy rate from 9.75% to 12% at an emergency meeting on 14 October, its largest rise since 2011, and lifted the cash reserve requirement to 13.5%. The shilling hit a record low near 4,143 per dollar.',
-        fdi: 'Strained. More than USD 200m of portfolio money left local bonds in two weeks, and inflation rose to 5.8% in October.',
-        fwd: 'Further currency intervention or tightening is likely while oil prices stay high and outflows continue.',
-        back: 'Projects with dollar costs and shilling revenues need hedging or dollar offtake before financial close.',
-        div: 'Rate rises target inflation driven mainly by imported fuel and food, so the tool may not reach the cause.',
-        impl: 'Price in currency risk and higher borrowing costs; defer non-essential shilling borrowing.',
-        support: ['Political & country risk', 'Project finance readiness'],
-        links: [{ label: 'Daily Monitor, 14–15 Oct 2026', url: 'https://www.monitor.co.ug/uganda/news/national/ailing-shilling-forces-bou-into-emergency-policy-tightening-amid-200m-capital-flight-5634250' }, { label: 'Finimize, October inflation', url: 'https://finimize.com/content/ugandas-inflation-hit-a-3-year-high-as-the-shilling-slid' }] },
-      { id: 'rwanda', name: 'Rwanda', region: 'East Africa & COMESA', traj: 'Under watch', pill: 't-watch', conf: 'Confidence: medium', asof: '7 November 2026',
-        signal: 'The National Bank of Rwanda’s annual report, released on 6 November, shows growth of 10.6% in 2025/26 with inflation averaging 9.2%, above the 2–8% target. The policy rate is 8.75% after an August rise.',
-        fdi: 'Strong. Exports rose 33% and investment is climbing, while the franc’s depreciation slowed to 2.3%.',
-        fwd: 'Inflation is projected above target through 2026, returning to range in the second half of 2027.',
-        back: 'Investors need borrowing costs to settle before committing to long-dated local debt.',
-        div: 'Growth is running near 10% while inflation forces tightening; activity and prices pull in opposite directions.',
-        impl: 'The growth case holds. Fix borrowing costs early and watch energy prices.',
-        support: ['Market entry', 'Project finance readiness'],
-        links: [{ label: 'Xinhua via The Star, 7 Nov 2026', url: 'https://www.thestar.com.my/news/world/2026/11/07/rwanda039s-economy-maintains-strong-momentum-in-20252026-central-bank' }, { label: 'KT Press, 26 Aug 2026', url: 'https://www.ktpress.rw/2026/08/rwanda-central-bank-raises-key-interest-rate-to-8-75-as-inflation-hits-14-5/' }] },
-      { id: 'zambia', name: 'Zambia', region: 'Southern Africa & COMESA', traj: 'Improving', pill: 't-up', conf: 'Confidence: medium', asof: '7 November 2026',
-        signal: 'The 2027 budget, presented on 6 November, targets growth of about 5% and a deficit of no more than 3% of GDP, down from 5.9%. IMF staff agreed a new USD 1.47bn, 36-month programme on 9 October.',
-        fdi: 'Rising. The government promises a stable mining fiscal regime as copper output heads to 930,000 tonnes this year and a 3 million tonne target for 2031.',
-        fwd: 'The IMF programme ties fiscal consolidation to transparent mining licensing and the reversal of fuel-tax relief.',
-        back: 'Copper projects need predictable royalties, licensing and power supply to reach the 2031 target.',
-        div: 'Ambitious output targets sit alongside fiscal tightening and local-content rules that raise project costs.',
-        impl: 'The mining entry window is opening. Build licensing and local-content compliance into financing plans early.',
-        support: ['Project finance readiness', 'Market entry'],
-        links: [{ label: 'Reuters via TimesLIVE, 7 Nov 2026', url: 'https://www.timeslive.co.za/news/africa/2026-11-07-zambia-sees-steady-growth-and-smaller-budget-deficit-next-year/' }, { label: 'IMF, 9 Oct 2026', url: 'https://www.imf.org/en/news/articles/2026/10/09/pr26331-zambia-new-ecf' }] }
-    ];
-  var tiles = document.getElementById('in-tiles'), card = document.getElementById('in-card');
-  if (!tiles || !card) return;
-  function f(k) { return card.querySelector('[data-f="' + k + '"]'); }
-  function show(id, focus) {
-    var c = C.filter(function (x) { return x.id === id; })[0] || C[0];
-    ['region', 'name', 'traj', 'conf', 'signal', 'fdi', 'fwd', 'back', 'div', 'impl'].forEach(function (k) { f(k).textContent = c[k]; });
-    f('pill').className = 'pill ' + c.pill;
-    var t = f('support'); t.textContent = '';
-    c.support.forEach(function (s) { var e = document.createElement('span'); e.className = 'tag'; e.textContent = s; t.appendChild(e); });
-    f('links').textContent = 'Latest data as of ' + c.asof + '.';
-    f('mail').href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Insight request: ' + c.name);
-    [].forEach.call(tiles.children, function (b) { b.setAttribute('aria-pressed', b.dataset.id === c.id ? 'true' : 'false'); });
-  }
-  C.forEach(function (c) {
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'tile'; b.dataset.id = c.id; b.setAttribute('aria-pressed', 'false');
-    var n = document.createElement('span'); n.textContent = c.name;
-    var p = document.createElement('span'); p.className = 'pill ' + c.pill; p.innerHTML = '<i></i>'; p.appendChild(document.createTextNode(c.traj));
-    b.appendChild(n); b.appendChild(p);
-    b.addEventListener('click', function () { show(c.id); });
-    tiles.appendChild(b);
+  var f = document.getElementById('briefForm'); if (!f) return;
+  var em = document.getElementById('bfEmail'), ck = document.getElementById('bfConsent');
+  var ee = document.getElementById('bfEmailErr'), ce = document.getElementById('bfConsentErr'), st = document.getElementById('bfStatus');
+  em.addEventListener('input', function () { ee.textContent = ''; em.removeAttribute('aria-invalid'); });
+  ck.addEventListener('change', function () { ce.textContent = ''; });
+  f.addEventListener('submit', function (e) {
+    var ok = true, v = em.value.trim();
+    if (!v) { ee.textContent = 'Enter your email address.'; ok = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { ee.textContent = 'Enter a valid email address.'; ok = false; }
+    if (ee.textContent) em.setAttribute('aria-invalid', 'true');
+    if (!ck.checked) { ce.textContent = 'Tick the box to agree before signing up.'; ok = false; }
+    if (!ok) { e.preventDefault(); (ee.textContent ? em : ck).focus(); return; }
+    if (f.getAttribute('action') === 'FORM_ACTION_URL') { e.preventDefault(); var body = 'Please add ' + v + ' to the weekly brief. I agree to receive it by email and have read the privacy notice.'; window.location.href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Subscribe: weekly brief') + '&body=' + encodeURIComponent(body); st.textContent = 'Your email app should open with your sign-up ready to send.'; }
   });
-  var h = (location.hash || '').replace('#', '');
-  show(C.some(function (x) { return x.id === h; }) ? h : 'kenya');
 })();
 </script>
 </body>
