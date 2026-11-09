@@ -174,10 +174,6 @@ html{scroll-behavior:smooth}
 .aa.moving .n1{animation-range:contain 6% contain 14%}.aa.moving .n2{animation-range:contain 17% contain 25%}.aa.moving .n3{animation-range:contain 28% contain 36%}.aa.moving .n4{animation-range:contain 39% contain 47%}.aa.moving .n5{animation-range:contain 50% contain 58%}.aa.moving .n6{animation-range:contain 61% contain 69%}
 .aa.moving .fb{animation:draw linear both;animation-timeline:--risk;animation-range:contain 76% contain 92%}
 .aa.moving .fb-note{animation:appear linear both;animation-timeline:--risk;animation-range:contain 84% contain 96%}
-.aa.moving .sc-fin{view-timeline:--fin block}
-.aa.moving .fin-img{animation:deepZoom linear both;animation-timeline:--fin;animation-range:contain 0% contain 100%}
-.aa.moving .phase{animation:litRow linear both;animation-timeline:--fin}
-.aa.moving .p1{animation-range:contain 8% contain 18%}.aa.moving .p2{animation-range:contain 22% contain 32%}.aa.moving .p3{animation-range:contain 36% contain 46%}.aa.moving .p4{animation-range:contain 50% contain 60%}.aa.moving .p5{animation-range:contain 64% contain 74%}
 .aa.moving .trace{animation:draw linear both;animation-timeline:view();animation-range:entry 40% cover 55%}
 .aa.moving .big{animation:bigNum linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
 .aa.moving .cta-img{animation:zoomOut linear both;animation-timeline:view();animation-range:entry 0% cover 70%}
@@ -277,6 +273,85 @@ html{scroll-behavior:smooth}
 .citymap,.selring{transition:none}
 .city-card{animation:none}
 }
+
+/* Bankability, by design: timeline steps with a sticky white card */
+.fs{position:relative;background:radial-gradient(1200px 600px at 85% 20%,rgba(185,158,71,.10),transparent 60%),var(--ink);padding:clamp(96px,11vw,150px) clamp(16px,5vw,48px) clamp(28px,3vw,40px)}
+.fs-head{max-width:860px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.fs-head p.fs-sub{margin:0;font-size:clamp(16px,1.35vw,19px);line-height:1.6;color:#C9D3DC;max-width:720px}
+.fs-grid{max-width:1200px;margin:clamp(48px,6vw,84px) auto 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:start}
+.fs-steps{position:relative;padding-left:60px}
+.fs-rail{position:absolute;left:15px;top:13px;width:2px;margin-left:-1px;background:rgba(243,237,226,.14);border-radius:2px}
+.fs-fill{position:absolute;inset:0;background:var(--gold);transform-origin:50% 0;transform:scaleY(0);border-radius:2px}
+.fs-step{position:relative;min-height:min(52vh,480px);padding-bottom:40px;opacity:.32;transition:opacity .45s ease}
+.fs-step:last-child{min-height:min(44vh,400px);padding-bottom:0}
+.fs-step.on{opacity:1}
+.fs-dot{position:absolute;left:-56px;top:2px;width:22px;height:22px;border-radius:50%;background:var(--ink);border:2px solid rgba(243,237,226,.28);display:flex;align-items:center;justify-content:center;transition:border-color .4s ease,box-shadow .4s ease}
+.fs-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);transform:scale(0);transition:transform .4s ease}
+.fs-step.on .fs-dot,.fs-step.done .fs-dot{border-color:var(--gold)}
+.fs-step.on .fs-dot{box-shadow:0 0 0 6px rgba(185,158,71,.16)}
+.fs-step.on .fs-dot::after,.fs-step.done .fs-dot::after{transform:scale(1)}
+.fs-num{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.2em;color:var(--gold)}
+.fs-step h3{margin:0 0 12px;font-size:clamp(26px,2.4vw,34px);line-height:1.12;font-weight:600}
+.fs-step > p.fs-desc{margin:0 0 20px;font-size:16px;line-height:1.65;color:#C9D3DC;max-width:470px}
+.fs-tags{display:flex;flex-wrap:wrap;gap:8px}
+.fs-tags span{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);border:1px solid rgba(243,237,226,.24);border-radius:999px;padding:8px 14px;background:rgba(243,237,226,.04)}
+.fs-side{position:sticky;top:max(124px,calc(50vh - 250px))}
+.fs-stack{display:grid}
+.fs-stack > .fs-panel{grid-area:1/1;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.fs-stack > .fs-panel.on{opacity:1;transform:none;pointer-events:auto}
+.fs.js .fs-step .fs-panel{display:none}
+.fs-card{background:#fff;color:#032560;border-radius:22px;border:1px solid rgba(3,37,96,.08);box-shadow:0 40px 80px -30px rgba(0,0,0,.55),0 10px 30px rgba(0,0,0,.18);overflow:hidden}
+.fs-bar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid rgba(3,37,96,.08);background:#FAF8F3}
+.fs-bar i{width:10px;height:10px;border-radius:50%;background:#D9D4C7}
+.fs-bar span{flex:1;text-align:center;margin-right:44px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#6B7A90}
+.fs-body{padding:22px 24px 24px}
+.fs-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.fs-top b{color:#7A6526}.fs-top em{font-style:normal;color:#8592A6}
+.fs-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid rgba(3,37,96,.08)}
+.fs-row:last-of-type{border-bottom:0}
+.fs-ic{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#032560;color:#B99E47;font-size:11px;font-weight:700;letter-spacing:.04em}
+.fs-ic.ok{background:rgba(46,125,91,.12);color:#2E7D5B;font-size:16px}
+.fs-ic.lt{background:rgba(3,37,96,.07);color:#032560}
+.fs-tx{flex:1;min-width:0}
+.fs-tx strong{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:14.5px;font-weight:600;color:#032560}
+.fs-tx small{display:block;margin-top:3px;font-size:13px;line-height:1.45;color:#5D6B80}
+.fs-chip{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:3px 8px;background:rgba(185,158,71,.16);color:#7A6526}
+.fs-chip.nv{background:rgba(3,37,96,.08);color:#032560}
+.fs-chip.am{background:rgba(196,120,40,.14);color:#9A5A16}
+.fs-chip.gr{background:rgba(46,125,91,.12);color:#2E7D5B}
+.fs-st{flex:none;font-size:12px;font-weight:600;color:#8592A6;text-align:right}
+.fs-st.gr{color:#2E7D5B}.fs-st.am{color:#9A5A16}
+.fs-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px;padding:14px 16px;border-radius:12px;background:#FAF8F3;font-size:13px;color:#5D6B80}
+.fs-foot b{color:#032560;font-weight:700}
+.fs-foot .go{color:#7A6526;font-weight:700}
+.fs-score{display:grid;grid-template-columns:minmax(0,1fr) 112px 44px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(3,37,96,.07);font-size:13.5px;font-weight:600}
+.fs-score:last-of-type{border-bottom:0}
+.fs-seg{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.fs-seg i{height:7px;border-radius:4px;background:rgba(3,37,96,.10)}
+.fs-seg i.f{background:#032560}.fs-seg.gap i.f{background:#C47828}
+.fs-score .fs-chip{justify-self:end}
+.fs-prog{height:8px;border-radius:6px;background:rgba(3,37,96,.08);overflow:hidden;margin:12px 0 4px}
+.fs-prog i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#B99E47,#D4BE74);border-radius:6px}
+.fs-cap{margin:18px 0 0;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:860px){
+.fs-grid{grid-template-columns:minmax(0,1fr)}
+.fs-side{display:none}
+.fs.js .fs-step .fs-panel{display:block}
+.fs-steps{padding-left:44px}
+.fs-rail{left:11px}
+.fs-dot{left:-44px}
+.fs-step,.fs-step:last-child{min-height:0;padding-bottom:56px;opacity:1}
+.fs-step:last-child{padding-bottom:0}
+.fs-step .fs-panel{margin-top:24px}
+.fs-body{padding:18px 16px 20px}
+.fs-score{grid-template-columns:minmax(0,1fr) 72px 44px;gap:8px;font-size:12.5px}
+.fs-ic{display:none}
+.fs-row{gap:10px;align-items:flex-start}
+.fs-st{font-size:11.5px;max-width:84px;padding-top:2px}
+.fs-bar span{margin-right:0;font-size:9.5px;letter-spacing:.14em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fs-foot{flex-wrap:wrap;padding:12px 14px}
+}
+@media (prefers-reduced-motion:reduce){.fs-step,.fs-stack > .fs-panel,.fs-dot,.fs-dot::after{transition:none}}
 </style>
 </head>
 <body>
@@ -541,24 +616,15 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="finance" class="sc-fin tall" style="--len: 2.8; position: relative; background: var(--ink)">
-<div class="stage">
-<img class="bgimg fin-img" src="images/finance.jpg" alt="" style="transform-origin: 44% 39%">
-<div style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.25)"></div>
-<div style="position: relative; height: 100%; max-width: 1240px; margin: 0 auto; padding: 116px clamp(16px, 5vw, 48px) 32px; display: flex; align-items: center">
-<div style="width: min(540px, 100%); background: rgba(2, 26, 68, 0.84); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--line); border-radius: 24px; padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px">
+<section id="finance" class="fs">
+<div class="fs-head rv">
 <p class="eyebrow">04 — Finance the project</p>
-<h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.04">Bankability, by design.</h2>
-<p style="margin: 0 0 6px; font-size: 16px; line-height: 1.6; color: #C9D3DC">Lenders fund certainty, not potential. We take projects through five phases so sponsors arrive at a lender with the answers already in hand.</p>
-<div>
-<div class="phase p1"><span style="font-weight: 700; color: var(--gold); font-size: 14px; padding-top: 2px">01</span><div><p style="margin: 0; font-weight: 600; font-size: 16px">Triage</p><p style="margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--mute)">Can this project become financeable, and what would it take?</p></div></div>
-<div class="phase p2"><span style="font-weight: 700; color: var(--gold); font-size: 14px; padding-top: 2px">02</span><div><p style="margin: 0; font-weight: 600; font-size: 16px">Diagnostic</p><p style="margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--mute)">Scored across the seven pillars lenders test, with gaps named.</p></div></div>
-<div class="phase p3"><span style="font-weight: 700; color: var(--gold); font-size: 14px; padding-top: 2px">03</span><div><p style="margin: 0; font-weight: 600; font-size: 16px">Gap closure</p><p style="margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--mute)">A sequenced plan for technical, legal, environmental and social (E&amp;S) and structural gaps.</p></div></div>
-<div class="phase p4"><span style="font-weight: 700; color: var(--gold); font-size: 14px; padding-top: 2px">04</span><div><p style="margin: 0; font-weight: 600; font-size: 16px">Financing readiness</p><p style="margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--mute)">Model, data room and a lender-ready investment story.</p></div></div>
-<div class="phase p5"><span style="font-weight: 700; color: var(--gold); font-size: 14px; padding-top: 2px">05</span><div><p style="margin: 0; font-weight: 600; font-size: 16px">Lender process support</p><p style="margin: 2px 0 0; font-size: 14px; line-height: 1.5; color: var(--mute)">Coordination through diligence, questions and conditions.</p></div></div>
+<h2 class="disp" style="margin: 0; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04">Bankability, by design.</h2>
+<p class="fs-sub">Lenders fund certainty, not potential. We take projects through five phases so sponsors arrive at a lender with the answers already in hand.</p>
 </div>
-</div>
-</div>
+<div class="fs-grid">
+<div class="fs-steps"><div class="fs-rail" aria-hidden="true"><div class="fs-fill"></div></div><div class="fs-step on" data-i="0"><span class="fs-dot" aria-hidden="true"></span><p class="fs-num">· 01</p><h3 class="disp">Triage</h3><p class="fs-desc">Can this project become financeable, and what would it take?</p><div class="fs-tags"><span>Scale</span><span>Lender appetite</span><span>Fatal flaws</span></div><div class="fs-panel"><div class="fs-card"><div class="fs-bar" aria-hidden="true"><i></i><i></i><i></i><span>Bankability file · Triage</span></div><div class="fs-body"><div class="fs-top"><b>First read</b><em>Go / no-go</em></div><div class="fs-row"><span class="fs-ic " aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div class="fs-tx"><strong>Project scale<span class="fs-chip ">Ticket</span></strong><small>Total project cost of US$50M and above</small></div><span class="fs-st gr">✓ Meets</span></div><div class="fs-row"><span class="fs-ic " aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5"/></svg></span><div class="fs-tx"><strong>Lender appetite<span class="fs-chip ">Market</span></strong><small>Sector and country against DFI, export credit and bank mandates</small></div><span class="fs-st gr">✓ Fit</span></div><div class="fs-row"><span class="fs-ic " aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><div class="fs-tx"><strong>Sponsor position<span class="fs-chip nv">Sponsor</span></strong><small>Equity commitment, track record and control</small></div><span class="fs-st am">To confirm</span></div><div class="fs-row"><span class="fs-ic " aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="fs-tx"><strong>Fatal flaws<span class="fs-chip nv">Screen</span></strong><small>Title, permits and offtake checked for deal-breakers</small></div><span class="fs-st gr">None found</span></div><div class="fs-foot"><span>Verdict</span><span class="go">Proceed to diagnostic →</span></div></div></div><p class="fs-cap">First read · Go / no-go</p></div></div><div class="fs-step" data-i="1"><span class="fs-dot" aria-hidden="true"></span><p class="fs-num">· 02</p><h3 class="disp">Diagnostic</h3><p class="fs-desc">Scored across the seven pillars lenders test, with gaps named.</p><div class="fs-tags"><span>Seven pillars</span><span>Scored</span><span>Gaps named</span></div><div class="fs-panel"><div class="fs-card"><div class="fs-bar" aria-hidden="true"><i></i><i></i><i></i><span>Bankability file · Diagnostic</span></div><div class="fs-body"><div class="fs-top"><b>Seven-pillar scorecard</b><em>Illustrative</em></div><div class="fs-score"><span>Asset &amp; technical</span><span class="fs-seg" role="img" aria-label="4 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="fs-chip gr">Ready</span></div><div class="fs-score"><span>Revenue &amp; market</span><span class="fs-seg" role="img" aria-label="3 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="fs-chip nv">Work</span></div><div class="fs-score"><span>Legal, permits &amp; land</span><span class="fs-seg gap" role="img" aria-label="2 of 5"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span><span class="fs-chip am">Gap</span></div><div class="fs-score"><span>Environmental &amp; social</span><span class="fs-seg gap" role="img" aria-label="2 of 5"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></span><span class="fs-chip am">Gap</span></div><div class="fs-score"><span>Financial structure</span><span class="fs-seg" role="img" aria-label="3 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="fs-chip nv">Work</span></div><div class="fs-score"><span>Country, political &amp; FX</span><span class="fs-seg" role="img" aria-label="3 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><span class="fs-chip nv">Work</span></div><div class="fs-score"><span>Sponsor &amp; governance</span><span class="fs-seg" role="img" aria-label="4 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><span class="fs-chip gr">Ready</span></div><div class="fs-foot"><span>Gaps named</span><b>2 critical · 3 to strengthen</b></div></div></div><p class="fs-cap">Seven pillars · Every gap named</p></div></div><div class="fs-step" data-i="2"><span class="fs-dot" aria-hidden="true"></span><p class="fs-num">· 03</p><h3 class="disp">Gap closure</h3><p class="fs-desc">A sequenced plan for technical, legal, environmental and social (E&amp;S) and structural gaps.</p><div class="fs-tags"><span>Technical</span><span>Legal</span><span>E&amp;S</span><span>Structure</span></div><div class="fs-panel"><div class="fs-card"><div class="fs-bar" aria-hidden="true"><i></i><i></i><i></i><span>Bankability file · Gap closure</span></div><div class="fs-body"><div class="fs-top"><b>Gap-closure plan</b><em>Illustrative sequence</em></div><div class="fs-row"><span class="fs-ic lt" aria-hidden="true">1</span><div class="fs-tx"><strong>Independent engineer’s review<span class="fs-chip ">Technical</span></strong><small>Resource, design and cost estimates tested to lender standard</small></div><span class="fs-st ">Month 1–2</span></div><div class="fs-row"><span class="fs-ic lt" aria-hidden="true">2</span><div class="fs-tx"><strong>Permits, land and title<span class="fs-chip ">Legal</span></strong><small>Licences regularised and land rights documented</small></div><span class="fs-st ">Month 2–4</span></div><div class="fs-row"><span class="fs-ic lt" aria-hidden="true">3</span><div class="fs-tx"><strong>E&amp;S action plan<span class="fs-chip ">E&amp;S</span></strong><small>Gap analysis against IFC Performance Standards</small></div><span class="fs-st ">Month 2–5</span></div><div class="fs-row"><span class="fs-ic lt" aria-hidden="true">4</span><div class="fs-tx"><strong>Offtake and security package<span class="fs-chip ">Structure</span></strong><small>Revenue contracts, security and equity plan aligned</small></div><span class="fs-st ">Month 4–6</span></div><div class="fs-foot"><span>Every gap</span><b>Owned, sequenced, tracked</b></div></div></div><p class="fs-cap">Sequenced plan · Every gap owned</p></div></div><div class="fs-step" data-i="3"><span class="fs-dot" aria-hidden="true"></span><p class="fs-num">· 04</p><h3 class="disp">Financing readiness</h3><p class="fs-desc">Model, data room and a lender-ready investment story.</p><div class="fs-tags"><span>Model</span><span>Data room</span><span>Investment story</span></div><div class="fs-panel"><div class="fs-card"><div class="fs-bar" aria-hidden="true"><i></i><i></i><i></i><span>Bankability file · Financing readiness</span></div><div class="fs-body"><div class="fs-top"><b>Lender-ready pack</b><em>4 of 4 complete</em></div><div class="fs-prog" aria-hidden="true"><i></i></div><div class="fs-row"><span class="fs-ic ok" aria-hidden="true">✓</span><div class="fs-tx"><strong>Financial model<span class="fs-chip ">Model</span></strong><small>Lender base case, sensitivities and debt sizing</small></div><span class="fs-st gr">Ready</span></div><div class="fs-row"><span class="fs-ic ok" aria-hidden="true">✓</span><div class="fs-tx"><strong>Data room<span class="fs-chip ">Data room</span></strong><small>Indexed to the questions lenders will ask</small></div><span class="fs-st gr">Ready</span></div><div class="fs-row"><span class="fs-ic ok" aria-hidden="true">✓</span><div class="fs-tx"><strong>Information memorandum<span class="fs-chip ">IM</span></strong><small>Project, sponsor, market and risk mitigants</small></div><span class="fs-st gr">Ready</span></div><div class="fs-row"><span class="fs-ic ok" aria-hidden="true">✓</span><div class="fs-tx"><strong>Investment story<span class="fs-chip ">Story</span></strong><small>A clear case for why this project, why now</small></div><span class="fs-st gr">Ready</span></div><div class="fs-foot"><span>Status</span><span class="go">Ready to approach lenders →</span></div></div></div><p class="fs-cap">Lender-ready · Answers in hand</p></div></div><div class="fs-step" data-i="4"><span class="fs-dot" aria-hidden="true"></span><p class="fs-num">· 05</p><h3 class="disp">Lender process support</h3><p class="fs-desc">Coordination through diligence, questions and conditions.</p><div class="fs-tags"><span>Diligence</span><span>Questions</span><span>Conditions</span></div><div class="fs-panel"><div class="fs-card"><div class="fs-bar" aria-hidden="true"><i></i><i></i><i></i><span>Bankability file · Lender process</span></div><div class="fs-body"><div class="fs-top"><b>Lender process</b><em>Coordinated to close</em></div><div class="fs-row"><span class="fs-ic " aria-hidden="true">DFI</span><div class="fs-tx"><strong>Development finance institution<span class="fs-chip nv">Diligence</span></strong><small>Questions answered from the data room</small></div><span class="fs-st ">In diligence</span></div><div class="fs-row"><span class="fs-ic " aria-hidden="true">ECA</span><div class="fs-tx"><strong>Export credit agency<span class="fs-chip nv">Cover</span></strong><small>Cover terms and eligibility under review</small></div><span class="fs-st ">Term sheet</span></div><div class="fs-row"><span class="fs-ic " aria-hidden="true">BANK</span><div class="fs-tx"><strong>Commercial lender<span class="fs-chip nv">Conditions</span></strong><small>Conditions precedent tracked through to close</small></div><span class="fs-st gr">CPs tracked</span></div><div class="fs-foot"><span>Our role</span><b>We prepare and coordinate. We do not lend.</b></div></div></div><p class="fs-cap">Diligence to close · One process</p></div></div></div>
+<div class="fs-side" aria-hidden="true"><div class="fs-stack"></div></div>
 </div>
 </section>
 
@@ -847,7 +913,7 @@ const CITIES = [
       a.addEventListener('click', function (e) {
         e.preventDefault();
         if (history.replaceState) history.replaceState(null, '', '#' + id);
-        play(target, stages, before);
+        play(target, typeof stages === 'function' ? stages() : stages, before);
       });
     });
   }
@@ -860,7 +926,21 @@ const CITIES = [
   // Risk: Volatility Compass steps 1 to 3, steps 4 to 6, then the feedback loop
   bind('risk', [[0.38, 2400, 500], [0.72, 2400, 600], [0.97, 1900, 0]]);
   // Project finance: phases 1 and 2, phases 3 and 4, then phase 5
-  bind('finance', [[0.34, 2400, 500], [0.62, 2400, 600], [0.97, 2400, 0]]);
+  // Project finance: stop on each of the five phases in turn
+  bind('finance', function () {
+    var sec = document.getElementById('finance');
+    var top = sec.getBoundingClientRect().top + window.scrollY;
+    var travel = Math.max(1, sec.offsetHeight - window.innerHeight);
+    var steps = sec.querySelectorAll('.fs-step');
+    var out = [];
+    steps.forEach(function (el, i) {
+      var r = el.getBoundingClientRect();
+      var y = r.top + window.scrollY - window.innerHeight * 0.42 + 20;
+      var f = Math.min(1, Math.max(0, (y - top) / travel));
+      out.push([f, i === 0 ? 1600 : 1300, i === steps.length - 1 ? 0 : 900]);
+    });
+    return out;
+  });
 })();
 (function () {
   var dd = document.getElementById('nav-method');
@@ -1034,6 +1114,51 @@ const CITIES = [
       new IntersectionObserver(function (en) { en.forEach(function (e) { inView = e.isIntersecting; if (inView) engage(); }); }, { threshold: 0.5 }).observe(car);
     } else { inView = true; }
   }
+})();
+</script>
+
+<script>
+(function () {
+  var sec = document.getElementById('finance');
+  if (!sec) return;
+  var steps = [].slice.call(sec.querySelectorAll('.fs-step'));
+  var stack = sec.querySelector('.fs-stack');
+  var rail = sec.querySelector('.fs-rail');
+  var fill = sec.querySelector('.fs-fill');
+  var list = sec.querySelector('.fs-steps');
+  var panels = steps.map(function (st) {
+    var p = st.querySelector('.fs-panel').cloneNode(true);
+    stack.appendChild(p);
+    return p;
+  });
+  sec.classList.add('js');
+  var cur = -1, raf = 0;
+  function layout() {
+    var first = steps[0].querySelector('.fs-dot'), last = steps[steps.length - 1].querySelector('.fs-dot');
+    var lr = list.getBoundingClientRect();
+    var a = first.getBoundingClientRect(), b = last.getBoundingClientRect();
+    rail.style.top = (a.top - lr.top + a.height / 2) + 'px';
+    rail.style.height = Math.max(0, b.top - a.top) + 'px';
+  }
+  function update() {
+    raf = 0;
+    var mid = window.innerHeight * 0.62, idx = 0;
+    steps.forEach(function (st, i) { if (st.getBoundingClientRect().top < mid) idx = i; });
+    var a = steps[0].querySelector('.fs-dot').getBoundingClientRect();
+    var b = steps[steps.length - 1].querySelector('.fs-dot').getBoundingClientRect();
+    var span = b.top - a.top;
+    var p = span > 0 ? (mid - a.top) / span : 0;
+    fill.style.transform = 'scaleY(' + Math.min(1, Math.max(0, p)).toFixed(4) + ')';
+    if (idx === cur) return;
+    cur = idx;
+    steps.forEach(function (st, i) { st.classList.toggle('on', i === idx); st.classList.toggle('done', i < idx); });
+    panels.forEach(function (pn, i) { pn.classList.toggle('on', i === idx); });
+  }
+  function req() { if (!raf) raf = requestAnimationFrame(update); }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', function () { layout(); req(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { layout(); req(); });
+  layout(); update();
 })();
 </script>
 </body>
