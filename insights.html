@@ -194,7 +194,7 @@ html{scroll-behavior:smooth}
 .ins .on-ink .bf .check input{accent-color:#B99E47}
 .ins .on-ink .err{color:#F2A49B}
 .ins .bf .btn{align-self:flex-start;margin-top:10px;border:0;cursor:pointer;font-family:inherit}
-@media (max-width:900px){.ins .call-p{font-size:36px}.ins .sumwrap{display:none}}
+@media (max-width:900px){.ins .call-p{font-size:36px}}
 </style>
 </head>
 <body>
@@ -280,8 +280,6 @@ html{scroll-behavior:smooth}
 <span class="pill t-up"><i></i>Improving</span><span class="pill t-flat"><i></i>Stable</span><span class="pill t-watch"><i></i>Deteriorating</span>
 </div>
 </div>
-<div class="tw dark sumwrap"><table id="sumTable"></table></div>
-<p id="sumNote" class="sumwrap" style="margin: -8px 0 0; font-size: 12.5px; color: var(--mute)"></p>
 <div class="mon">
 <div>
 <p class="reg-h">East Africa &amp; COMESA</p>
@@ -683,15 +681,6 @@ function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/8640000
     });
     $('wTable').innerHTML = h;
   }
-  function renderSummary() {
-    var h = '<tr><th scope="col">Market</th><th scope="col">Level</th><th scope="col">Direction</th><th scope="col">Coverage</th><th scope="col">Dated call</th></tr>';
-    COUNTRIES.forEach(function (c) {
-      var r = compute(c, lensKey);
-      h += '<tr><td><b>' + c.name + '</b></td><td>' + r.level + ' <span class="sub">' + r.comp.toFixed(1) + '</span></td><td>' + pill(r.dir) + '</td><td>' + covOf(r.n) + ' <span class="sub">' + r.n + '/3</span></td><td>' + pct(c.call.p) + ' <span class="sub">by ' + fmtDate(c.call.by) + '</span></td></tr>';
-    });
-    $('sumTable').innerHTML = h;
-    $('sumNote').textContent = 'Weighted for: ' + LENSES[lensKey].name + '. Compare levels across markets only when coverage matches.';
-  }
   function renderTiles() {
     var h = '';
     COUNTRIES.forEach(function (c) {
@@ -712,7 +701,7 @@ function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/8640000
     h += '<div class="blk"><p class="lbl">Where we support</p><div class="tags">' + c.support.map(function (s) { return '<span class="tag">' + s + '</span>'; }).join('') + '</div></div>';
     $('in-card').innerHTML = h;
   }
-  function renderAll() { renderLens(); renderWeights(); renderSummary(); renderTiles(); renderCard(); renderReadout(); }
+  function renderAll() { renderLens(); renderWeights(); renderTiles(); renderCard(); renderReadout(); }
   var hash = (location.hash || '').replace('#', '').toLowerCase();
   COUNTRIES.forEach(function (c) { if (hash === c.id || hash === c.name.toLowerCase()) current = c.id; });
   renderAll();
