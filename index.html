@@ -167,8 +167,12 @@ html{scroll-behavior:smooth}
 .mnav{position:fixed;left:0;right:0;top:104px;z-index:48;max-height:calc(100vh - 104px);overflow-y:auto;padding:8px clamp(16px,4vw,48px) 28px;background:#02204F;border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s ease,transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s linear .3s}
 .mnav.open{opacity:1;transform:none;visibility:visible;transition:opacity .25s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
 .mnav a{display:block;padding:15px 2px;border-bottom:1px solid var(--line);color:var(--ivory);font-size:17px;font-weight:500;text-decoration:none}
-.mnav .mnav-group{border-bottom:1px solid var(--line);padding:15px 2px 6px}
-.mnav .mnav-label{display:block;color:var(--ivory);font-size:17px;font-weight:500;margin-bottom:4px}
+.mnav .mnav-group{border-bottom:1px solid var(--line)}
+.mnav .mnav-label{display:flex;align-items:center;justify-content:space-between;width:100%;padding:15px 2px;border:0;background:none;color:var(--ivory);font:inherit;font-size:17px;font-weight:500;text-align:left;cursor:pointer}
+.mnav .mnav-label svg{color:var(--mute);transition:transform .25s}
+.mnav .mnav-label[aria-expanded="true"] svg{transform:rotate(180deg)}
+.mnav .mnav-label:focus-visible{outline:2px solid #D4BE78;outline-offset:2px;border-radius:6px}
+.mnav .mnav-sub{padding:0 0 8px}
 .mnav .mnav-group a{border:0;padding:9px 0 9px 16px;font-size:15px;color:var(--mute)}
 .mnav .mnav-group a small{display:block;margin-top:3px;padding-left:14px;font-size:12px;color:var(--mute);opacity:.8}
 .mnav .mnav-group a strong{color:var(--ivory);font-weight:500}
@@ -272,9 +276,12 @@ html{scroll-behavior:smooth}
 <nav class="mnav" id="mnav" aria-label="Menu">
 <a href="#bridge">Approach</a>
 <a href="#services">Services</a>
-<div class="mnav-group"><span class="mnav-label">Our Method</span>
+<div class="mnav-group">
+<button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-method">Our Method<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div class="mnav-sub" id="mnav-method" hidden>
 <a href="#risk"><strong>Risk</strong><small>The Volatility Compass</small></a>
-<a href="#finance"><strong>Project finance</strong><small>Bankability, by Design</small></a>
+<a href="#finance"><strong>Project Finance</strong><small>Bankability, by Design</small></a>
+</div>
 </div>
 <a href="#work">Where we work</a>
 <a href="#about">About</a>
@@ -900,9 +907,17 @@ const CITIES = [
     menu.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!open) { var g = menu.querySelector('.mnav-label'), sb = document.getElementById('mnav-method'); if (g && sb) { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; } }
   }
   btn.addEventListener('click', function (e) { e.stopPropagation(); set(!menu.classList.contains('open')); });
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  var grp = menu.querySelector('.mnav-label'), sub = document.getElementById('mnav-method');
+  if (grp && sub) grp.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = grp.getAttribute('aria-expanded') !== 'true';
+    grp.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sub.hidden = !open;
+  });
   document.addEventListener('click', function (e) { if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); btn.focus(); } });
   window.addEventListener('resize', function () { if (window.innerWidth > 860) set(false); });
