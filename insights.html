@@ -188,6 +188,28 @@ html{scroll-behavior:smooth}
 .ins .bm-cta{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:6px 0 6px 28px;border-left:2px solid #B99E47;border-radius:0}
 .ins .bm-note{margin:0;font-size:15px;line-height:1.55;color:#22324A}
 @media (max-width:760px){.ins .bm{grid-template-columns:minmax(0,1fr)}.ins .bm-cta{padding:4px 0 4px 18px}}
+.ins .bf-wrap{max-width:480px}
+.ins .bf[hidden]{display:none}
+.ins .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.ins .bf .btn{position:relative}
+.ins .bf-spin{display:none;width:16px;height:16px;border-radius:50%;border:2px solid rgba(3,37,96,.25);border-top-color:#032560;animation:bfspin .8s linear infinite}
+.ins .bf.busy .bf-spin{display:inline-block}
+.ins .bf.busy .btn{opacity:.85;cursor:progress}
+@keyframes bfspin{to{transform:rotate(360deg)}}
+.ins .bf-done{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start;padding:22px 24px;border-radius:18px;background:rgba(10,47,110,.6);border:1px solid rgba(185,158,71,.45)}
+.ins .bf-done[hidden]{display:none}
+.ins .bf-done.show{animation:bfin .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes bfin{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.ins .bf-tick{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#B99E47;color:#032560}
+.ins .bf-done.show .bf-tick svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:bfdraw .5s .15s ease forwards}
+@keyframes bfdraw{to{stroke-dashoffset:0}}
+.ins .bf-done h3{margin:2px 0 6px;font-size:26px;line-height:1.15;color:var(--ivory);outline:none}
+.ins .bf-done p{margin:0;font-size:14.5px;line-height:1.6;color:#C9D3DC}
+.ins .bf-done p b{color:var(--ivory);font-weight:600}
+.ins .bf-done .bf-small{margin-top:10px;font-size:13px;color:var(--mute)}
+.ins .bf-link{padding:0;border:0;background:none;color:var(--gold);font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.ins .bf-link:focus-visible{outline:2px solid #D4BE78;outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){.ins .bf-done.show,.ins .bf-done.show .bf-tick svg path{animation:none;stroke-dashoffset:0}.ins .bf-spin{animation:none}}
 .ins .locks{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .ins .locks li{position:relative;padding-left:24px;font-size:15px;line-height:1.5;color:#032560}
 .ins .locks li::before{content:"";position:absolute;left:0;top:.3em;width:11px;height:13px;border:1.5px solid #7A6526;border-radius:2px 2px 3px 3px}
@@ -313,15 +335,29 @@ html{scroll-behavior:smooth}
 <h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">The full read, every Monday. Free.</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C9D3DC; max-width: 520px">The full signal for every market we cover, the triggers that would change each rating, last week&rsquo;s call results and the decisions to watch next week.</p>
 </div>
-<form id="briefForm" class="bf" action="FORM_ACTION_URL" method="post" novalidate>
+<div class="bf-wrap">
+<form id="briefForm" class="bf" action="FORM_ACTION_URL" method="post" data-endpoint="" data-double-optin="true" novalidate>
 <label for="bfEmail">Work email</label>
-<input id="bfEmail" name="email" type="email" autocomplete="email" placeholder="name@company.com" aria-describedby="bfEmailErr">
+<input id="bfEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.com" aria-describedby="bfEmailErr" required>
 <p class="err" id="bfEmailErr" role="alert"></p>
-<label class="check"><input id="bfConsent" name="consent" type="checkbox" aria-describedby="bfConsentErr"><span>I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the <a href="privacy.html">privacy notice</a>, including that our newsletter service stores my email address outside Kenya.</span></label>
+<div class="hp" aria-hidden="true"><label>Leave this field empty<input name="company_website" type="text" tabindex="-1" autocomplete="off"></label></div>
+<input type="hidden" name="consent_text" value="I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the privacy notice.">
+<input type="hidden" name="consent_at" value="">
+<input type="hidden" name="source" value="insights-weekly-brief">
+<label class="check"><input id="bfConsent" name="consent" type="checkbox" value="yes" aria-describedby="bfConsentErr"><span>I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the <a href="privacy.html">privacy notice</a>, including that our newsletter service stores my email address outside Kenya.</span></label>
 <p class="err" id="bfConsentErr" role="alert"></p>
-<button type="submit" class="btn btn-gold">Get the weekly brief</button>
+<button type="submit" class="btn btn-gold" id="bfBtn"><span class="bf-spin" aria-hidden="true"></span><span class="bf-lbl">Get the weekly brief</span></button>
 <p id="bfStatus" role="status" style="margin: 4px 0 0; font-size: 13px; color: var(--mute)">Free. Every Monday. Unsubscribe any time.</p>
 </form>
+<div class="bf-done" id="bfDone" hidden>
+<span class="bf-tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+<div>
+<h3 class="disp" id="bfDoneH" tabindex="-1"></h3>
+<p id="bfDoneP"></p>
+<p class="bf-small"><span id="bfDoneHelp"></span> <button type="button" class="bf-link" id="bfAgain">Use a different email</button></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <p class="wrap" style="margin: 0; padding-top: 22px; padding-bottom: 22px; font-size: 12.5px; line-height: 1.6; color: var(--mute); background: var(--ink)">Insights are general analysis of public policy information, published for discussion. They are not investment advice or an offer of any service. Ratings are our own judgement, built from central bank, national statistics, IMF and established business press sources, and will change as new information arrives.</p>
@@ -706,16 +742,56 @@ function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/8640000
   var f = document.getElementById('briefForm'); if (!f) return;
   var em = document.getElementById('bfEmail'), ck = document.getElementById('bfConsent');
   var ee = document.getElementById('bfEmailErr'), ce = document.getElementById('bfConsentErr'), st = document.getElementById('bfStatus');
+  var btn = document.getElementById('bfBtn'), lbl = btn.querySelector('.bf-lbl');
+  var done = document.getElementById('bfDone'), dh = document.getElementById('bfDoneH'), dp = document.getElementById('bfDoneP'), dhelp = document.getElementById('bfDoneHelp');
+  var NOTE = 'Free. Every Monday. Unsubscribe any time.';
+  var endpoint = (f.getAttribute('data-endpoint') || '').trim(), doubleOptIn = f.getAttribute('data-double-optin') === 'true';
+  function mask(v) { var p = v.split('@'), n = p[0]; return (n.length <= 2 ? n.charAt(0) + '•' : n.slice(0, 2) + '•••') + '@' + p[1]; }
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function busy(on) { f.classList.toggle('busy', on); btn.disabled = on; btn.setAttribute('aria-busy', on ? 'true' : 'false'); lbl.textContent = on ? 'Subscribing…' : 'Get the weekly brief'; }
+  function success(v, mode) {
+    var m = '<b>' + esc(mask(v)) + '</b>';
+    if (mode === 'confirm') {
+      dh.textContent = 'Check your inbox to confirm';
+      dp.innerHTML = 'Thank you for subscribing. We have sent a confirmation link to ' + m + '. Click it and the weekly brief will arrive every Monday.';
+      dhelp.textContent = 'Not there? Check your spam folder.';
+    } else if (mode === 'mail') {
+      dh.textContent = 'Thank you. One last step';
+      dp.innerHTML = 'Your email app has opened with your sign-up for ' + m + '. Press send and we will add you to the weekly brief, sent every Monday.';
+      dhelp.innerHTML = 'App did not open? Email <a href="mailto:info@allyandassociates.com?subject=Subscribe%3A%20weekly%20brief" style="color: var(--gold)">info@allyandassociates.com</a>.';
+    } else {
+      dh.textContent = 'Thank you for subscribing';
+      dp.innerHTML = 'You are on the list. The weekly brief will arrive at ' + m + ' every Monday.';
+      dhelp.textContent = 'Every email has a one-click unsubscribe link.';
+    }
+    em.value = ''; ck.checked = false; st.textContent = NOTE;
+    f.hidden = true; done.hidden = false; done.classList.remove('show'); void done.offsetWidth; done.classList.add('show');
+    dh.focus({ preventScroll: true });
+  }
   em.addEventListener('input', function () { ee.textContent = ''; em.removeAttribute('aria-invalid'); });
   ck.addEventListener('change', function () { ce.textContent = ''; });
+  document.getElementById('bfAgain').addEventListener('click', function () { done.hidden = true; f.hidden = false; em.focus(); });
   f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (f.classList.contains('busy')) return;
     var ok = true, v = em.value.trim();
+    ee.textContent = ''; ce.textContent = '';
     if (!v) { ee.textContent = 'Enter your email address.'; ok = false; }
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { ee.textContent = 'Enter a valid email address.'; ok = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { ee.textContent = 'Enter a valid email address, like name@company.com.'; ok = false; }
     if (ee.textContent) em.setAttribute('aria-invalid', 'true');
     if (!ck.checked) { ce.textContent = 'Tick the box to agree before signing up.'; ok = false; }
-    if (!ok) { e.preventDefault(); (ee.textContent ? em : ck).focus(); return; }
-    if (f.getAttribute('action') === 'FORM_ACTION_URL') { e.preventDefault(); var body = 'Please add ' + v + ' to the weekly brief. I agree to receive it by email and have read the privacy notice.'; window.location.href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Subscribe: weekly brief') + '&body=' + encodeURIComponent(body); st.textContent = 'Your email app should open with your sign-up ready to send.'; }
+    if (!ok) { (ee.textContent ? em : ck).focus(); return; }
+    f.elements['consent_at'].value = new Date().toISOString();
+    if (f.elements['company_website'].value) { success(v, doubleOptIn ? 'confirm' : 'done'); return; }
+    if (!endpoint) {
+      var body = 'Please add ' + v + ' to the weekly brief.\n\nI agree to receive the weekly brief by email from Ally & Associates. I can unsubscribe at any time. I have read the privacy notice.\n\nConsent given: ' + f.elements['consent_at'].value;
+      window.location.href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Subscribe: weekly brief') + '&body=' + encodeURIComponent(body);
+      success(v, 'mail'); return;
+    }
+    busy(true);
+    fetch(endpoint, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); busy(false); success(v, doubleOptIn ? 'confirm' : 'done'); })
+      .catch(function () { busy(false); st.textContent = 'We could not sign you up just now. Please try again, or email info@allyandassociates.com.'; });
   });
 })();
 </script>
