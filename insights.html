@@ -336,7 +336,7 @@ html{scroll-behavior:smooth}
 <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C9D3DC; max-width: 520px">The full signal for every market we cover, the triggers that would change each rating, last week&rsquo;s call results and the decisions to watch next week.</p>
 </div>
 <div class="bf-wrap">
-<form id="briefForm" class="bf" action="FORM_ACTION_URL" method="post" data-endpoint="" data-double-optin="true" novalidate>
+<form id="briefForm" class="bf" action="https://8f2901af.sibforms.com/serve/MUIFAM9NhPr2tvAoqFVOvMeOxRKyURWYaLc9kZ9aKHttcakdwMvlJLhkh27k7l07P66Jwmt-ebBBqs7rpV2pG6_XpQSjHAmVp8DBa9_O3Xm8e_qaThm61WsRtyEaOJQQas85dmY-JjAggoULwZbSsVUpElfHl-G6RoH8xNZjljcWqK4Zr3N7ECb2l8fapQCErdy6u_IwLEVnKdiqKw==" method="post" data-endpoint="https://8f2901af.sibforms.com/serve/MUIFAM9NhPr2tvAoqFVOvMeOxRKyURWYaLc9kZ9aKHttcakdwMvlJLhkh27k7l07P66Jwmt-ebBBqs7rpV2pG6_XpQSjHAmVp8DBa9_O3Xm8e_qaThm61WsRtyEaOJQQas85dmY-JjAggoULwZbSsVUpElfHl-G6RoH8xNZjljcWqK4Zr3N7ECb2l8fapQCErdy6u_IwLEVnKdiqKw==" data-double-optin="true" novalidate>
 <label for="bfEmail">Work email</label>
 <input id="bfEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.com" aria-describedby="bfEmailErr" required>
 <p class="err" id="bfEmailErr" role="alert"></p>
@@ -789,9 +789,18 @@ function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/8640000
       success(v, 'mail'); return;
     }
     busy(true);
-    fetch(endpoint, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); busy(false); success(v, doubleOptIn ? 'confirm' : 'done'); })
-      .catch(function () { busy(false); st.textContent = 'We could not sign you up just now. Please try again, or email info@allyandassociates.com.'; });
+    var fd = new FormData();
+    fd.append('EMAIL', v); fd.append('OPT_IN', '1'); fd.append('email_address_check', ''); fd.append('locale', 'en');
+    var fail = 'We could not sign you up just now. Please try again, or email info@allyandassociates.com.';
+    fetch(endpoint + (endpoint.indexOf('?') < 0 ? '?' : '&') + 'isAjax=1', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (t) {
+        var j = null; try { j = JSON.parse(t); } catch (x) {}
+        busy(false);
+        if (j && j.success === false) { st.textContent = fail; return; }
+        success(v, doubleOptIn ? 'confirm' : 'done');
+      })
+      .catch(function () { busy(false); st.textContent = fail; });
   });
 })();
 </script>
