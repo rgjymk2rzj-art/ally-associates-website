@@ -341,10 +341,10 @@ html{scroll-behavior:smooth}
 <input id="bfEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@company.com" aria-describedby="bfEmailErr" required>
 <p class="err" id="bfEmailErr" role="alert"></p>
 <div class="hp" aria-hidden="true"><label>Leave this field empty<input name="company_website" type="text" tabindex="-1" autocomplete="off"></label></div>
-<input type="hidden" name="consent_text" value="I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the privacy notice.">
+<input type="hidden" name="consent_text" value="Yes, send me the Weekly Brief from Ally &amp; Associates every Monday. I can unsubscribe at any time. Our privacy notice explains how we use and store your email address.">
 <input type="hidden" name="consent_at" value="">
 <input type="hidden" name="source" value="insights-weekly-brief">
-<label class="check"><input id="bfConsent" name="consent" type="checkbox" value="yes" aria-describedby="bfConsentErr"><span>I agree to receive the weekly brief by email from Ally &amp; Associates. I can unsubscribe at any time. I have read the <a href="privacy.html">privacy notice</a>, including that our newsletter service stores my email address outside Kenya.</span></label>
+<label class="check"><input id="bfConsent" name="consent" type="checkbox" value="yes" aria-describedby="bfConsentErr"><span>Yes, send me the Weekly Brief from Ally &amp; Associates every Monday. I can unsubscribe at any time. Our <a href="privacy.html">privacy notice</a> explains how we use and store your email address.</span></label>
 <p class="err" id="bfConsentErr" role="alert"></p>
 <button type="submit" class="btn btn-gold" id="bfBtn"><span class="bf-spin" aria-hidden="true"></span><span class="bf-lbl">Get the weekly brief</span></button>
 <p id="bfStatus" role="status" style="margin: 4px 0 0; font-size: 13px; color: var(--mute)">Free. Every Monday. Unsubscribe any time.</p>
@@ -784,7 +784,7 @@ function daysOld(c){return Math.round((new Date(ISSUE)-new Date(c.asOf))/8640000
     f.elements['consent_at'].value = new Date().toISOString();
     if (f.elements['company_website'].value) { success(v, doubleOptIn ? 'confirm' : 'done'); return; }
     if (!endpoint) {
-      var body = 'Please add ' + v + ' to the weekly brief.\n\nI agree to receive the weekly brief by email from Ally & Associates. I can unsubscribe at any time. I have read the privacy notice.\n\nConsent given: ' + f.elements['consent_at'].value;
+      var body = 'Please add ' + v + ' to the weekly brief.\n\nYes, send me the Weekly Brief from Ally & Associates every Monday. I can unsubscribe at any time. Our privacy notice explains how we use and store your email address.\n\nConsent given: ' + f.elements['consent_at'].value;
       window.location.href = 'mailto:info@allyandassociates.com?subject=' + encodeURIComponent('Subscribe: weekly brief') + '&body=' + encodeURIComponent(body);
       success(v, 'mail'); return;
     }
