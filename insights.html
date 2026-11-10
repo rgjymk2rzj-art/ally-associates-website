@@ -183,6 +183,11 @@ html{scroll-behavior:smooth}
 @keyframes flash{0%{box-shadow:0 0 0 0 rgba(212,190,120,.0)}25%{box-shadow:0 0 0 4px rgba(212,190,120,.55)}100%{box-shadow:0 0 0 0 rgba(212,190,120,0)}}
 @media (prefers-reduced-motion:reduce){.ins .ro-fill{transition:none}.ins .flash{animation:none}}
 @media (max-width:900px){.ins .wgrid{grid-template-columns:minmax(0,1fr)}.ins .readout{position:static}}
+.ins .bm{display:grid;grid-template-columns:minmax(0,600px) minmax(240px,320px);justify-content:space-between;gap:clamp(24px,5vw,80px);align-items:center}
+.ins .bm-text{display:flex;flex-direction:column;gap:12px;max-width:600px}
+.ins .bm-cta{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:6px 0 6px 28px;border-left:2px solid #B99E47;border-radius:0}
+.ins .bm-note{margin:0;font-size:15px;line-height:1.55;color:#22324A}
+@media (max-width:760px){.ins .bm{grid-template-columns:minmax(0,1fr)}.ins .bm-cta{padding:4px 0 4px 18px}}
 .ins .locks{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .ins .locks li{position:relative;padding-left:24px;font-size:15px;line-height:1.5;color:#032560}
 .ins .locks li::before{content:"";position:absolute;left:0;top:.3em;width:11px;height:13px;border:1.5px solid #7A6526;border-radius:2px 2px 3px 3px}
@@ -286,17 +291,17 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="beyond" style="background: var(--ivory); color: #032560; padding: clamp(44px, 5.5vw, 80px) 0">
-<div class="wrap">
-<div style="display: flex; flex-direction: column; gap: 14px">
+<section id="beyond" style="background: var(--ivory); color: #032560; padding: clamp(32px, 4vw, 56px) 0">
+<div class="wrap bm">
+<div class="bm-text">
 <p class="eyebrow eyebrow-dark">Beyond the monitor</p>
-<h2 class="disp" style="margin: 0; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08">Have a market or a project in mind?</h2>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3E4A57; max-width: 520px">The monitor shows the direction. A briefing applies it to your decision: entry, financing or the risks around an asset you already hold.</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #3E4A57; max-width: 520px">Every briefing is written for one market and one decision, in five chapters, and quoted per market.</p>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 8px">
-<a class="btn btn-ink" href="index.html#contact">Book a briefing</a>
-<span style="font-size: 13px; color: #3E4A57">Tell us the market and the decision. We reply with a quote.</span>
+<h2 class="disp" style="margin: 0; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.1; text-wrap: balance">Have a market or a project in mind?</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #3E4A57">The monitor shows the direction. A briefing applies it to your decision: entry, financing or the risks around an asset you already hold.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #3E4A57">Every briefing is written for one market and one decision, in five chapters, and quoted per market.</p>
 </div>
+<div class="bm-cta">
+<p class="bm-note">Tell us the market and the decision. We reply with a quote.</p>
+<a class="btn btn-ink" href="index.html#contact">Book a briefing</a>
 </div>
 </div>
 </section>
