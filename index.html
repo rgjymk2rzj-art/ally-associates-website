@@ -352,6 +352,10 @@ html{scroll-behavior:smooth}
 .fs-foot{flex-wrap:wrap;padding:12px 14px}
 }
 @media (prefers-reduced-motion:reduce){.fs-step,.fs-stack > .fs-panel,.fs-dot,.fs-dot::after{transition:none}}
+
+.nav-links > a,.nav-links .nav-dd-btn{white-space:nowrap}
+@media (max-width:1180px){.nav-links{gap:18px}.nav-links > a,.nav-links .nav-dd-btn{font-size:13.5px}}
+@media (max-width:1000px){.nav-links{display:none}.nav-burger{display:inline-flex}.nav-cta{display:none !important}}
 </style>
 </head>
 <body>
@@ -375,6 +379,7 @@ html{scroll-behavior:smooth}
 </div>
 <a href="#work">Where we work</a>
 <a href="#about">About</a>
+<a href="#contact">Contact</a>
 </nav>
 <a class="btn btn-gold nav-cta" href="#contact" style="min-height: 44px; padding: 0 20px; font-size: 14px">Book a briefing</a>
 <button type="button" class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span></button>
@@ -400,6 +405,7 @@ html{scroll-behavior:smooth}
 </div>
 <a href="#work">Where we work</a>
 <a href="#about">About</a>
+<a href="#contact">Contact</a>
 <a class="btn btn-gold" href="#contact">Book a briefing</a>
 </nav>
 
