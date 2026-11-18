@@ -170,7 +170,7 @@ html{scroll-behavior:smooth}
 .aa.moving .far{animation:fadeAway linear both;animation-timeline:--net;animation-range:contain 64% contain 80%}
 .aa.moving .near{animation:appear linear both;animation-timeline:--net;animation-range:contain 78% contain 92%}
 .aa.moving .sc-net .stmts{display:grid}
-.aa.moving .sc-net .stmt{grid-area:1/1;animation-timeline:--net;animation-timing-function:linear;animation-fill-mode:both}
+.aa.moving .sc-net .stmt{grid-area:1/1;align-self:end;animation-timeline:--net;animation-timing-function:linear;animation-fill-mode:both}
 .aa.moving .st1{animation-name:outOnly;animation-range:contain 0% contain 30%}
 .aa.moving .st2{animation-name:inOut;animation-range:contain 30% contain 64%}
 .aa.moving .st3{animation-name:inOnly;animation-range:contain 64% contain 96%}
@@ -476,7 +476,7 @@ html{scroll-behavior:smooth}
 .aa.nosdt .sc-net.tall{height:calc(var(--stage) * 2.4)}
 .aa.nosdt .sc-net.tall > .stage{position:sticky;top:0}
 .aa.nosdt .sc-net .stmts{display:grid}
-.aa.nosdt .sc-net .stmt{grid-area:1/1;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .6s ease}
+.aa.nosdt .sc-net .stmt{grid-area:1/1;align-self:end;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .6s ease}
 .aa.nosdt .sc-net .stmt.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.aa.nosdt .sc-net .stmt{transition:none;transform:none}}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -500,6 +500,11 @@ br.mb{display:inline}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (orientation:landscape) and (max-height:520px){.risk-lock{padding:7px 14px;font-size:12px}}
 @media (max-width:860px) and (max-height:700px) and (orientation:portrait){#risk .two-col h2{font-size:32px !important}#risk .two-col > div > p:not(.eyebrow){font-size:14px !important;line-height:1.55 !important}#risk .two-col > div{gap:12px !important}.risk-lock{padding:7px 14px;font-size:12.5px}}
+
+/* Touch screens: larger tap areas without changing the look */
+@media (hover:none) and (pointer:coarse){.nav-links > a,.nav-links .nav-dd-btn{padding:12px 0;margin:-12px 0}}
+@media (hover:none) and (pointer:coarse){.svc-dot{position:relative}.svc-dot::before{content:"";position:absolute;left:-4px;right:-4px;top:-14px;bottom:-14px}.sec-link{display:inline-block;padding:12px 0;margin-top:auto;margin-bottom:-12px}}
+@media (max-width:359px) and (orientation:portrait){#top .hero-copy .l5{flex-wrap:nowrap;gap:8px}#top .hero-copy .l5 .btn{padding:0 13px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -682,7 +687,6 @@ br.mb{display:inline}
 <line x1="0" y1="525" x2="1200" y2="525" stroke="#2F5797" stroke-width="1" stroke-dasharray="6 6"></line>
 <text class="rg" x="16" y="516" fill="#A9BBD8" font-size="12" letter-spacing="2">EQUATOR</text>
 <line x1="0" y1="173" x2="1200" y2="173" stroke="#28508F" stroke-width="1" stroke-dasharray="2 8"></line>
-<text class="rg" x="16" y="164" fill="#9AAED0" font-size="12" letter-spacing="2">TROPIC OF CANCER</text>
 <path class="arc a1" data-mk="doha" pathLength="1" d="M1073 146 Q875 296 852 544"></path>
 <path class="arc a2" data-mk="dubai" pathLength="1" d="M1129 147 Q903 285 852 544"></path>
 <path class="arc a3" data-mk="riyadh" pathLength="1" d="M1000 154 Q840 316 852 544"></path>
