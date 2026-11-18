@@ -139,7 +139,7 @@ html{scroll-behavior:smooth}
 @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
 @media (prefers-reduced-motion:no-preference){
 .aa.moving .load{animation:load 1.1s cubic-bezier(.2,.7,.2,1) both}
-.aa.moving .l2{animation-delay:.15s}.aa.moving .l3{animation-delay:1.85s}.aa.moving .l4{animation-delay:3.05s}.aa.moving .l5{animation-delay:3.4s}
+.aa.moving .l2{animation-delay:.15s}.aa.moving .l3{animation-delay:1.85s}.aa.moving .l4{animation-delay:4.15s}.aa.moving .l5{animation-delay:4.5s}
 .aa.moving .hero-copy .l2{animation:heroZoom 1.8s cubic-bezier(.22,.61,.36,1) .1s both;transform-origin:50% 50%}
 .aa.moving .hero-copy .l3{animation:none;position:relative}
 .aa.moving .hero-copy .l3t{display:inline-block;animation:heroOpen 1.15s cubic-bezier(.65,0,.35,1) 1.85s both}
@@ -158,7 +158,7 @@ html{scroll-behavior:smooth}
 @keyframes bgFade{to{opacity:.35}}
 @keyframes cueFade{to{opacity:0}}
 @keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}38%{opacity:1;transform:none}68%{opacity:1;transform:translateY(-2vh)}96%,100%{opacity:0;transform:translateY(-10vh)}}
-.aa.moving .lt{animation-delay:3.7s}
+.aa.moving .lt{animation-delay:4.85s}
 .aa.moving .sc-net{view-timeline:--net block}
 .aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
 .aa.moving .arc{animation:draw linear both;animation-timeline:--net}
@@ -1341,7 +1341,7 @@ const CITIES = [
   if (hw) {
     var moving = document.querySelector('.aa.moving');
     if (reduce || !moving) { hw.classList.add('opp', 'done'); }
-    else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('opp'); }, 1850); setTimeout(function () { hw.classList.add('done'); }, 3000); }
+    else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('opp'); }, 1850); setTimeout(function () { hw.classList.add('done'); }, 4100); }
   }
 })();
 </script>
