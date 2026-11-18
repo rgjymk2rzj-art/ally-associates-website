@@ -154,14 +154,11 @@ html{scroll-behavior:smooth}
 .aa.moving .tall{height:calc(var(--stage) * var(--len,3))}
 .aa.moving .tall > .stage{position:sticky;top:0}
 .aa.moving .sc-hero{view-timeline:--hero block}
-.aa.moving .hero-img{animation:zoomOut linear both,bgFade linear both;animation-timeline:--hero,--hero;animation-range:contain 0% contain 100%,contain 8% contain 92%}
-.aa.moving .hero-cue{animation:cueFade linear both;animation-timeline:--hero;animation-range:contain 0% contain 30%}
 #bridge{border-top:1px solid rgba(185,158,71,.35)}
 @keyframes bgFade{to{opacity:.35}}
 @keyframes cueFade{to{opacity:0}}
 @keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}38%{opacity:1;transform:none}68%{opacity:1;transform:translateY(-2vh)}96%,100%{opacity:0;transform:translateY(-10vh)}}
-.aa.moving .hero-copy{animation:heroOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 28%}
-.aa.moving .hero-tag{animation:tagSeg linear both;animation-timeline:--hero;animation-range:contain 0% contain 100%}
+.aa.moving .lt{animation-delay:3.7s}
 .aa.moving .sc-net{view-timeline:--net block}
 .aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
 .aa.moving .arc{animation:draw linear both;animation-timeline:--net}
@@ -413,6 +410,7 @@ html{scroll-behavior:smooth}
 .sec-ico.prep.drawn .fl{fill-opacity:1}
 /* Counters */
 .count{font-variant-numeric:tabular-nums}
+#top > .stage{overflow:visible}
 </style>
 </head>
 <body>
@@ -488,7 +486,7 @@ html{scroll-behavior:smooth}
 <a class="btn btn-gold" href="#contact">Book a briefing</a>
 </nav>
 
-<section id="top" class="sc-hero tall" style="--len: 1.35; position: relative; background: var(--ink)">
+<section id="top" class="sc-hero" style="position: relative; background: var(--ink)">
 <div class="stage">
 <img class="bgimg hero-img" src="images/hero.jpg" alt="">
 <div class="hero-ov" style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.42)"></div>
@@ -516,12 +514,13 @@ html{scroll-behavior:smooth}
 <a class="btn btn-ghost" href="#bridge">See how we work</a>
 </div>
 </div>
-<p class="disp hero-tag" style="position: absolute; left: 16px; right: 16px; bottom: clamp(150px, 22vh, 220px); margin: 0; text-align: center; font-style: italic; font-weight: 500; font-size: clamp(32px, 4vw, 56px); line-height: 1.2; color: var(--gold)">One Step Ahead of Volatility</p>
+<div class="tag-mover" id="tag-mover" style="position: absolute; left: 16px; right: 16px; bottom: 108px; z-index: 3; pointer-events: none; will-change: transform"><p class="disp hero-tag load lt" style="margin: 0; text-align: center; font-style: italic; font-weight: 500; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.2; color: var(--gold)">One Step Ahead of Volatility</p></div>
 <div class="scroll-cue hero-cue" aria-hidden="true">Scroll</div>
 </div>
 </section>
 
 <section id="bridge" class="sc-net tall" style="--len: 3.2; position: relative; background: var(--ink)">
+<p class="disp bridge-tag" id="bridge-tag" aria-hidden="true" style="position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); z-index: 6; margin: 0; padding: 0 18px; background: var(--ink); white-space: nowrap; font-style: italic; font-weight: 500; font-size: clamp(18px, 1.7vw, 24px); line-height: 1.2; color: var(--gold); opacity: 0; pointer-events: none">One Step Ahead of Volatility</p>
 <div class="stage">
 <svg class="net-svg" viewBox="0 0 1200 825" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
 <defs>
@@ -1344,6 +1343,35 @@ const CITIES = [
     if (reduce || !moving) { hw.classList.add('opp', 'done'); }
     else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('opp'); }, 1850); setTimeout(function () { hw.classList.add('done'); }, 3000); }
   }
+})();
+</script>
+<script>
+(function () {
+  // "One Step Ahead of Volatility": rests above Scroll, then lands on the line where Approach begins
+  var mover = document.getElementById('tag-mover'), label = document.getElementById('bridge-tag'), bridge = document.getElementById('bridge');
+  if (!mover || !label || !bridge) return;
+  var d0 = 0, ticking = false;
+  function measure() {
+    mover.style.transform = 'none';
+    var r = mover.getBoundingClientRect(), tagMid = r.top + r.height / 2 + window.scrollY;
+    var line = bridge.getBoundingClientRect().top + window.scrollY;
+    d0 = line - tagMid;
+    sync();
+  }
+  function sync() {
+    ticking = false;
+    var y = window.scrollY;
+    if (d0 <= 0) { mover.style.visibility = 'hidden'; label.style.opacity = '1'; return; }
+    var t = Math.min(y, d0), landed = y >= d0 - 0.5;
+    mover.style.transform = 'translateY(' + t + 'px)';
+    mover.style.visibility = landed ? 'hidden' : 'visible';
+    label.style.opacity = landed ? '1' : '0';
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(sync); } }, { passive: true });
+  window.addEventListener('resize', measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  window.addEventListener('load', measure);
+  measure();
 })();
 </script>
 </body>
