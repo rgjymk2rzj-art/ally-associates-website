@@ -259,25 +259,70 @@ html{scroll-behavior:smooth}
 .cc-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;min-width:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(243,237,226,.28);background:transparent;color:#F3EDE2;font:500 13px/1 'Montserrat',system-ui,sans-serif;cursor:pointer;transition:border-color .25s,background-color .25s}
 .cc-btn:hover{border-color:#D4BE78;background:rgba(212,190,120,.1)}
 .cc-x{padding:0;flex:none}
-.cc-ticket{margin:18px 0;padding:16px 18px;border-radius:14px;background:rgba(185,158,71,.12);border:1px solid rgba(185,158,71,.35)}
+.cc-tag{margin:0;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#B99E47}
+.cc-echo{position:absolute;top:4px;right:66px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:96px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(212,190,120,.34);pointer-events:none;user-select:none;z-index:0}
+.cc-echo.go{animation:echoIn .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes echoIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.cc-head,.cc-sectors,.city-card .cc-lbl,.cc-list,.cc-brief,.cc-nav,.cc-foot{position:relative;z-index:1}
+.city-card .cc-lbl{margin:20px 0 6px}
 .cc-lbl{margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#B99E47}
-.cc-val{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:28px;line-height:1.1;color:#F3EDE2}
-.cc-note{margin:6px 0 0;font-size:13px;line-height:1.5;color:#C9D3DC}
-.cc-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.cc-list li{position:relative;padding-left:18px;font-size:14px;line-height:1.5;color:#F3EDE2}
-.cc-list li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:#B99E47}
+.cc-sectors{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+.cc-sectors li{padding:6px 10px;border:1px solid rgba(185,158,71,.55);border-radius:3px;font-size:11.5px;line-height:1.2;color:#F3EDE2}
+.sc-net.fx-tags .cc-sectors{display:none}
+.cc-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0}
+.cc-list li{position:relative;padding:9px 0 9px 36px;border-top:1px solid rgba(243,237,226,.1);font-size:14px;line-height:1.45;color:#F3EDE2;clip-path:inset(0 100% 0 0);animation:ccStrip .55s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.3s + var(--k,0) * .09s)}
+.cc-list li:first-child{border-top:0}
+.cc-list .n{position:absolute;left:0;top:11px;font-size:11px;font-weight:600;letter-spacing:.1em;color:#B99E47;font-variant-numeric:tabular-nums}
+@keyframes ccStrip{to{clip-path:inset(0 0 0 0)}}
+.cc-brief{margin-top:16px;padding:2px 16px 14px;border:1px dashed rgba(185,158,71,.5);border-radius:12px;background:rgba(185,158,71,.06)}
+.cc-brief .cc-lbl{display:flex;align-items:center;gap:7px;margin:12px 0 8px}
+.cc-locked{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.cc-locked li{display:flex;flex-direction:column;gap:3px}
+.cc-locked .k{font-size:13px;font-weight:500;color:#F3EDE2}
+.cc-locked .v{white-space:nowrap;overflow:hidden;font-size:12.5px;line-height:1.4;color:#C9D3DC;filter:blur(4.5px);opacity:.75;user-select:none;-webkit-user-select:none}
+.cc-cta{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding-bottom:2px;font-size:13px;font-weight:600;color:#D4BE78;text-decoration:none;border-bottom:1px solid rgba(212,190,120,.5)}
+.cc-cta:hover{color:#F3EDE2;border-color:#F3EDE2}
+.cc-cta:focus-visible{outline:2px solid #D4BE78;outline-offset:3px;border-radius:2px}
+/* Focus: isolate the selected market, as in a chaptered explainer */
+.net-svg [data-mk],.net-svg .rg{transition:opacity .5s ease}
+.sc-net.exploring [data-mk]{opacity:.16}
+.sc-net.exploring [data-mk].mk-on{opacity:1}
+.sc-net.exploring .arc[data-mk]{opacity:.1}
+.sc-net.exploring .arc.mk-on{opacity:1}
+.sc-net.exploring .rg{opacity:.28}
+.sc-net.exploring .near{animation:none;opacity:0}
+.fx{position:absolute;inset:0;z-index:2;pointer-events:none}
+.fx svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.fx-l{fill:none;stroke:#D4BE78;stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;animation:fxDraw .45s ease-out forwards;animation-delay:var(--d,0s)}
+.fx-dot{fill:#D4BE78;opacity:0;animation:fxIn .25s ease-out forwards;animation-delay:var(--d,0s)}
+.fx-ring{fill:none;stroke:#D4BE78;stroke-width:1.2;opacity:0;transform-box:fill-box;transform-origin:center;animation:fxRing 2.6s ease-out .9s infinite}
+.fx-box{position:absolute;left:0;top:0;padding:8px 12px;background:#021A44;border:1px solid #B99E47;color:#F3EDE2;font:600 11px/1.2 'Montserrat',system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;clip-path:inset(0 100% 0 0);animation:fxStrip .5s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+.fx-name{background:#B99E47;color:#032560;font-size:12px}
+.fx-tag{clip-path:inset(0 0 0 100%);padding:7px 12px 8px;font-size:12.5px;font-weight:500;letter-spacing:.02em;text-transform:none}
+.fx-tag small{display:block;margin-bottom:3px;font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#B99E47}
+@keyframes fxStrip{to{clip-path:inset(0 0 0 0)}}
+@keyframes fxDraw{to{stroke-dashoffset:0}}
+@keyframes fxIn{to{opacity:1}}
+@keyframes fxRing{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.9)}}
+.fx.still .fx-l,.fx.still .fx-dot,.fx.still .fx-box{animation-delay:0s;animation-duration:.01s}
 .cc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
 .cc-pos{font-size:12px;letter-spacing:.14em;color:var(--mute)}
 .cc-foot{margin:12px 0 0;font-size:11px;line-height:1.5;color:var(--mute)}
 @keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (max-width:860px){
-.citymap{--mx:600px;--my:230px}
+.citymap{--mx:470px;--my:230px}
+.sc-net.exploring text[data-mk].mk-on{opacity:0}
+.cc-echo{font-size:76px;right:58px;-webkit-text-stroke-color:rgba(212,190,120,.26)}
 .city-card{top:auto;bottom:16px;left:16px;right:16px;width:auto;max-height:46%;padding:20px}
 .cc-name{font-size:28px}
 }
 @media (prefers-reduced-motion:reduce){
 .citymap,.selring{transition:none}
 .city-card{animation:none}
+.cc-list li{animation:none;clip-path:none}
+.cc-echo.go{animation:none}
+.fx-l,.fx-dot,.fx-box{animation-delay:0s;animation-duration:.01s}
+.fx-ring{animation:none;opacity:.6}
 }
 
 /* Bankability, by design: stacking cards on a timeline */
@@ -609,38 +654,38 @@ br.mb{display:inline}
 <g class="citymap" id="citymap" style="--on: 0; --ms: 1; --cx: 0px; --cy: 0px">
 <rect x="-1200" y="-825" width="3600" height="2475" fill="url(#aa-dots)"></rect>
 <line x1="0" y1="525" x2="1200" y2="525" stroke="#2F5797" stroke-width="1" stroke-dasharray="6 6"></line>
-<text x="16" y="516" fill="#A9BBD8" font-size="12" letter-spacing="2">EQUATOR</text>
+<text class="rg" x="16" y="516" fill="#A9BBD8" font-size="12" letter-spacing="2">EQUATOR</text>
 <line x1="0" y1="173" x2="1200" y2="173" stroke="#28508F" stroke-width="1" stroke-dasharray="2 8"></line>
-<text x="16" y="164" fill="#9AAED0" font-size="12" letter-spacing="2">TROPIC OF CANCER</text>
-<path class="arc a1" pathLength="1" d="M1073 146 Q875 296 852 544"></path>
-<path class="arc a2" pathLength="1" d="M1129 147 Q903 285 852 544"></path>
-<path class="arc a3" pathLength="1" d="M1000 154 Q840 316 852 544"></path>
-<path class="arc a4" pathLength="1" d="M852 544 Q833 461 881 390"></path>
-<path class="arc a5" pathLength="1" d="M852 544 Q826 518 789 520"></path>
-<path class="arc a6" pathLength="1" d="M852 544 Q799 527 751 554"></path>
-<path class="arc a7" pathLength="1" d="M852 544 Q888 578 888 627"></path>
-<path class="arc a8" pathLength="1" d="M852 544 Q742 622 725 756"></path>
-<path class="arc a10" pathLength="1" d="M852 544 Q627 375 351 427"></path>
-<path class="arc a11" pathLength="1" d="M852 544 Q597 370 297 441"></path>
-<path class="arc a12" pathLength="1" d="M852 544 Q509 306 102 398"></path>
+<text class="rg" x="16" y="164" fill="#9AAED0" font-size="12" letter-spacing="2">TROPIC OF CANCER</text>
+<path class="arc a1" data-mk="doha" pathLength="1" d="M1073 146 Q875 296 852 544"></path>
+<path class="arc a2" data-mk="dubai" pathLength="1" d="M1129 147 Q903 285 852 544"></path>
+<path class="arc a3" data-mk="riyadh" pathLength="1" d="M1000 154 Q840 316 852 544"></path>
+<path class="arc a4" data-mk="addis" pathLength="1" d="M852 544 Q833 461 881 390"></path>
+<path class="arc a5" data-mk="kampala" pathLength="1" d="M852 544 Q826 518 789 520"></path>
+<path class="arc a6" data-mk="kigali" pathLength="1" d="M852 544 Q799 527 751 554"></path>
+<path class="arc a7" data-mk="dar" pathLength="1" d="M852 544 Q888 578 888 627"></path>
+<path class="arc a8" data-mk="lusaka" pathLength="1" d="M852 544 Q742 622 725 756"></path>
+<path class="arc a10" data-mk="lagos" pathLength="1" d="M852 544 Q627 375 351 427"></path>
+<path class="arc a11" data-mk="accra" pathLength="1" d="M852 544 Q597 370 297 441"></path>
+<path class="arc a12" data-mk="freetown" pathLength="1" d="M852 544 Q509 306 102 398"></path>
 <g class="far">
-<circle cx="1073" cy="146" r="5" fill="#D4BE78"></circle><text x="1062" y="128" fill="#F3EDE2" font-size="15" text-anchor="end">Doha</text>
-<circle cx="1129" cy="147" r="5" fill="#D4BE78"></circle><text x="1140" y="128" fill="#F3EDE2" font-size="15">Dubai</text>
-<circle cx="1000" cy="154" r="5" fill="#D4BE78"></circle><text x="990" y="176" fill="#F3EDE2" font-size="15" text-anchor="end">Riyadh</text>
-<circle cx="351" cy="427" r="4" fill="#B99E47"></circle><text x="351" y="455" fill="#C9D3DC" font-size="14" text-anchor="middle">Lagos</text>
-<circle cx="297" cy="441" r="4" fill="#B99E47"></circle><text x="285" y="468" fill="#C9D3DC" font-size="14" text-anchor="end">Accra</text>
-<circle cx="102" cy="398" r="4" fill="#B99E47"></circle><text x="102" y="426" fill="#C9D3DC" font-size="14" text-anchor="middle">Freetown</text>
-<circle cx="725" cy="756" r="4" fill="#B99E47"></circle><text x="712" y="760" fill="#C9D3DC" font-size="14" text-anchor="end">Lusaka</text>
-<text x="1066" y="96" fill="#B99E47" font-size="12" letter-spacing="3" text-anchor="middle">THE GULF</text>
-<text x="230" y="370" fill="#B99E47" font-size="12" letter-spacing="3" text-anchor="middle">WEST AFRICA</text>
+<circle data-mk="doha" cx="1073" cy="146" r="5" fill="#D4BE78"></circle><text class="mk-t" data-mk="doha" x="1062" y="128" fill="#F3EDE2" font-size="15" text-anchor="end">Doha</text>
+<circle data-mk="dubai" cx="1129" cy="147" r="5" fill="#D4BE78"></circle><text class="mk-t" data-mk="dubai" x="1140" y="128" fill="#F3EDE2" font-size="15">Dubai</text>
+<circle data-mk="riyadh" cx="1000" cy="154" r="5" fill="#D4BE78"></circle><text class="mk-t" data-mk="riyadh" x="990" y="176" fill="#F3EDE2" font-size="15" text-anchor="end">Riyadh</text>
+<circle data-mk="lagos" cx="351" cy="427" r="4" fill="#B99E47"></circle><text class="mk-t" data-mk="lagos" x="351" y="455" fill="#C9D3DC" font-size="14" text-anchor="middle">Lagos</text>
+<circle data-mk="accra" cx="297" cy="441" r="4" fill="#B99E47"></circle><text class="mk-t" data-mk="accra" x="285" y="468" fill="#C9D3DC" font-size="14" text-anchor="end">Accra</text>
+<circle data-mk="freetown" cx="102" cy="398" r="4" fill="#B99E47"></circle><text class="mk-t" data-mk="freetown" x="102" y="426" fill="#C9D3DC" font-size="14" text-anchor="middle">Freetown</text>
+<circle data-mk="lusaka" cx="725" cy="756" r="4" fill="#B99E47"></circle><text class="mk-t" data-mk="lusaka" x="712" y="760" fill="#C9D3DC" font-size="14" text-anchor="end">Lusaka</text>
+<text class="rg" x="1066" y="96" fill="#B99E47" font-size="12" letter-spacing="3" text-anchor="middle">THE GULF</text>
+<text class="rg" x="230" y="370" fill="#B99E47" font-size="12" letter-spacing="3" text-anchor="middle">WEST AFRICA</text>
 </g>
-<circle cx="881" cy="390" r="3.5" fill="#B99E47"></circle><text x="892" y="386" fill="#C9D3DC" font-size="12">Addis Ababa</text>
-<circle cx="789" cy="520" r="3.5" fill="#B99E47"></circle><text x="782" y="508" fill="#C9D3DC" font-size="12" text-anchor="end">Kampala</text>
-<circle cx="751" cy="554" r="3.5" fill="#B99E47"></circle><text x="744" y="568" fill="#C9D3DC" font-size="12" text-anchor="end">Kigali</text>
-<circle cx="888" cy="627" r="3.5" fill="#B99E47"></circle><text x="898" y="631" fill="#C9D3DC" font-size="12">Dar es Salaam</text>
+<circle data-mk="addis" cx="881" cy="390" r="3.5" fill="#B99E47"></circle><text class="mk-t" data-mk="addis" x="892" y="386" fill="#C9D3DC" font-size="12">Addis Ababa</text>
+<circle data-mk="kampala" cx="789" cy="520" r="3.5" fill="#B99E47"></circle><text class="mk-t" data-mk="kampala" x="782" y="508" fill="#C9D3DC" font-size="12" text-anchor="end">Kampala</text>
+<circle data-mk="kigali" cx="751" cy="554" r="3.5" fill="#B99E47"></circle><text class="mk-t" data-mk="kigali" x="744" y="568" fill="#C9D3DC" font-size="12" text-anchor="end">Kigali</text>
+<circle data-mk="dar" cx="888" cy="627" r="3.5" fill="#B99E47"></circle><text class="mk-t" data-mk="dar" x="898" y="631" fill="#C9D3DC" font-size="12">Dar es Salaam</text>
 <circle class="pulse" cx="852" cy="544" r="7" fill="none" stroke="#D4BE78" stroke-width="1.2"></circle>
-<circle cx="852" cy="544" r="7" fill="#D4BE78"></circle>
-<text x="866" y="548" fill="#F3EDE2" font-size="16" font-weight="700">Nairobi</text>
+<circle data-mk="nairobi" cx="852" cy="544" r="7" fill="#D4BE78"></circle>
+<text class="mk-t" data-mk="nairobi" x="866" y="548" fill="#F3EDE2" font-size="16" font-weight="700">Nairobi</text>
 <g class="near"><text x="866" y="564" fill="#B99E47" font-size="9" letter-spacing="1.5">ALLY &amp; ASSOCIATES</text><text x="820" y="470" fill="#B99E47" font-size="8" letter-spacing="2.5" text-anchor="middle">EAST AFRICA · COMESA</text></g>
 <circle class="selring" cx="0" cy="0" r="13" id="selring" style="opacity: 0; transform: translate(852px, 544px)"></circle>
 <g class="hits">
@@ -660,6 +705,7 @@ br.mb{display:inline}
 </g>
 </g>
 </svg>
+<div class="fx" id="fx" aria-hidden="true"></div>
 <div class="map-ui">
 <p class="eyebrow">02 — Approach</p>
 <div class="chips-row"><button type="button" class="chips-arrow" id="chips-prev" aria-label="Show markets to the left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
@@ -667,30 +713,33 @@ br.mb{display:inline}
 <div class="chips-track"><div class="chips-set"><button type="button" class="chip" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" aria-pressed="false" data-city="freetown">Freetown</button></div><div class="chips-set" aria-hidden="true"><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="freetown">Freetown</button></div></div>
 </div>
 <button type="button" class="chips-arrow" id="chips-next" aria-label="Show markets to the right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div>
-<p class="map-hint">Select a market to zoom in on project size and advisory scope.</p>
+<p class="map-hint">Select a market to see how we can help you there.</p>
 </div>
 <aside class="city-card" id="city-card" hidden aria-live="polite" aria-label="Market detail">
+<span class="cc-echo" id="cc-echo" aria-hidden="true"></span>
 <div class="cc-head">
 <div>
-<p class="eyebrow"><span id="cc-country"></span></p>
+<p class="cc-tag"><span aria-hidden="true">// </span><span id="cc-country"></span></p>
 <h3 class="disp cc-name" id="cc-name"></h3>
 <p class="cc-role" id="cc-role"></p>
 </div>
 <button type="button" class="cc-btn cc-x" aria-label="Close and zoom out" id="cc-close"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
 </div>
-<div class="cc-ticket">
-<p class="cc-lbl">Typical project size</p>
-<p class="cc-val" id="cc-ticket"></p>
-<p class="cc-note" id="cc-note"></p>
+<ul class="cc-sectors" id="cc-sectors" aria-label="Focus areas"></ul>
+<p class="cc-lbl">How we can help here</p>
+<ol class="cc-list" id="cc-work"></ol>
+<div class="cc-brief">
+<p class="cc-lbl"><svg width="11" height="12" viewBox="0 0 11 12" aria-hidden="true"><rect x="1" y="5" width="9" height="6.2" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3"></rect><path d="M3 5V3.6a2.5 2.5 0 0 1 5 0V5" fill="none" stroke="currentColor" stroke-width="1.3"></path></svg> Inside the country brief</p>
+<ul class="cc-locked" id="cc-locked"></ul>
+<p class="sr-only">The detail is shared in a briefing.</p>
+<a class="cc-cta" id="cc-cta" href="#contact">Request the brief <span aria-hidden="true">→</span></a>
 </div>
-<p class="cc-lbl">Advisory work</p>
-<ul class="cc-list" id="cc-work"></ul>
 <div class="cc-nav">
 <button type="button" class="cc-btn" id="cc-prev"><span aria-hidden="true">←</span> Previous</button>
 <span class="cc-pos" id="cc-pos"></span>
 <button type="button" class="cc-btn" id="cc-next">Next <span aria-hidden="true">→</span></button>
 </div>
-<p class="cc-foot">Indicative only. Every mandate is scoped individually; financing is arranged through licensed partners.</p>
+<p class="cc-foot">Every mandate is scoped in writing. We advise and coordinate; we are not a lender.</p>
 </aside>
 <div class="stmts">
 <div class="stmt st1">
@@ -868,65 +917,171 @@ br.mb{display:inline}
 </div>
 <script>
 const CITIES = [
-      { id: 'nairobi', name: 'Nairobi', x: 852, y: 544, country: 'Kenya', role: 'Headquarters and COMESA hub',
-        ticket: 'US$10M+', note: 'Introductions to licensed financing partners; every financing decision rests with them.',
+      { id: 'nairobi', name: 'Nairobi', tag: 'Kenya', x: 852, y: 544, country: 'Kenya', role: 'Headquarters and COMESA hub',
+        focus: ['Energy and power', 'Real estate', 'Agri-processing'],
         work: ['Market entry and regulatory mapping', 'Political and country risk monitoring', 'Partner and counterparty due diligence', 'Lender and DFI readiness for sponsors'] },
-      { id: 'dar', name: 'Dar es Salaam', x: 888, y: 627, country: 'Tanzania', role: 'Mining and gold processing gateway',
-        ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the mandate.',
-        work: ['Mining and processing venture set-up', 'Mining licence and local-content mapping', 'Investor and offtake readiness'] },
-      { id: 'kampala', name: 'Kampala', x: 789, y: 520, country: 'Uganda', role: 'Oil, infrastructure and supply-chain entry',
-        ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the entry decision.',
+      { id: 'dar', name: 'Dar es Salaam', tag: 'Tanzania', x: 888, y: 627, country: 'Tanzania', role: 'Mining and gold processing gateway',
+        focus: ['Gold and critical minerals', 'Mineral processing', 'Ports and logistics'],
+        work: ['Mining and processing venture set-up', 'Licence and local-content mapping', 'Investor and offtake readiness'] },
+      { id: 'kampala', name: 'Kampala', tag: 'Uganda', x: 789, y: 520, country: 'Uganda', role: 'Oil, infrastructure and supply-chain entry',
+        focus: ['Oil and gas supply chain', 'Infrastructure', 'Agri-processing'],
         work: ['Market entry and supplier positioning', 'Political and regulatory risk briefings', 'Local partner vetting'] },
-      { id: 'kigali', name: 'Kigali', x: 751, y: 554, country: 'Rwanda', role: 'Regional services and DFI platform',
-        ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the entry decision.',
+      { id: 'kigali', name: 'Kigali', tag: 'Rwanda', x: 751, y: 554, country: 'Rwanda', role: 'Regional services and DFI platform',
+        focus: ['Services and finance', 'Real estate', 'Agri-processing'],
         work: ['Partner and counterparty vetting', 'DFI and lender readiness', 'Market entry briefings'] },
-      { id: 'addis', name: 'Addis Ababa', x: 881, y: 390, country: 'Ethiopia', role: 'Financial sector opening to foreign capital',
-        ticket: 'Mandate-scoped', note: 'Entry diagnostics scoped per investor and sector.',
-        work: ['Entry diagnostics following banking liberalisation', 'FX availability and repatriation risk', 'Licensing and regulatory mapping'] },
-      { id: 'lusaka', name: 'Lusaka', x: 725, y: 756, country: 'Zambia', role: 'Copperbelt mining and energy',
-        ticket: 'Large-scale', note: 'Project finance readiness for large mining and energy projects.',
+      { id: 'addis', name: 'Addis Ababa', tag: 'Ethiopia', x: 881, y: 390, country: 'Ethiopia', role: 'Financial sector opening to foreign capital',
+        focus: ['Financial services', 'Energy and power', 'Manufacturing'],
+        work: ['Entry diagnostics as banking opens up', 'FX availability and repatriation risk', 'Licensing and regulatory mapping'] },
+      { id: 'lusaka', name: 'Lusaka', tag: 'Zambia', x: 725, y: 756, country: 'Zambia', role: 'Copperbelt mining and energy',
+        focus: ['Copper and critical minerals', 'Energy and power', 'Industrial supply'],
         work: ['Bankability diagnostics for mining and energy', 'Local-content rules and supplier strategy', 'Lender and DFI engagement preparation'] },
-      { id: 'dubai', name: 'Dubai', x: 1129, y: 147, country: 'United Arab Emirates', role: 'Gulf capital corridor',
-        ticket: 'US$10M+', note: 'Introductions to licensed financing partners; every financing decision rests with them. We do not arrange, underwrite or place securities.',
-        work: ['Introductions to licensed lenders and investors', 'Africa market entry briefings for UAE investors', 'Investor readiness for African sponsors'] },
-      { id: 'doha', name: 'Doha', x: 1073, y: 146, country: 'Qatar', role: 'Investor outreach',
-        ticket: 'Large-scale', note: 'Introductions for large-scale projects seeking Gulf co-investment. We do not arrange, underwrite or place securities.',
-        work: ['Investor outreach and relationship building', 'Africa entry strategy for Qatari investors', 'Country risk briefings'] },
-      { id: 'riyadh', name: 'Riyadh', x: 1000, y: 154, country: 'Saudi Arabia', role: 'Gulf capital corridor',
-        ticket: 'Large-scale', note: 'Introductions for large-scale projects seeking Gulf co-investment. We do not arrange, underwrite or place securities.',
-        work: ['Africa opportunity screening for Saudi investors', 'Political and regulatory risk briefings', 'Co-investor and partner mapping'] },
-      { id: 'lagos', name: 'Lagos', x: 351, y: 427, country: 'Nigeria', role: 'West Africa’s largest economy',
-        ticket: 'Mandate-scoped', note: 'Scoped per investor and transaction.',
+      { id: 'dubai', name: 'Dubai', tag: 'UAE', x: 1129, y: 147, country: 'United Arab Emirates', role: 'Investor centre',
+        focus: ['Investor briefings', 'Co-investor mapping', 'Africa entry'],
+        work: ['Introductions to licensed lenders and investors', 'Africa market entry briefings', 'Investor readiness for African sponsors'] },
+      { id: 'doha', name: 'Doha', tag: 'Qatar', x: 1073, y: 146, country: 'Qatar', role: 'Investor centre',
+        focus: ['Investor outreach', 'Country risk', 'Africa entry'],
+        work: ['Investor outreach and relationship building', 'Africa entry strategy', 'Country risk briefings'] },
+      { id: 'riyadh', name: 'Riyadh', tag: 'Saudi Arabia', x: 1000, y: 154, country: 'Saudi Arabia', role: 'Investor centre',
+        focus: ['Opportunity screening', 'Co-investor mapping', 'Country risk'],
+        work: ['Africa opportunity screening', 'Political and regulatory risk briefings', 'Co-investor and partner mapping'] },
+      { id: 'lagos', name: 'Lagos', tag: 'Nigeria', x: 351, y: 427, country: 'Nigeria', role: 'West Africa’s largest economy',
+        focus: ['Energy and power', 'Manufacturing', 'Consumer and services'],
         work: ['Market entry and partner mapping', 'FX and policy risk briefings', 'Counterparty due diligence'] },
-      { id: 'accra', name: 'Accra', x: 297, y: 441, country: 'Ghana', role: 'West African entry point',
-        ticket: 'Mandate-scoped', note: 'Fixed-fee or retainer, scoped to the entry decision.',
+      { id: 'accra', name: 'Accra', tag: 'Ghana', x: 297, y: 441, country: 'Ghana', role: 'West African entry point',
+        focus: ['Gold and mining', 'Energy and power', 'Agri-processing'],
         work: ['Market entry briefings', 'Political and fiscal risk monitoring', 'Partner mapping'] },
-      { id: 'freetown', name: 'Freetown', x: 102, y: 398, country: 'Sierra Leone', role: 'Large-scale mining',
-        ticket: 'US$100M', note: 'Project finance readiness for large-scale mining projects.',
+      { id: 'freetown', name: 'Freetown', tag: 'Sierra Leone', x: 102, y: 398, country: 'Sierra Leone', role: 'Large-scale mining',
+        focus: ['Large-scale mining', 'Infrastructure', 'Energy and power'],
         work: ['Project finance readiness and lender preparation', 'Licence and regulatory mapping', 'Stakeholder engagement planning'] }
     ];
+const BRIEF = [["Route to entry", "Licensing sequence, ownership rules and realistic approval timelines for a foreign-owned entity."], ["Risk watch", "The political, fiscal and currency signals we track, and what would change the call."], ["Who matters", "Regulators, counterparties and local partners worth meeting first, and those to avoid."]];
 (function () {
   var byId = {}; CITIES.forEach(function (c) { byId[c.id] = c; });
   var sel = null;
   var section = document.getElementById('bridge');
+  var stage = section.querySelector('.stage');
+  var svgEl = section.querySelector('.net-svg');
   var map = document.getElementById('citymap');
   var ring = document.getElementById('selring');
   var card = document.getElementById('city-card');
+  var fx = document.getElementById('fx');
+  var ui = section.querySelector('.map-ui');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var reduceFx = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function set(id, text) { document.getElementById(id).textContent = text; }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function boxOf(el) { return { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight }; }
+  function hit(a, b) { return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y; }
+  function list(id, items, fn) {
+    var ul = document.getElementById(id); ul.innerHTML = '';
+    items.forEach(function (t, k) { var li = document.createElement('li'); fn(li, t, k); ul.appendChild(li); });
+  }
+  // Leader-line callouts: the market's name in a box, and its focus areas fanning out to the left
+  function drawFx(cur, still) {
+    fx.innerHTML = '';
+    fx.className = 'fx' + (still ? ' still' : '');
+    section.classList.remove('fx-tags');
+    if (!cur) return;
+    var m = svgEl.getScreenCTM(); if (!m) return;
+    var cs = getComputedStyle(map);
+    var mx = parseFloat(cs.getPropertyValue('--mx')) || 440, my = parseFloat(cs.getPropertyValue('--my')) || 400;
+    var sr = stage.getBoundingClientRect();
+    var W = stage.clientWidth, H = stage.clientHeight;
+    var px = m.a * mx + m.e - sr.left, py = m.d * my + m.f - sr.top;
+    var r = 13 * 2.2 * m.a + 5;
+    var avoid = [boxOf(ui)]; if (!card.hidden) avoid.push(boxOf(card));
+    function ok(b) {
+      if (b.x < 10 || b.y < 10 || b.x + b.w > W - 10 || b.y + b.h > H - 10) return false;
+      for (var i = 0; i < avoid.length; i++) if (hit(b, avoid[i])) return false;
+      return true;
+    }
+    var svg = document.createElementNS(SVGNS, 'svg'); fx.appendChild(svg);
+    function el(tag, attrs, delay) {
+      var e = document.createElementNS(SVGNS, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      if (delay != null) e.style.setProperty('--d', delay + 's');
+      svg.appendChild(e); return e;
+    }
+    function box(cls, delay) {
+      var b = document.createElement('div'); b.className = 'fx-box ' + cls;
+      b.style.setProperty('--d', delay + 's'); fx.appendChild(b); return b;
+    }
+    function put(b, g) { b.style.transform = 'translate(' + Math.round(g.x) + 'px,' + Math.round(g.y) + 'px)'; }
+    el('circle', { 'class': 'fx-ring', cx: px, cy: py, r: r - 5 });
+    var nb = box('fx-name', 0.7); nb.textContent = cur.tag;
+    var bw = nb.offsetWidth, bh = nb.offsetHeight, L = 44;
+    var opts = [
+      { g: { x: px - bw / 2, y: py - r - L - bh, w: bw, h: bh }, d: 'M' + px + ' ' + (py - r) + 'V' + (py - r - L) },
+      { g: { x: px + r + L, y: py - bh / 2, w: bw, h: bh }, d: 'M' + (px + r) + ' ' + py + 'H' + (px + r + L) },
+      { g: { x: px - bw / 2, y: py + r + L, w: bw, h: bh }, d: 'M' + px + ' ' + (py + r) + 'V' + (py + r + L) }
+    ];
+    var used = null;
+    for (var i = 0; i < opts.length; i++) if (ok(opts[i].g)) { used = opts[i]; break; }
+    if (used) { put(nb, used.g); el('path', { 'class': 'fx-l', d: used.d, pathLength: 1 }, 0.5); avoid.push(used.g); }
+    else nb.remove();
+    // Focus areas, left of the market, only where the screen has room for them
+    var tags = cur.focus.map(function (t, k) {
+      var b = box('fx-tag', 1.15 + k * 0.16);
+      b.innerHTML = '<small>Focus ' + pad(k + 1) + '</small>';
+      b.appendChild(document.createTextNode(t));
+      return b;
+    });
+    var ex1 = px - r - 34, ex = px - r - 96, placed = null;
+    [96, 80, 66, 56].some(function (gap) {
+      var n = tags.length, geo = [];
+      for (var k = 0; k < n; k++) {
+        var y = py + (k - (n - 1) / 2) * gap, w = tags[k].offsetWidth, h = tags[k].offsetHeight;
+        var g = { x: ex - 6 - w, y: y - h / 2, w: w, h: h };
+        if (!ok(g)) return false;
+        geo.push({ g: g, y: y });
+      }
+      placed = geo; return true;
+    });
+    if (!placed) { tags.forEach(function (b) { b.remove(); }); return; }
+    placed.forEach(function (p, k) {
+      var dx = ex1 - px, dy = p.y - py, len = Math.sqrt(dx * dx + dy * dy) || 1;
+      var sx = px + dx * r / len, sy = py + dy * r / len;
+      el('path', { 'class': 'fx-l', d: 'M' + sx.toFixed(1) + ' ' + sy.toFixed(1) + 'L' + ex1.toFixed(1) + ' ' + p.y.toFixed(1) + 'H' + ex.toFixed(1), pathLength: 1 }, 0.9 + k * 0.16);
+      el('circle', { 'class': 'fx-dot', cx: ex, cy: p.y, r: 2.6 }, 1.15 + k * 0.16);
+      put(tags[k], p.g);
+    });
+    section.classList.add('fx-tags');
+  }
   function render() {
     var idx = CITIES.findIndex(function (c) { return c.id === sel; });
     var cur = idx >= 0 ? CITIES[idx] : null;
     map.setAttribute('style', cur ? '--on: 1; --ms: 2.2; --cx: ' + (-cur.x) + 'px; --cy: ' + (-cur.y) + 'px' : '--on: 0; --ms: 1; --cx: 0px; --cy: 0px');
     ring.setAttribute('style', cur ? 'opacity: 1; transform: translate(' + cur.x + 'px, ' + cur.y + 'px)' : 'opacity: 0; transform: translate(852px, 544px)');
     section.classList.toggle('exploring', !!cur);
+    section.querySelectorAll('.net-svg [data-mk]').forEach(function (e) { e.classList.toggle('mk-on', !!cur && e.getAttribute('data-mk') === sel); });
     document.querySelectorAll('.chip').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.city === sel ? 'true' : 'false'); });
-    if (!cur) { card.hidden = true; return; }
-    set('cc-country', cur.country); set('cc-name', cur.name); set('cc-role', cur.role);
-    set('cc-ticket', cur.ticket); set('cc-note', cur.note); set('cc-pos', (idx + 1) + ' / ' + CITIES.length);
-    var ul = document.getElementById('cc-work'); ul.innerHTML = '';
-    cur.work.forEach(function (w) { var li = document.createElement('li'); li.textContent = w; ul.appendChild(li); });
+    if (!cur) { card.hidden = true; drawFx(null); return; }
+    set('cc-country', cur.country + ' · ' + pad(idx + 1)); set('cc-name', cur.name); set('cc-role', cur.role);
+    set('cc-pos', pad(idx + 1) + ' / ' + pad(CITIES.length));
+    var echo = document.getElementById('cc-echo');
+    echo.textContent = pad(idx + 1); echo.classList.remove('go'); void echo.offsetWidth; echo.classList.add('go');
+    list('cc-sectors', cur.focus, function (li, t) { li.textContent = t; });
+    list('cc-work', cur.work, function (li, t, k) {
+      li.style.setProperty('--k', k);
+      var n = document.createElement('span'); n.className = 'n'; n.setAttribute('aria-hidden', 'true'); n.textContent = pad(k + 1);
+      li.appendChild(n); li.appendChild(document.createTextNode(t));
+    });
+    list('cc-locked', BRIEF, function (li, t) {
+      var k = document.createElement('span'); k.className = 'k'; k.textContent = t[0];
+      var v = document.createElement('span'); v.className = 'v'; v.setAttribute('aria-hidden', 'true'); v.textContent = t[1];
+      li.appendChild(k); li.appendChild(v);
+    });
+    var cta = document.getElementById('cc-cta');
+    cta.firstChild.nodeValue = 'Request the ' + cur.tag + ' brief ';
     card.hidden = false;
+    drawFx(cur, reduceFx);
   }
+  var rz = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rz);
+    rz = setTimeout(function () { if (sel) drawFx(byId[sel], true); }, 160);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel) { sel = null; render(); } });
   function pick(id) { sel = (sel === id) ? null : id; render(); }
   function step(d) {
     var idx = CITIES.findIndex(function (c) { return c.id === sel; });
