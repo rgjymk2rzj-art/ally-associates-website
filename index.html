@@ -372,6 +372,7 @@ html{scroll-behavior:smooth}
 .cl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border-top:1px solid rgba(2,26,68,.15)}
 .cl-cell{padding:20px 24px 20px 0;border-bottom:1px solid rgba(2,26,68,.15);display:flex;flex-direction:column;gap:6px}
 @media (max-width:640px){.site-foot{padding:14px 16px !important}.site-foot .ft-in{gap:6px 16px !important}.site-foot .ft-logo{width:72px !important}.site-foot .ft-txt{font-size:10.5px !important;line-height:1.45 !important}}
+.bts-steps{grid-template-columns:repeat(6,minmax(0,1fr))}@media (max-width:1100px){.bts-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (max-width:560px){.bts-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -748,7 +749,7 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="about" style="background: var(--ink); padding: clamp(64px, 7vw, 104px) clamp(16px, 5vw, 48px); border-top: 1px solid var(--line)">
+<section id="about" style="background: var(--ink); padding: clamp(64px, 7vw, 104px) clamp(16px, 5vw, 48px) clamp(36px, 3.5vw, 48px); border-top: 1px solid var(--line)">
 <div class="two-col" style="max-width: 1200px; margin: 0 auto; align-items: start">
 <div class="rv" style="display: flex; flex-direction: column; gap: 16px">
 <p class="eyebrow">06 — Who we are</p>
@@ -797,7 +798,7 @@ html{scroll-behavior:smooth}
 <span style="text-align: right; max-width: 30%">Backward trace<br><span style="color: var(--mute)">from the outcome you need</span></span>
 </div>
 </div>
-<ol class="rv" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 12px">
+<ol class="rv bts-steps" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px">
 <li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">1</span>Anchor selection</li>
 <li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">2</span>Forward trace</li>
 <li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">3</span>Backward trace</li>
@@ -808,7 +809,7 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="contact" style="position: relative; background: var(--ink); overflow: clip">
+<section id="contact" style="position: relative; background: var(--ink); overflow: clip; border-top: 1px solid var(--line)">
 <div class="stage" style="display: flex; align-items: center; justify-content: center; height: auto; min-height: clamp(420px, 62svh, 580px)">
 <img class="bgimg cta-img" src="images/hero.jpg" alt="">
 <div style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.55)"></div>
