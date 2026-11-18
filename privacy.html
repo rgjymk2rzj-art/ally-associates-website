@@ -209,8 +209,13 @@ html{scroll-behavior:smooth}
 </a>
 <nav class="nav-links" aria-label="Primary">
 <a href="index.html#bridge">Approach</a>
-<a href="index.html#services">Services</a>
-<a href="index.html#sectors">Sectors</a>
+<div class="nav-dd" id="nav-services">
+<button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-services-menu">Services<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div class="nav-dd-menu" id="nav-services-menu">
+<a href="index.html#services">What we do<small>Five service lines</small></a>
+<a href="index.html#sectors">Sectors<small>Energy, mining, construction, industry</small></a>
+</div>
+</div>
 <div class="nav-dd" id="nav-method">
 <button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-method-menu">Our Method<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
 <div class="nav-dd-menu" id="nav-method-menu">
@@ -232,8 +237,13 @@ html{scroll-behavior:smooth}
 </header>
 <nav class="mnav" id="mnav" aria-label="Menu">
 <a href="index.html#bridge">Approach</a>
-<a href="index.html#services">Services</a>
-<a href="index.html#sectors">Sectors</a>
+<div class="mnav-group">
+<button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-services">Services<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div class="mnav-sub" id="mnav-services" hidden>
+<a href="index.html#services"><strong>What we do</strong><small>Five service lines</small></a>
+<a href="index.html#sectors"><strong>Sectors</strong><small>Energy, mining, construction, industry</small></a>
+</div>
+</div>
 <div class="mnav-group">
 <button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-method">Our Method<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
 <div class="mnav-sub" id="mnav-method" hidden>
@@ -479,7 +489,7 @@ html{scroll-behavior:smooth}
 (function () {
   var btn = document.querySelector('.nav-burger'), menu = document.getElementById('mnav');
   if (!btn || !menu) return;
-  var grp = menu.querySelector('.mnav-label'), sub = document.getElementById('mnav-method');
+  var grp = menu.querySelector('.mnav-label[aria-controls="mnav-method"]'), sub = document.getElementById('mnav-method');
   function set(open) {
     menu.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -500,7 +510,8 @@ html{scroll-behavior:smooth}
 </script>
 <script>
 (function () {
-  var dd = document.getElementById('nav-about');
+  ['nav-about', 'nav-services'].forEach(function (id) {
+  var dd = document.getElementById(id);
   if (dd) {
     var btn = dd.querySelector('.nav-dd-btn');
     var set = function (open) { dd.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
@@ -511,13 +522,16 @@ html{scroll-behavior:smooth}
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && dd.classList.contains('open')) { set(false); btn.focus(); } });
     dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) set(false); });
   }
-  var g = document.querySelector('#mnav .mnav-label[aria-controls="mnav-about"]'), sb = document.getElementById('mnav-about');
+  });
+  ['mnav-about', 'mnav-services'].forEach(function (id) {
+  var g = document.querySelector('#mnav .mnav-label[aria-controls="' + id + '"]'), sb = document.getElementById(id);
   if (g && sb) {
     var close = function () { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; };
     g.addEventListener('click', function (e) { e.stopPropagation(); var o = g.getAttribute('aria-expanded') !== 'true'; g.setAttribute('aria-expanded', o ? 'true' : 'false'); sb.hidden = !o; });
     var burger = document.querySelector('.nav-burger'); if (burger) burger.addEventListener('click', close);
     document.querySelectorAll('#mnav a').forEach(function (a) { a.addEventListener('click', close); });
   }
+  });
 })();
 </script>
 </body>
