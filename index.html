@@ -418,9 +418,18 @@ html{scroll-behavior:smooth}
 #top .hero-copy{height:auto !important;min-height:var(--stage);box-sizing:border-box;padding:116px 24px 172px !important;gap:clamp(12px,2.6vh,22px) !important}
 #top .hero-copy h1{font-size:clamp(38px,min(7.2vw,10.8vh),108px) !important}
 #top .hero-copy .l4{font-size:clamp(15px,min(1.6vw,2.6vh),21px) !important}
+@supports (height:1svh){#top .hero-copy h1{font-size:clamp(38px,min(7.2vw,10.8svh),108px) !important}#top .hero-copy .l4{font-size:clamp(15px,min(1.6vw,2.6svh),21px) !important}}
 .loop{width:min(560px,100%,calc(var(--stage) - 250px))}
 @media (max-width:860px){.loop{width:min(560px,100%,calc(var(--stage) - 360px))}}
 @media (max-width:860px) and (max-height:700px){.loop{width:min(560px,100%,calc(var(--stage) - 400px))}#risk .two-col{padding-top:104px !important;gap:20px}}
+@media (orientation:landscape) and (max-height:520px){
+#risk .stage,#bridge .stage{min-height:0 !important}
+#risk .two-col{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) !important;gap:24px !important;padding:92px clamp(16px,4vw,40px) 16px !important;align-items:center}
+#risk .two-col h2{font-size:26px !important}#risk .two-col > div > p:last-child{font-size:13px !important;line-height:1.5 !important}#risk .two-col > div{gap:10px !important}
+.loop{width:min(560px,100%,calc(var(--stage) - 180px)) !important}
+#risk .rlbl{font-size:10px}
+#risk .loop > div[style*="top: 54%"]{display:none}
+}
 /* Fallback for browsers without scroll-driven animations (e.g. Firefox) and reduced motion */
 .aa.nosdt .sc-net.tall{height:calc(var(--stage) * 2.4)}
 .aa.nosdt .sc-net.tall > .stage{position:sticky;top:0}
@@ -428,6 +437,9 @@ html{scroll-behavior:smooth}
 .aa.nosdt .sc-net .stmt{grid-area:1/1;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .6s ease}
 .aa.nosdt .sc-net .stmt.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.aa.nosdt .sc-net .stmt{transition:none;transform:none}}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button{-webkit-tap-highlight-color:transparent}
+.hw{-webkit-user-select:none}
 </style>
 </head>
 <body>
@@ -721,7 +733,7 @@ html{scroll-behavior:smooth}
 </div>
 <div class="sec-grid">
 <article class="sec-card rv">
-<svg class="sec-ico" aria-hidden="true" viewBox="0 0 52 52" fill="none" stroke="#032560" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="0.8" y="0.8" width="50.4" height="50.4" rx="8" fill="#F3EDE2" stroke="none"></rect><circle class="fl" style="--i:0" pathLength="1" cx="38" cy="14" r="5" fill="#B99E47" stroke="none"></circle><path class="dr" style="--i:1" pathLength="1" d="M24 44V22"></path><path class="dr" style="--i:2" pathLength="1" d="M24 22l-9-8"></path><path class="dr" style="--i:3" pathLength="1" d="M24 22l11 3"></path><path class="dr" style="--i:4" pathLength="1" d="M24 22l-1 12"></path><circle class="fl dr" style="--i:5" pathLength="1" cx="24" cy="22" r="1.8" fill="#032560"></circle><path class="dr" style="--i:6" pathLength="1" d="M17 44h14"></path></svg>
+<svg class="sec-ico" aria-hidden="true" viewBox="0 0 52 52" fill="none" stroke="#032560" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="0.8" y="0.8" width="50.4" height="50.4" rx="8" fill="#F3EDE2" stroke="none"></rect><path class="fl" style="--i:0" pathLength="1" fill="#B99E47" stroke="none" d="M38 9 A5 5 0 1 1 38 19 A5 5 0 1 1 38 9"></path><path class="dr" style="--i:1" pathLength="1" d="M24 44V22"></path><path class="dr" style="--i:2" pathLength="1" d="M24 22l-9-8"></path><path class="dr" style="--i:3" pathLength="1" d="M24 22l11 3"></path><path class="dr" style="--i:4" pathLength="1" d="M24 22l-1 12"></path><path class="fl dr" style="--i:5" pathLength="1" fill="#032560" d="M24 20.2 A1.8 1.8 0 1 1 24 23.8 A1.8 1.8 0 1 1 24 20.2"></path><path class="dr" style="--i:6" pathLength="1" d="M17 44h14"></path></svg>
 <h3 class="disp" style="margin: 0; font-size: 26px; line-height: 1.1">Energy &amp; power</h3>
 <p class="sec-q">Will the tariff, the offtaker and the permits hold for the life of the loan?</p>
 <p class="sec-sig">Africa’s top destination for greenfield investment in 2024: more than a fifth of announced project value, at over <span class="count" data-to="1" data-pre="US$" data-suf=" billion">US$1 billion</span> a project.</p>
@@ -737,7 +749,7 @@ html{scroll-behavior:smooth}
 <a class="sec-link" href="#contact">Discuss a mining project &rarr;</a>
 </article>
 <article class="sec-card rv">
-<svg class="sec-ico" aria-hidden="true" viewBox="0 0 52 52" fill="none" stroke="#032560" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="0.8" y="0.8" width="50.4" height="50.4" rx="8" fill="#F3EDE2" stroke="none"></rect><path class="dr" style="--i:0" pathLength="1" d="M15 44V11"></path><path class="dr" style="--i:1" pathLength="1" d="M11 13h30"></path><path class="dr" style="--i:2" pathLength="1" d="M15 11l6 2"></path><path class="dr" style="--i:3" pathLength="1" d="M35 13v9"></path><rect class="fl dr" style="--i:4" pathLength="1" x="31" y="22" width="8" height="5" fill="#B99E47" stroke="#B99E47"></rect><path class="dr" style="--i:5" pathLength="1" d="M24 44V32h16v12"></path><path class="dr" style="--i:6" pathLength="1" d="M10 44h32"></path></svg>
+<svg class="sec-ico" aria-hidden="true" viewBox="0 0 52 52" fill="none" stroke="#032560" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="0.8" y="0.8" width="50.4" height="50.4" rx="8" fill="#F3EDE2" stroke="none"></rect><path class="dr" style="--i:0" pathLength="1" d="M15 44V11"></path><path class="dr" style="--i:1" pathLength="1" d="M11 13h30"></path><path class="dr" style="--i:2" pathLength="1" d="M15 11l6 2"></path><path class="dr" style="--i:3" pathLength="1" d="M35 13v9"></path><path class="fl dr" style="--i:4" pathLength="1" fill="#B99E47" stroke="#B99E47" d="M31 22H39V27H31Z"></path><path class="dr" style="--i:5" pathLength="1" d="M24 44V32h16v12"></path><path class="dr" style="--i:6" pathLength="1" d="M10 44h32"></path></svg>
 <h3 class="disp" style="margin: 0; font-size: 26px; line-height: 1.1">Construction &amp; real estate</h3>
 <p class="sec-q">Can the land title, the counterparty and the currency carry a long build?</p>
 <p class="sec-sig">Fewer but larger projects: construction carries the biggest average ticket on the continent, at about <span class="count" data-to="1.8" data-dec="1" data-pre="US$" data-suf=" billion">US$1.8 billion</span>.</p>
@@ -771,7 +783,7 @@ html{scroll-behavior:smooth}
 <svg viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible" aria-hidden="true">
 <defs><marker id="aa-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#B99E47"></path></marker></defs>
 <circle cx="50" cy="50" r="42" fill="none" stroke="#1D4585" stroke-width="0.6"></circle>
-<circle class="ring" cx="50" cy="50" r="42" fill="none" style="stroke: var(--gold)" stroke-width="0.8" pathLength="1" stroke-dasharray="1" transform="rotate(-90 50 50)"></circle>
+<path class="ring" d="M50 8 A42 42 0 1 1 50 92 A42 42 0 1 1 50 8" fill="none" style="stroke: var(--gold)" stroke-width="0.8" pathLength="1" stroke-dasharray="1"></path>
 <path class="fb" d="M18 34 Q50 14 82 34" fill="none" style="stroke: var(--gold)" stroke-width="0.5" stroke-dasharray="1" pathLength="1" marker-end="url(#aa-arrow)" opacity="0.9"></path>
 </svg>
 </div>
@@ -1387,7 +1399,7 @@ const CITIES = [
   }
   function sync() {
     ticking = false;
-    var y = window.scrollY;
+    var y = Math.max(0, window.scrollY);
     if (d0 <= 0) { mover.style.visibility = 'hidden'; label.style.opacity = '1'; return; }
     var t = Math.min(y, d0), landed = y >= d0 - 0.5;
     mover.style.transform = 'translateY(' + t + 'px)';
