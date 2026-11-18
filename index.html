@@ -145,7 +145,7 @@ html{scroll-behavior:smooth}
 .aa.moving .hero-copy .l3t{display:inline-block;animation:heroOpen 1.15s cubic-bezier(.65,0,.35,1) 1.85s both}
 .aa.moving .hero-copy .l3::after{content:"";position:absolute;left:50%;top:52%;width:min(78%,760px);height:2px;margin-top:-1px;background:linear-gradient(90deg,transparent,var(--gold) 18%,var(--gold) 82%,transparent);pointer-events:none;animation:heroLine 1.4s cubic-bezier(.65,0,.35,1) 1.85s both}
 @keyframes heroOpen{0%,38%{clip-path:inset(50% 0 50% 0)}100%{clip-path:inset(-15% -2% -15% -2%)}}
-@keyframes heroLine{0%{transform:translateX(-50%) scaleX(0);opacity:1}38%{transform:translateX(-50%) scaleX(1);opacity:1}70%{transform:translateX(-50%) scaleX(1);opacity:.9}100%{transform:translateX(-50%) scaleX(1);opacity:0}}
+@keyframes heroLine{0%{transform:translateX(-50%) scaleX(0);opacity:1}38%{transform:translateX(-50%) scaleX(1);opacity:1}50%,100%{transform:translateX(-50%) scaleX(1);opacity:0}}
 @keyframes heroZoom{0%{opacity:0;transform:scale(.22);filter:blur(14px)}45%{opacity:1;filter:blur(2px)}100%{opacity:1;transform:none;filter:none}}
 @keyframes heroRise{0%{opacity:0;transform:translateY(42px) scale(.96);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
 .aa.moving .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s ease-out infinite}
