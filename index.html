@@ -139,10 +139,10 @@ html{scroll-behavior:smooth}
 @keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
 @media (prefers-reduced-motion:no-preference){
 .aa.moving .load{animation:load 1.1s cubic-bezier(.2,.7,.2,1) both}
-.aa.moving .l2{animation-delay:.15s}.aa.moving .l3{animation-delay:1.85s}.aa.moving .l4{animation-delay:4.15s}.aa.moving .l5{animation-delay:4.5s}
+.aa.moving .l2{animation-delay:.15s}.aa.moving .l3{animation-delay:2.6s}.aa.moving .l4{animation-delay:4.85s}.aa.moving .l5{animation-delay:5.2s}
 .aa.moving .hero-copy .l2{animation:heroZoom 1.8s cubic-bezier(.22,.61,.36,1) .1s both;transform-origin:50% 50%}
 .aa.moving .hero-copy .l3{animation:none;position:relative}
-.aa.moving .hero-copy .l3t{display:inline-block;transform-origin:50% 50%;animation:heroPunch 1.05s cubic-bezier(.22,.9,.3,1) 1.85s both}
+.aa.moving .hero-copy .l3t{display:inline-block;transform-origin:50% 50%;animation:heroPunch 1.05s cubic-bezier(.22,.9,.3,1) 2.6s both}
 @keyframes heroPunch{0%{opacity:0;transform:scale(.12);filter:blur(16px)}55%{opacity:1;transform:scale(1.08);filter:blur(0)}78%{transform:scale(.985)}100%{opacity:1;transform:none;filter:none}}
 @keyframes heroZoom{0%{opacity:0;transform:scale(.22);filter:blur(14px)}45%{opacity:1;filter:blur(2px)}100%{opacity:1;transform:none;filter:none}}
 @keyframes heroRise{0%{opacity:0;transform:translateY(42px) scale(.96);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
@@ -156,7 +156,7 @@ html{scroll-behavior:smooth}
 @keyframes bgFade{to{opacity:.35}}
 @keyframes cueFade{to{opacity:0}}
 @keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}38%{opacity:1;transform:none}68%{opacity:1;transform:translateY(-2vh)}96%,100%{opacity:0;transform:translateY(-10vh)}}
-.aa.moving .lt{animation-delay:4.85s}
+.aa.moving .lt{animation-delay:5.55s}
 .aa.moving .sc-net{view-timeline:--net block}
 .aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
 .aa.moving .arc{animation:draw linear both;animation-timeline:--net}
@@ -392,8 +392,8 @@ html{scroll-behavior:smooth}
 .hw-row:nth-child(even) .hw-rl{right:calc(50% - 1.05em)}
 .hw-row:nth-child(even) .hw-rr{left:calc(50% + 1.49em)}
 .hw.risk .hw-rl,.hw.risk .hw-rr{opacity:1;transform:none}
-.hw.opp .hw-rl{opacity:0;transform:translateX(-16vw);transition:transform 1s cubic-bezier(.4,0,.2,1),opacity .55s ease;transition-delay:calc(var(--i) * 30ms)}
-.hw.opp .hw-rr{opacity:0;transform:translateX(16vw);transition:transform 1s cubic-bezier(.4,0,.2,1),opacity .55s ease;transition-delay:calc(var(--i) * 30ms)}
+.hw.clear .hw-rl{opacity:0;transform:translateX(-16vw);transition:transform .75s cubic-bezier(.4,0,.2,1),opacity .4s ease;transition-delay:calc(var(--i) * 30ms)}
+.hw.clear .hw-rr{opacity:0;transform:translateX(16vw);transition:transform .75s cubic-bezier(.4,0,.2,1),opacity .4s ease;transition-delay:calc(var(--i) * 30ms)}
 .hw-o{left:50%;color:transparent;-webkit-text-stroke:1px rgba(212,190,120,.32);opacity:0;transform:translate(-50%,60%);transition:transform 1.15s cubic-bezier(.2,.7,.2,1),opacity .8s ease;transition-delay:calc(var(--i) * 70ms + .15s)}
 .hw-row:nth-child(even) .hw-o{margin-left:3.9em}
 .hw.opp .hw-o{opacity:1;transform:translate(-50%,0)}
@@ -1338,8 +1338,8 @@ const CITIES = [
   var hw = document.getElementById('hero-wall');
   if (hw) {
     var moving = document.querySelector('.aa.moving');
-    if (reduce || !moving) { hw.classList.add('opp', 'done'); }
-    else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('opp'); }, 1850); setTimeout(function () { hw.classList.add('done'); }, 4100); }
+    if (reduce || !moving) { hw.classList.add('clear', 'opp', 'done'); }
+    else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('clear'); }, 1550); setTimeout(function () { hw.classList.add('opp'); }, 2150); setTimeout(function () { hw.classList.add('done'); }, 4800); }
   }
 })();
 </script>
