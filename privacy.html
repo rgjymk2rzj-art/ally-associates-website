@@ -218,7 +218,13 @@ html{scroll-behavior:smooth}
 <a href="index.html#finance">Project finance<small>Bankability, by design</small></a>
 </div>
 </div>
-<a href="index.html#about">About</a>
+<div class="nav-dd" id="nav-about">
+<button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-about-menu">About<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div class="nav-dd-menu" id="nav-about-menu">
+<a href="index.html#about">Who we are<small>Partner-led advisory</small></a>
+<a href="index.html#method">How we think<small>Bidirectional Trajectory Synthesis</small></a>
+</div>
+</div>
 <a href="index.html#contact">Contact</a>
 </nav>
 <a class="btn btn-gold nav-cta" href="index.html#contact" style="min-height: 44px; padding: 0 20px; font-size: 14px">Book a briefing</a>
@@ -235,7 +241,13 @@ html{scroll-behavior:smooth}
 <a href="index.html#finance"><strong>Project Finance</strong><small>Bankability, by Design</small></a>
 </div>
 </div>
-<a href="index.html#about">About</a>
+<div class="mnav-group">
+<button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-about">About<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<div class="mnav-sub" id="mnav-about" hidden>
+<a href="index.html#about"><strong>Who we are</strong><small>Partner-led advisory</small></a>
+<a href="index.html#method"><strong>How we think</strong><small>Bidirectional Trajectory Synthesis</small></a>
+</div>
+</div>
 <a href="index.html#contact">Contact</a>
 <a class="btn btn-gold" href="index.html#contact">Book a briefing</a>
 </nav>
@@ -484,6 +496,28 @@ html{scroll-behavior:smooth}
   });
   document.addEventListener('click', function (e) { if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) { set(false); btn.focus(); } });
+})();
+</script>
+<script>
+(function () {
+  var dd = document.getElementById('nav-about');
+  if (dd) {
+    var btn = dd.querySelector('.nav-dd-btn');
+    var set = function (open) { dd.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(!dd.classList.contains('open')); });
+    dd.querySelectorAll('.nav-dd-menu a').forEach(function (a) { a.addEventListener('click', function () { set(false); btn.blur(); dd.classList.add('nohover'); }); });
+    dd.addEventListener('mouseleave', function () { dd.classList.remove('nohover'); });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && dd.classList.contains('open')) { set(false); btn.focus(); } });
+    dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) set(false); });
+  }
+  var g = document.querySelector('#mnav .mnav-label[aria-controls="mnav-about"]'), sb = document.getElementById('mnav-about');
+  if (g && sb) {
+    var close = function () { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; };
+    g.addEventListener('click', function (e) { e.stopPropagation(); var o = g.getAttribute('aria-expanded') !== 'true'; g.setAttribute('aria-expanded', o ? 'true' : 'false'); sb.hidden = !o; });
+    var burger = document.querySelector('.nav-burger'); if (burger) burger.addEventListener('click', close);
+    document.querySelectorAll('#mnav a').forEach(function (a) { a.addEventListener('click', close); });
+  }
 })();
 </script>
 </body>
