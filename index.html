@@ -155,13 +155,13 @@ html{scroll-behavior:smooth}
 .aa.moving .tall > .stage{position:sticky;top:0}
 .aa.moving .sc-hero{view-timeline:--hero block}
 .aa.moving .hero-img{animation:zoomOut linear both,bgFade linear both;animation-timeline:--hero,--hero;animation-range:contain 0% contain 100%,contain 8% contain 92%}
-.aa.moving .hero-ov,.aa.moving .hero-cue{animation:bgFade linear both;animation-timeline:--hero;animation-range:contain 8% contain 70%}
-.aa.moving #top{background:transparent !important}
-.aa.moving #bridge{position:relative;z-index:1;margin-top:calc(var(--stage) * -0.85)}
-@keyframes bgFade{to{opacity:0}}
-@keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}18%{opacity:1;transform:none}32%{opacity:1;transform:translateY(-2vh)}52%{opacity:0;transform:translateY(-14vh)}100%{opacity:0;transform:translateY(-14vh)}}
+.aa.moving .hero-cue{animation:cueFade linear both;animation-timeline:--hero;animation-range:contain 0% contain 30%}
+#bridge{border-top:1px solid rgba(185,158,71,.35)}
+@keyframes bgFade{to{opacity:.35}}
+@keyframes cueFade{to{opacity:0}}
+@keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}38%{opacity:1;transform:none}68%{opacity:1;transform:translateY(-2vh)}96%,100%{opacity:0;transform:translateY(-10vh)}}
 .aa.moving .hero-copy{animation:heroOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 28%}
-.aa.moving .hero-tag{animation:tagSeg linear both;animation-timeline:--hero;animation-range:contain 0% exit 30%}
+.aa.moving .hero-tag{animation:tagSeg linear both;animation-timeline:--hero;animation-range:contain 0% contain 100%}
 .aa.moving .sc-net{view-timeline:--net block}
 .aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
 .aa.moving .arc{animation:draw linear both;animation-timeline:--net}
@@ -488,7 +488,7 @@ html{scroll-behavior:smooth}
 <a class="btn btn-gold" href="#contact">Book a briefing</a>
 </nav>
 
-<section id="top" class="sc-hero tall" style="--len: 1.45; position: relative; z-index: 2; background: transparent">
+<section id="top" class="sc-hero tall" style="--len: 1.35; position: relative; background: var(--ink)">
 <div class="stage">
 <img class="bgimg hero-img" src="images/hero.jpg" alt="">
 <div class="hero-ov" style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.42)"></div>
