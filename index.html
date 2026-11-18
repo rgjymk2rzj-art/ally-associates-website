@@ -251,7 +251,19 @@ html{scroll-behavior:smooth}
 .chip:hover{border-color:#D4BE78}
 .chip:focus-visible,.cc-btn:focus-visible{outline:2px solid #D4BE78;outline-offset:2px}
 .chip[aria-pressed="true"]{background:#B99E47;border-color:#B99E47;color:#032560;font-weight:600}
-.map-hint{margin:0;font-size:13px;color:var(--mute)}
+.map-hint{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;margin:0;padding:8px 14px 8px 12px;border:1px solid rgba(212,190,120,.6);border-radius:999px;background:rgba(185,158,71,.14);color:#E6D3A0;font-size:13.5px;font-weight:600;line-height:1.3;letter-spacing:.01em;transition:opacity .4s,border-color .4s,background-color .4s}
+.mh-m{display:none}
+@media (hover:none),(max-width:600px){.mh-d{display:none}.mh-m{display:inline}}
+.mh-dot{position:relative;flex:none;width:8px;height:8px;border-radius:50%;background:#D4BE78}
+.mh-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid #D4BE78;animation:mhPing 1.8s ease-out infinite}
+.mh-up{flex:none;color:#D4BE78;animation:mhNudge 1.4s ease-in-out infinite}
+@keyframes mhPing{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+@keyframes mhNudge{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
+.sc-net:not(.picked) .chip{animation:chipCall 3.6s ease-in-out infinite;animation-delay:calc(var(--c,0) * .22s)}
+@keyframes chipCall{0%,70%,100%{box-shadow:0 0 0 0 rgba(212,190,120,0);border-color:rgba(212,190,120,.45)}35%{box-shadow:0 0 0 4px rgba(212,190,120,.22);border-color:#D4BE78}}
+.sc-net.picked .map-hint{background:transparent;border-color:rgba(212,190,120,.3);color:var(--mute)}
+.sc-net.picked .mh-dot::after,.sc-net.picked .mh-up{animation:none}
+@media (prefers-reduced-motion:reduce){.mh-dot::after,.mh-up,.sc-net:not(.picked) .chip{animation:none}}
 .city-card{position:absolute;top:214px;right:clamp(16px,5vw,72px);width:min(400px,calc(100% - 32px));max-height:calc(100% - 228px);overflow:auto;padding:24px 26px 20px;border-radius:20px;background:rgba(2,26,68,.93);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(185,158,71,.55);box-shadow:0 30px 80px rgba(0,0,0,.35);z-index:4;animation:cardIn .55s cubic-bezier(.2,.7,.2,1) both}
 .cc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 .cc-name{margin:6px 0 4px;font-size:34px;line-height:1}
@@ -405,10 +417,10 @@ html{scroll-behavior:smooth}
 @media (max-width:640px){.site-foot{padding:14px 16px !important}.site-foot .ft-in{gap:6px 16px !important}.site-foot .ft-logo{width:72px !important}.site-foot .ft-txt{font-size:10.5px !important;line-height:1.45 !important}}
 
 /* Hero background: RISK -> OPPORTUNITY */
-.hw{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;justify-content:center;font-family:'Montserrat',system-ui,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(40px,6.4vw,104px);line-height:1;letter-spacing:.02em;word-spacing:.45em;user-select:none}
+.hw{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;justify-content:center;font-family:'Montserrat',system-ui,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(24px,3.7vw,60px);line-height:1;letter-spacing:.04em;word-spacing:.45em;user-select:none}
 .hw-row{position:relative;height:1.32em;flex:none}
 .hw-row > span{position:absolute;top:0;white-space:nowrap}
-.hw-rl,.hw-rr{color:transparent;-webkit-text-stroke:1.5px rgba(243,237,226,.30);opacity:0;transition:transform 1.7s cubic-bezier(.19,1,.22,1),opacity .45s ease;transition-delay:calc(var(--i) * 60ms)}
+.hw-rl,.hw-rr{color:transparent;-webkit-text-stroke:1px rgba(243,237,226,.26);opacity:0;transition:transform 1.7s cubic-bezier(.19,1,.22,1),opacity .45s ease;transition-delay:calc(var(--i) * 60ms)}
 .hw-rl{right:calc(50% + .22em);transform:translateX(-110vw)}
 .hw-rr{left:calc(50% + .22em);transform:translateX(110vw)}
 .hw-row:nth-child(even) .hw-rl{right:calc(50% - 1.05em)}
@@ -564,6 +576,14 @@ br.mb{display:inline}
 <div class="hw-row"><span class="hw-rl" style="--i:4">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:4">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:4">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:4">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
 <div class="hw-row"><span class="hw-rl" style="--i:5">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:5">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:5">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:5">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
 <div class="hw-row"><span class="hw-rl" style="--i:6">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:6">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:6">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:6">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:1">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:1">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:1">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:1">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:2">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:2">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:2">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:2">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:3">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:3">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:3">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:3">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:4">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:4">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:4">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:4">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:5">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:5">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:5">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:5">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:6">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:6">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:6">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:6">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
+<div class="hw-row"><span class="hw-rl" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
 </div>
 <div class="hero-copy" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 92px 24px 72px; gap: 22px; max-width: 1120px; margin: 0 auto">
 <h1 class="disp" style="font-size: clamp(44px, 7.2vw, 108px); line-height: 0.98; margin: 0"><span class="load l2" style="display: block">Decode the risk.</span> <span class="load l3" style="display: block; color: var(--gold)"><span class="l3t">Capture the opportunity.</span></span></h1>
@@ -713,7 +733,7 @@ br.mb{display:inline}
 <div class="chips-track"><div class="chips-set"><button type="button" class="chip" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" aria-pressed="false" data-city="freetown">Freetown</button></div><div class="chips-set" aria-hidden="true"><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="nairobi">Nairobi</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dar">Dar es Salaam</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kampala">Kampala</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="kigali">Kigali</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="addis">Addis Ababa</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lusaka">Lusaka</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="dubai">Dubai</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="doha">Doha</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="riyadh">Riyadh</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="lagos">Lagos</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="accra">Accra</button><button type="button" class="chip" tabindex="-1" aria-pressed="false" data-city="freetown">Freetown</button></div></div>
 </div>
 <button type="button" class="chips-arrow" id="chips-next" aria-label="Show markets to the right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div>
-<p class="map-hint">Select a market to see how we can help you there.</p>
+<p class="map-hint"><span class="mh-dot" aria-hidden="true"></span><span class="mh-d">Select a market to see how we can help you there.</span><span class="mh-m">Tap a market to see how we can help.</span><svg class="mh-up" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></p>
 </div>
 <aside class="city-card" id="city-card" hidden aria-live="polite" aria-label="Market detail">
 <span class="cc-echo" id="cc-echo" aria-hidden="true"></span>
@@ -1082,7 +1102,8 @@ const BRIEF = [["Route to entry", "Licensing sequence, ownership rules and reali
     rz = setTimeout(function () { if (sel) drawFx(byId[sel], true); }, 160);
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sel) { sel = null; render(); } });
-  function pick(id) { sel = (sel === id) ? null : id; render(); }
+  section.querySelectorAll('.chips-set').forEach(function (set) { [].forEach.call(set.children, function (c, k) { c.style.setProperty('--c', k); }); });
+  function pick(id) { section.classList.add('picked'); sel = (sel === id) ? null : id; render(); }
   function step(d) {
     var idx = CITIES.findIndex(function (c) { return c.id === sel; });
     var n = CITIES.length; sel = CITIES[((idx < 0 ? 0 : idx) + d + n) % n].id; render();
