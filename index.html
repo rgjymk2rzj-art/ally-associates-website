@@ -408,7 +408,8 @@ html{scroll-behavior:smooth}
 #top > .stage{overflow:visible}
 #top .hero-img{transition:opacity 1.8s ease}
 #top.settled .hero-img{opacity:.45}
-@media (min-width:760px){.pyr{max-width:none !important}.pyr .pl{display:block;white-space:nowrap}}
+@media (min-width:760px),(orientation:landscape) and (max-height:520px){.pyr{max-width:none !important}.pyr .pl{display:block;white-space:nowrap}}
+@media (orientation:landscape) and (max-height:520px){#top .hero-copy{padding:92px 16px 118px !important;gap:10px !important}#top .hero-copy .l5 .btn{min-height:38px;padding:0 18px;font-size:13px}#top .hero-copy .pyr{font-size:13px !important;line-height:1.5 !important}}
 /* Standardised layout: scale to window height as well as width */
 #services{border-top:1px solid rgba(185,158,71,.55)}
 #bridge{border-top:1px solid rgba(185,158,71,.35)}
@@ -438,6 +439,17 @@ html{scroll-behavior:smooth}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 a,button{-webkit-tap-highlight-color:transparent}
 .hw{-webkit-user-select:none}
+/* Phone hero: centred headline, inverted-pyramid paragraph, compact buttons */
+br.mb{display:none}
+@media (max-width:759px) and (orientation:portrait){
+br.mb{display:inline}
+#top .hero-copy .pyr{white-space:nowrap;max-width:100% !important;font-size:clamp(11.5px,3.45vw,14px) !important;line-height:1.6 !important}
+#top .hero-copy{gap:clamp(14px,2.4svh,20px) !important;padding:112px 16px 128px !important;justify-content:center !important}
+#top .hero-copy h1{font-size:clamp(36px,11vw,52px) !important;line-height:1.02 !important}
+#top .hero-copy .l5{gap:10px !important}
+#top .hero-copy .l5 .btn{min-height:40px;padding:0 18px;font-size:13px}
+#top .hero-tag{font-size:16px !important}
+}
 </style>
 </head>
 <body>
@@ -523,7 +535,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 </div>
 <div class="hero-copy" style="position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 92px 24px 72px; gap: 22px; max-width: 1120px; margin: 0 auto">
 <h1 class="disp" style="font-size: clamp(44px, 7.2vw, 108px); line-height: 0.98; margin: 0"><span class="load l2" style="display: block">Decode the risk.</span> <span class="load l3" style="display: block; color: var(--gold)"><span class="l3t">Capture the opportunity.</span></span></h1>
-<p class="load l4 pyr" style="max-width: 660px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.6; color: #C9D3DC; margin: 0"><span class="pl">Strategic investment in Africa starts with context. We bring it to</span> <span class="pl">investors and project sponsors, so they can commit with</span> <span class="pl">confidence and stay <span style="color: var(--gold)">one step ahead of volatility</span>.</span></p>
+<p class="load l4 pyr" style="max-width: 660px; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.6; color: #C9D3DC; margin: 0"><span class="pl">Strategic investment in Africa starts with context.<br class="mb"> We bring it to</span> <span class="pl">investors and project sponsors,<br class="mb"> so they can commit with</span> <span class="pl">confidence<br class="mb"> and stay <span style="color: var(--gold)">one step ahead<br class="mb"> of volatility</span>.</span></p>
 <div class="load l5" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
 <a class="btn btn-ivory" href="#contact">Book a briefing</a>
 <a class="btn btn-ghost" href="#bridge">See how we work</a>
