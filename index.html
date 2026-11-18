@@ -409,6 +409,8 @@ html{scroll-behavior:smooth}
 /* Counters */
 .count{font-variant-numeric:tabular-nums}
 #top > .stage{overflow:visible}
+#top .hero-img{transition:opacity 1.8s ease}
+#top.settled .hero-img{opacity:.45}
 </style>
 </head>
 <body>
@@ -1338,8 +1340,18 @@ const CITIES = [
   var hw = document.getElementById('hero-wall');
   if (hw) {
     var moving = document.querySelector('.aa.moving');
-    if (reduce || !moving) { hw.classList.add('clear', 'opp', 'done'); }
-    else { setTimeout(function () { hw.classList.add('risk'); }, 60); setTimeout(function () { hw.classList.add('clear'); }, 1550); setTimeout(function () { hw.classList.add('opp'); }, 2150); setTimeout(function () { hw.classList.add('done'); }, 4800); }
+    var heroSec = document.getElementById('top');
+    if (reduce || !moving) {
+      hw.classList.add('clear', 'opp', 'done');
+      if (heroSec) heroSec.classList.add('settled');
+    } else {
+      setTimeout(function () { hw.classList.add('risk'); }, 60);
+      setTimeout(function () { hw.classList.add('clear'); }, 1550);
+      setTimeout(function () { hw.classList.add('opp'); }, 2150);
+      setTimeout(function () { hw.classList.add('done'); }, 4800);
+      // soften the contour background once the opening has settled
+      if (heroSec) setTimeout(function () { heroSec.classList.add('settled'); }, 6600);
+    }
   }
 })();
 </script>
