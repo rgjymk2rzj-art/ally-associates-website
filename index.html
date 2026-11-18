@@ -150,9 +150,14 @@ html{scroll-behavior:smooth}
 .aa.moving .tall{height:calc(var(--stage) * var(--len,3))}
 .aa.moving .tall > .stage{position:sticky;top:0}
 .aa.moving .sc-hero{view-timeline:--hero block}
-.aa.moving .hero-img{animation:zoomOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 100%}
-.aa.moving .hero-copy{animation:heroOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 30%}
-.aa.moving .hero-tag{animation:tagIn linear both;animation-timeline:--hero;animation-range:contain 5% contain 37%}
+.aa.moving .hero-img{animation:zoomOut linear both,bgFade linear both;animation-timeline:--hero,--hero;animation-range:contain 0% contain 100%,contain 8% contain 92%}
+.aa.moving .hero-ov,.aa.moving .hero-cue{animation:bgFade linear both;animation-timeline:--hero;animation-range:contain 8% contain 70%}
+.aa.moving #top{background:transparent !important}
+.aa.moving #bridge{position:relative;z-index:1;margin-top:calc(var(--stage) * -0.85)}
+@keyframes bgFade{to{opacity:0}}
+@keyframes tagSeg{0%{opacity:0;transform:translateY(42vh)}18%{opacity:1;transform:none}32%{opacity:1;transform:translateY(-2vh)}52%{opacity:0;transform:translateY(-14vh)}100%{opacity:0;transform:translateY(-14vh)}}
+.aa.moving .hero-copy{animation:heroOut linear both;animation-timeline:--hero;animation-range:contain 0% contain 28%}
+.aa.moving .hero-tag{animation:tagSeg linear both;animation-timeline:--hero;animation-range:contain 0% exit 30%}
 .aa.moving .sc-net{view-timeline:--net block}
 .aa.moving .zoomg{animation:netZoom linear both;animation-timeline:--net;animation-range:contain 0% contain 100%}
 .aa.moving .arc{animation:draw linear both;animation-timeline:--net}
@@ -479,10 +484,10 @@ html{scroll-behavior:smooth}
 <a class="btn btn-gold" href="#contact">Book a briefing</a>
 </nav>
 
-<section id="top" class="sc-hero tall" style="--len: 1.22; position: relative; background: var(--ink)">
+<section id="top" class="sc-hero tall" style="--len: 1.45; position: relative; z-index: 2; background: transparent">
 <div class="stage">
 <img class="bgimg hero-img" src="images/hero.jpg" alt="">
-<div style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.42)"></div>
+<div class="hero-ov" style="position: absolute; inset: 0; background: rgba(2, 26, 68, 0.42)"></div>
 <div class="hw" id="hero-wall" aria-hidden="true">
 <div class="hw-row"><span class="hw-rl" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:0">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:0">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
 <div class="hw-row"><span class="hw-rl" style="--i:1">Risk Risk Risk Risk Risk Risk</span><span class="hw-rr" style="--i:1">Risk Risk Risk Risk Risk Risk</span><span class="hw-o hw-ol" style="--i:1">Opportunity Opportunity Opportunity Opportunity Opportunity</span><span class="hw-o hw-or" style="--i:1">Opportunity Opportunity Opportunity Opportunity Opportunity</span></div>
@@ -508,7 +513,7 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 <p class="disp hero-tag" style="position: absolute; left: 16px; right: 16px; bottom: clamp(150px, 22vh, 220px); margin: 0; text-align: center; font-style: italic; font-weight: 500; font-size: clamp(32px, 4vw, 56px); line-height: 1.2; color: var(--gold)">One Step Ahead of Volatility</p>
-<div class="scroll-cue" aria-hidden="true">Scroll</div>
+<div class="scroll-cue hero-cue" aria-hidden="true">Scroll</div>
 </div>
 </section>
 
