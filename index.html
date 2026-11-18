@@ -181,7 +181,6 @@ html{scroll-behavior:smooth}
 .aa.moving .n1{animation-range:contain 6% contain 14%}.aa.moving .n2{animation-range:contain 17% contain 25%}.aa.moving .n3{animation-range:contain 28% contain 36%}.aa.moving .n4{animation-range:contain 39% contain 47%}.aa.moving .n5{animation-range:contain 50% contain 58%}.aa.moving .n6{animation-range:contain 61% contain 69%}
 .aa.moving .fb{animation:draw linear both;animation-timeline:--risk;animation-range:contain 76% contain 92%}
 .aa.moving .fb-note{animation:appear linear both;animation-timeline:--risk;animation-range:contain 84% contain 96%}
-.aa.moving .trace{animation:draw linear both;animation-timeline:view();animation-range:entry 40% cover 55%}
 .aa.moving .big{animation:bigNum linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
 .aa.moving .cta-img{animation:zoomOut linear both;animation-timeline:view();animation-range:entry 0% cover 70%}
 }
@@ -379,7 +378,6 @@ html{scroll-behavior:smooth}
 .cl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:0;border-top:1px solid rgba(2,26,68,.15)}
 .cl-cell{padding:20px 24px 20px 0;border-bottom:1px solid rgba(2,26,68,.15);display:flex;flex-direction:column;gap:6px}
 @media (max-width:640px){.site-foot{padding:14px 16px !important}.site-foot .ft-in{gap:6px 16px !important}.site-foot .ft-logo{width:72px !important}.site-foot .ft-txt{font-size:10.5px !important;line-height:1.45 !important}}
-.bts-steps{grid-template-columns:repeat(6,minmax(0,1fr))}@media (max-width:1100px){.bts-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (max-width:560px){.bts-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Hero background: RISK -> OPPORTUNITY */
 .hw{position:absolute;inset:0;overflow:hidden;pointer-events:none;display:flex;flex-direction:column;justify-content:center;font-family:'Montserrat',system-ui,sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(40px,6.4vw,104px);line-height:1;letter-spacing:.02em;word-spacing:.45em;user-select:none}
@@ -467,13 +465,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 <a href="#finance">Project finance<small>Bankability, by design</small></a>
 </div>
 </div>
-<div class="nav-dd" id="nav-about">
-<button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-about-menu">About<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
-<div class="nav-dd-menu" id="nav-about-menu">
-<a href="#about">Who we are<small>Partner-led advisory</small></a>
-<a href="#method">How we think<small>Bidirectional Trajectory Synthesis</small></a>
-</div>
-</div>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 <a class="btn btn-gold nav-cta" href="#contact" style="min-height: 44px; padding: 0 20px; font-size: 14px">Book a briefing</a>
@@ -504,13 +496,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 <a href="#finance"><strong>Project Finance</strong><small>Bankability, by Design</small></a>
 </div>
 </div>
-<div class="mnav-group">
-<button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-about">About<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
-<div class="mnav-sub" id="mnav-about" hidden>
-<a href="#about"><strong>Who we are</strong><small>Partner-led advisory</small></a>
-<a href="#method"><strong>How we think</strong><small>Bidirectional Trajectory Synthesis</small></a>
-</div>
-</div>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 <a class="btn btn-gold" href="#contact">Book a briefing</a>
 </nav>
@@ -833,7 +819,7 @@ a,button{-webkit-tap-highlight-color:transparent}
 </div>
 </section>
 
-<section id="about" style="background: var(--ink); padding: clamp(64px, 7vw, 104px) clamp(16px, 5vw, 48px) clamp(36px, 3.5vw, 48px); border-top: 1px solid var(--line)">
+<section id="about" style="background: var(--ink); padding: clamp(64px, 7vw, 104px) clamp(16px, 5vw, 48px) clamp(56px, 6vw, 88px); border-top: 1px solid var(--line)">
 <div class="two-col" style="max-width: 1200px; margin: 0 auto; align-items: start">
 <div class="rv" style="display: flex; flex-direction: column; gap: 16px">
 <p class="eyebrow">06 — Who we are</p>
@@ -860,36 +846,6 @@ a,button{-webkit-tap-highlight-color:transparent}
 <div class="glance-cell" style="padding: 18px 20px 18px 0; border-bottom: 1px solid var(--line)"><p class="disp big" style="margin: 0; font-size: clamp(48px, 4.6vw, 72px); line-height: 0.95; color: var(--gold)"><span class="count" data-to="7" data-pre="" data-suf="">7</span></p><p style="margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: #C9D3DC">lender pillars tested in every bankability diagnostic</p></div>
 <div class="glance-cell" style="padding: 18px 20px 18px 0; border-bottom: 1px solid var(--line)"><p class="disp big" style="margin: 0; font-size: clamp(34px, 3.2vw, 52px); line-height: 1.35; color: var(--gold); white-space: nowrap"><span class="count" data-to="50" data-pre="US$" data-suf="M+">US$50M+</span></p><p style="margin: 8px 0 0; font-size: 15px; line-height: 1.5; color: #C9D3DC">project size for our project finance readiness work</p></div>
 </div>
-</div>
-<div id="method" style="scroll-margin-top: 96px; max-width: 1200px; margin: clamp(56px, 7vw, 96px) auto 0; padding-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 48px">
-<div class="rv" style="display: flex; flex-direction: column; gap: 18px; max-width: 820px">
-<p class="eyebrow">How we think</p>
-<h2 class="disp" style="margin: 0; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.04">Two directions. One clear decision.</h2>
-<p style="margin: 0; font-size: clamp(16px, 1.4vw, 19px); line-height: 1.65; color: #C9D3DC">We don’t just forecast conditions; we reverse-engineer your success. Our Bidirectional Trajectory Synthesis traces today’s signals forward and your target outcome backward, then shows you where they collide. That is where the real risks, and the real opportunities, become visible.</p>
-</div>
-<div style="position: relative">
-<svg viewBox="0 0 1000 140" style="width: 100%; height: auto; display: block; overflow: visible" aria-hidden="true">
-<path class="trace" d="M30 70 C 200 0, 380 0, 500 70" fill="none" style="stroke: var(--gold)" stroke-width="2.5" pathLength="1" stroke-dasharray="1" vector-effect="non-scaling-stroke"></path>
-<path class="trace" d="M970 70 C 800 140, 620 140, 500 70" fill="none" stroke="#F3EDE2" stroke-width="2.5" pathLength="1" stroke-dasharray="1" vector-effect="non-scaling-stroke"></path>
-<circle cx="30" cy="70" r="7" style="fill: var(--gold)"></circle>
-<circle cx="970" cy="70" r="7" fill="#F3EDE2"></circle>
-<circle cx="500" cy="70" r="12" stroke-width="2" style="fill: var(--ink); stroke: var(--gold)"></circle>
-<circle cx="500" cy="70" r="4" style="fill: var(--gold)"></circle>
-</svg>
-<div style="display: flex; justify-content: space-between; gap: 16px; margin-top: 12px; font-size: 14px; line-height: 1.4">
-<span style="color: var(--gold); max-width: 30%">Forward trace<br><span style="color: var(--mute)">from today’s signals</span></span>
-<span style="text-align: center; max-width: 30%">Reconcile<br><span style="color: var(--mute)">where paths diverge</span></span>
-<span style="text-align: right; max-width: 30%">Backward trace<br><span style="color: var(--mute)">from the outcome you need</span></span>
-</div>
-</div>
-<ol class="rv bts-steps" style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px">
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">1</span>Anchor selection</li>
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">2</span>Forward trace</li>
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">3</span>Backward trace</li>
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">4</span>Reconcile divergences</li>
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">5</span>Weighted composite scoring</li>
-<li style="border: 1px solid var(--line); border-radius: 16px; padding: 18px"><span style="display: block; color: var(--gold); font-weight: 700; font-size: 13px; margin-bottom: 6px">6</span>Structured bias check</li>
-</ol>
 </div>
 </section>
 
@@ -1320,7 +1276,7 @@ const CITIES = [
 </script>
 <script>
 (function () {
-  ['nav-about', 'nav-services'].forEach(function (id) {
+  ['nav-services'].forEach(function (id) {
   var dd = document.getElementById(id);
   if (dd) {
     var btn = dd.querySelector('.nav-dd-btn');
@@ -1333,7 +1289,7 @@ const CITIES = [
     dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) set(false); });
   }
   });
-  ['mnav-about', 'mnav-services'].forEach(function (id) {
+  ['mnav-services'].forEach(function (id) {
   var g = document.querySelector('#mnav .mnav-label[aria-controls="' + id + '"]'), sb = document.getElementById(id);
   if (g && sb) {
     var close = function () { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; };

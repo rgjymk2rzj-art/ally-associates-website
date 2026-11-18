@@ -252,13 +252,7 @@ html{scroll-behavior:smooth}
 <a href="index.html#finance">Project finance<small>Bankability, by design</small></a>
 </div>
 </div>
-<div class="nav-dd" id="nav-about">
-<button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="nav-about-menu">About<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
-<div class="nav-dd-menu" id="nav-about-menu">
-<a href="index.html#about">Who we are<small>Partner-led advisory</small></a>
-<a href="index.html#method">How we think<small>Bidirectional Trajectory Synthesis</small></a>
-</div>
-</div>
+<a href="index.html#about">About</a>
 <a href="index.html#contact">Contact</a>
 </nav>
 <a class="btn btn-gold nav-cta" href="index.html#contact" style="min-height: 44px; padding: 0 20px; font-size: 14px">Book a briefing</a>
@@ -280,13 +274,7 @@ html{scroll-behavior:smooth}
 <a href="index.html#finance"><strong>Project Finance</strong><small>Bankability, by Design</small></a>
 </div>
 </div>
-<div class="mnav-group">
-<button type="button" class="mnav-label" aria-expanded="false" aria-controls="mnav-about">About<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
-<div class="mnav-sub" id="mnav-about" hidden>
-<a href="index.html#about"><strong>Who we are</strong><small>Partner-led advisory</small></a>
-<a href="index.html#method"><strong>How we think</strong><small>Bidirectional Trajectory Synthesis</small></a>
-</div>
-</div>
+<a href="index.html#about">About</a>
 <a href="index.html#contact">Contact</a>
 <a class="btn btn-gold" href="index.html#contact">Book a briefing</a>
 </nav>
@@ -446,7 +434,7 @@ html{scroll-behavior:smooth}
 </script>
 <script>
 (function () {
-  ['nav-about', 'nav-services'].forEach(function (id) {
+  ['nav-services'].forEach(function (id) {
   var dd = document.getElementById(id);
   if (dd) {
     var btn = dd.querySelector('.nav-dd-btn');
@@ -459,7 +447,7 @@ html{scroll-behavior:smooth}
     dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) set(false); });
   }
   });
-  ['mnav-about', 'mnav-services'].forEach(function (id) {
+  ['mnav-services'].forEach(function (id) {
   var g = document.querySelector('#mnav .mnav-label[aria-controls="' + id + '"]'), sb = document.getElementById(id);
   if (g && sb) {
     var close = function () { g.setAttribute('aria-expanded', 'false'); sb.hidden = true; };
